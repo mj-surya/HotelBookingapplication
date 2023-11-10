@@ -16,6 +16,11 @@ namespace HotelBookingApplication.Services
             _repository = repository;
             _tokenService = tokenService;
         }
+        /// <summary>
+        /// Verifies login credentials and provides a token
+        /// </summary>
+        /// <param name="userDTO">login credentials</param>
+        /// <returns>Returns user data with token</returns>
         public UserDTO Login(UserDTO userDTO)
         {
             var user = _repository.GetById(userDTO.Email);
@@ -28,14 +33,19 @@ namespace HotelBookingApplication.Services
                     if (user.Password[i] != userpass[i])
                         return null;
                 }
+                userDTO.Role = user.Role;
                 userDTO.Token = _tokenService.GetToken(userDTO);
                 userDTO.Password = "";
                 return userDTO;
             }
             return null;
         }
-
-        public UserDTO Register(UserDTO userDTO)
+        /// <summary>
+        /// Registers a user in the application
+        /// </summary>
+        /// <param name="userDTO">Registeration details</param>
+        /// <returns>Returns user data or an error message</returns>
+        public UserRegisterDTO Register(UserRegisterDTO userDTO)
         {
             HMACSHA512 hmac = new HMACSHA512();
             User user = new User()

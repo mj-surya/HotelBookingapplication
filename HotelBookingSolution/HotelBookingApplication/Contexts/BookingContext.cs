@@ -8,6 +8,9 @@ namespace HotelBookingApplication.Contexts
         {
 
         }
+        /// <summary>
+        /// Creates User table in database
+        /// </summary>
         public DbSet<User> Users { get; set; }
     }
 }

@@ -10,17 +10,26 @@ namespace HotelBookingApplication.Services
     public class TokenService: ITokenService
     {
         private readonly SymmetricSecurityKey _key;
-
+        /// <summary>
+        /// Generates a secret key
+        /// </summary>
+        /// <param name="configuration"></param>
         public TokenService(IConfiguration configuration)
         {
             var secretKey = configuration["SecretKey"].ToString();
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
         }
+        /// <summary>
+        /// Generates token for the user
+        /// </summary>
+        /// <param name="user">User data</param>
+        /// <returns>Returns a token</returns>
         public string GetToken(UserDTO user)
         {
             var claims = new List<Claim>()
             {
-                new Claim(JwtRegisteredClaimNames.Name,user.Email)
+                new Claim(JwtRegisteredClaimNames.Name,user.Email),
+                new Claim("role",user.Role)
             };
             var cred = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
             var tokenDescription = new SecurityTokenDescriptor
