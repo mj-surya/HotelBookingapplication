@@ -1,0 +1,28 @@
+Controllers: 
+1) HomeController:
+	SearchHotel
+	DisplayHotel
+	Login
+	Register
+
+2) HotelController:
+	ViewHotelDetails
+	ViewRooms
+
+3) BookingController:
+	GetBookingDetails
+	BookingConfirmation
+
+4) UserController:
+	UserDetails
+	ModifyUserDetails
+	BookingDetails
+
+5) AdminController:
+	ViewDetails
+	AddRoom
+	UpdateRoom
+	DeleteRoom
+	ViewBookings
+	ModifyHotel
+	DeleteHotel
