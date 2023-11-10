@@ -2064,11 +2064,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Hexaware\\Hotel Booking Application\\HotelBookingSolution\\HotelBookingApplication\\HotelBookingApplication.csproj",
+      "projectUniqueName": "E:\\Hotel Booking Application\\HotelBookingSolution\\HotelBookingApplication\\HotelBookingApplication.csproj",
       "projectName": "HotelBookingApplication",
-      "projectPath": "E:\\Hexaware\\Hotel Booking Application\\HotelBookingSolution\\HotelBookingApplication\\HotelBookingApplication.csproj",
+      "projectPath": "E:\\Hotel Booking Application\\HotelBookingSolution\\HotelBookingApplication\\HotelBookingApplication.csproj",
       "packagesPath": "C:\\Users\\mj7su\\.nuget\\packages\\",
-      "outputPath": "E:\\Hexaware\\Hotel Booking Application\\HotelBookingSolution\\HotelBookingApplication\\obj\\",
+      "outputPath": "E:\\Hotel Booking Application\\HotelBookingSolution\\HotelBookingApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mj7su\\AppData\\Roaming\\NuGet\\NuGet.Config",
