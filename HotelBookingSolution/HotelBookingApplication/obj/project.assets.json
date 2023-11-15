@@ -2064,11 +2064,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\HotelBookingApplication.csproj",
+      "projectUniqueName": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\HotelBookingApplication.csproj",
       "projectName": "HotelBookingApplication",
-      "projectPath": "C:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\HotelBookingApplication.csproj",
+      "projectPath": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\HotelBookingApplication.csproj",
       "packagesPath": "C:\\Users\\niran\\.nuget\\packages\\",
-      "outputPath": "C:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\obj\\",
+      "outputPath": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\niran\\AppData\\Roaming\\NuGet\\NuGet.Config",
