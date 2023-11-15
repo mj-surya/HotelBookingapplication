@@ -1,0 +1,44 @@
+Hotel Booking Application Models
+
+User Model:
+	-Registeration
+	-Login
+	-UserDetails
+
+Hotel Model:
+	-DisplayHotels
+	-AddHotel
+	-DeleteHotel
+	-ModifyHotel
+
+Room Model:
+	-DisplayRooms
+	-AddRoom
+	-DeleteRoom
+	-ModifyRoom
+
+Booking Model:
+	-GetBookingDetails
+	-CheckPaymentDetails
+	-BookingConfirmation
+
+Payment Model:
+	-GetTotalAmount
+	-ReceivePayment
+	-ConfirmPaymentStatus
+
+Reviews Model:
+	-GetReview
+	-DisplayReview
+	-ModifyReview
+
+Images Model
+	-DisplayImage
+	-AddImage
+	-DeleteImages
+
+Amenities Model:
+	-DisplayAmenity
+	-AddAmenity
+	-DeleteAmenity
+	-ModifyAmenity
