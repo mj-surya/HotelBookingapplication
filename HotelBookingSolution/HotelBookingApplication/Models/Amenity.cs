@@ -2,10 +2,10 @@
 
 namespace HotelBookingApplication.Models
 {
-    public class Amenities
+    public class Amenity
     {
         [ForeignKey("HotelId")]
         public int HotelId { get; set; }
-        public string Amenity{ get; set; }
+        public string Amenities{ get; set; }
     }
 }

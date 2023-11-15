@@ -2,10 +2,10 @@
 
 namespace HotelBookingApplication.Models
 {
-    public class Images
+    public class Image
     {
         [ForeignKey("RoomId")]
         public int RoomId { get; set; }
-        public string Image { get; set; }
+        public string Picture { get; set; }
     }
 }
