@@ -35,6 +35,7 @@ SELECT TOP(2) [u].[Email], [u].[Address], [u].[Key], [u].[Name], [u].[Password],
 FROM [Users] AS [u]
 WHERE [u].[Email] = @__key_0
 2023-11-15 15:24:05,233 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Login[51] - Login Successful
+<<<<<<< HEAD
 2023-11-15 18:40:33,285 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
 2023-11-15 18:40:33,382 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
 2023-11-15 18:40:33,389 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
@@ -55,3 +56,13 @@ WHERE [u].[Email] = @__key_0
 2023-11-15 18:46:09,759 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
 2023-11-15 18:46:09,764 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
 2023-11-15 18:46:09,768 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+=======
+2023-11-15 18:30:33,919 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-15 18:30:34,133 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-15 18:30:34,149 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-15 18:30:34,153 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+>>>>>>> bfd370bb313b399abdeb1a31ed52d01bae9de13a
+2023-11-15 18:54:17,837 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-15 18:54:17,964 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-15 18:54:17,975 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-15 18:54:17,982 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
