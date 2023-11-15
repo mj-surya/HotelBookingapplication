@@ -28,6 +28,7 @@ namespace HotelBookingApplication.Services
                     if (user.Password[i] != userpass[i])
                         return null;
                 }
+                userDTO.Role = user.Role;
                 userDTO.Token = _tokenService.GetToken(userDTO);
                 userDTO.Password = "";
                 return userDTO;
@@ -35,25 +36,25 @@ namespace HotelBookingApplication.Services
             return null;
         }
 
-        public UserDTO Register(UserDTO userDTO)
+        public UserDTO Register(UserRegisterDTO userRegisterDTO)
         {
             HMACSHA512 hmac = new HMACSHA512();
             User user = new User()
             {
-                Email = userDTO.Email,
-                Password = hmac.ComputeHash(Encoding.UTF8.GetBytes(userDTO.Password)),
-                Phone =userDTO.Phone,
-                Name = userDTO.Name,
-                Address= userDTO.Address,
+                Email = userRegisterDTO.Email,
+                Password = hmac.ComputeHash(Encoding.UTF8.GetBytes(userRegisterDTO.Password)),
+                Phone = userRegisterDTO.Phone,
+                Name = userRegisterDTO.Name,
+                Address= userRegisterDTO.Address,
                 Key = hmac.Key,
-                Role = userDTO.Role
+                Role = userRegisterDTO.Role
             };
             var result = _repository.Add(user);
             if (result != null)
             {
-                userDTO.Token = _tokenService.GetToken(userDTO);
-                userDTO.Password = "";
-                return userDTO;
+                userRegisterDTO.Token = _tokenService.GetToken(userRegisterDTO);
+                userRegisterDTO.Password = "";
+                return userRegisterDTO;
             }
             return null;
 
