@@ -35,3 +35,7 @@ SELECT TOP(2) [u].[Email], [u].[Address], [u].[Key], [u].[Name], [u].[Password],
 FROM [Users] AS [u]
 WHERE [u].[Email] = @__key_0
 2023-11-15 15:24:05,233 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Login[51] - Login Successful
+2023-11-15 18:30:33,919 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-15 18:30:34,133 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-15 18:30:34,149 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-15 18:30:34,153 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\

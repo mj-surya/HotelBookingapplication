@@ -12,5 +12,6 @@ namespace HotelBookingApplication.Models
         public string Phone { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
+        public string Amenities { get; set; }
     }
 }
