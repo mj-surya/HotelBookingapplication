@@ -3,12 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotelBookingApplication.Models
 {
-    public class Amenity
-    { 
+    public class RoomAmenity
+    {
         [Key]
-        public int AmenityId { get; set; }
-        [ForeignKey("HotelId")]
-        public int HotelId { get; set; }
+        public int RoomAmenityId { get; set; }
+        public int RoomId { get; set; }
+        [ForeignKey("RoomId")]
+        public Room room { get; set; }
         public string Amenities { get; set; }
     }
 }

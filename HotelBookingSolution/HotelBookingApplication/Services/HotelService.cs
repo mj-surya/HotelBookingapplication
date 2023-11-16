@@ -8,6 +8,7 @@ namespace HotelBookingApplication.Services
     public class HotelService : IHotelService
     {
         private readonly IRepository<int, Hotel> _hotelRepository;
+        
         public HotelService(IRepository<int, Hotel> repository)
         {
             _hotelRepository = repository;
@@ -20,12 +21,12 @@ namespace HotelBookingApplication.Services
                 HotelName = hotelDTO.HotelName,
                 City = hotelDTO.City,
                 Address = hotelDTO.Address,
+                UserId= hotelDTO.UserId,
                 Phone = hotelDTO.Phone,
-                Image = hotelDTO.Image,
                 Description = hotelDTO.Description,
-                Amenities = hotelDTO.Amenities
             };
             var result = _hotelRepository.Add(hotel);
+             
             if(result != null)
             {
                 return hotelDTO;
@@ -59,12 +60,10 @@ namespace HotelBookingApplication.Services
             if(hotel != null)
             {
                 hotel.Phone = hotelDTO.Phone;
-                hotel.Image = hotelDTO.Image;
                 hotel.Address = hotelDTO.Address;
                 hotel.HotelName = hotelDTO.HotelName;
                 hotel.City = hotelDTO.City;
                 hotel.Description = hotelDTO.Description;
-                hotel.Amenities = hotelDTO.Amenities;
                 var result = _hotelRepository.Update(hotel);
                 return hotelDTO;
             }

@@ -4,6 +4,7 @@ using HotelBookingApplication.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelBookingApplication.Migrations
 {
     [DbContext(typeof(BookingContext))]
-    partial class BookingContextModelSnapshot : ModelSnapshot
+    [Migration("20231116091910_amenity")]
+    partial class amenity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,6 +63,28 @@ namespace HotelBookingApplication.Migrations
                     b.ToTable("Hotels");
                 });
 
+            modelBuilder.Entity("HotelBookingApplication.Models.HotelAmenity", b =>
+                {
+                    b.Property<int>("HotelAmenityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HotelAmenityId"), 1L, 1);
+
+                    b.Property<string>("Amenities")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("HotelAmenityId");
+
+                    b.HasIndex("HotelId");
+
+                    b.ToTable("HotelAmenities");
+                });
+
             modelBuilder.Entity("HotelBookingApplication.Models.Review", b =>
                 {
                     b.Property<int>("ReviewId")
@@ -102,8 +126,9 @@ namespace HotelBookingApplication.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"), 1L, 1);
 
-                    b.Property<int>("Capacity")
-                        .HasColumnType("int");
+                    b.Property<string>("Capacity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -123,8 +148,9 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TotalRooms")
-                        .HasColumnType("int");
+                    b.Property<string>("TotalRooms")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RoomId");
 
@@ -198,6 +224,17 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired();
 
                     b.Navigation("user");
+                });
+
+            modelBuilder.Entity("HotelBookingApplication.Models.HotelAmenity", b =>
+                {
+                    b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
+                        .WithMany()
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("hotel");
                 });
 
             modelBuilder.Entity("HotelBookingApplication.Models.Room", b =>
