@@ -46,7 +46,11 @@ namespace HotelBookingApplication.Services
         public bool RemoveHotel(int id)
         {
             var result = _hotelRepository.Delete(id);
-            return true;
+            if(result!= null)
+            {
+                return true;
+            }
+            return false;
         }
 
         public HotelDTO UpdateHotel(int id,HotelDTO hotelDTO)

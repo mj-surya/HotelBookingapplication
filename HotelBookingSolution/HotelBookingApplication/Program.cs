@@ -67,8 +67,10 @@ namespace HotelBookingApplication
             builder.Logging.AddLog4Net();
 
             builder.Services.AddScoped<IRepository<string, User>, UserRepository>();
+            builder.Services.AddScoped<IRepository<int, Hotel>, HotelRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
+            builder.Services.AddScoped<IHotelService, HotelService>();
 
 
             var app = builder.Build();
