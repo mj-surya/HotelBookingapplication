@@ -69,11 +69,13 @@ namespace HotelBookingApplication
             builder.Services.AddScoped<IRepository<string, User>, UserRepository>();
             builder.Services.AddScoped<IRepository<int, Hotel>, HotelRepository>();
             builder.Services.AddScoped<IRepository<int, Room>, RoomRepository>();
+            builder.Services.AddScoped<IRepository<int, Review>, ReviewRepository>();
             builder.Services.AddScoped<IRepository<int, RoomAmenity>, RoomAmenityRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IRoomService, RoomService>();
             builder.Services.AddScoped<IHotelService, HotelService>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
 
 
             var app = builder.Build();

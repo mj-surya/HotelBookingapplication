@@ -28,5 +28,15 @@ namespace HotelBookingApplication.Contexts
         /// Creates Review table in database
         /// </summary>
         public DbSet<Review> Reviews { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Configure the relationship between Hotels and Reviews
+            modelBuilder.Entity<Review>()
+            .HasOne(e => e.hotel)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Restrict)
+            .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

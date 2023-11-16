@@ -53,7 +53,7 @@ namespace HotelBookingApplication.Controllers
             
 
         }
-        [HttpPost("RemoveHotel")]
+        [HttpDelete("RemoveHotel")]
         [Authorize(Roles = "Admin")]
         public ActionResult RemoveHotel(int id)
         {

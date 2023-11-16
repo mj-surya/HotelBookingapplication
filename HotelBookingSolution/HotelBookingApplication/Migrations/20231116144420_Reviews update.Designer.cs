@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelBookingApplication.Migrations
 {
     [DbContext(typeof(BookingContext))]
-    [Migration("20231116103436_Changes")]
-    partial class Changes
+    [Migration("20231116144420_Reviews update")]
+    partial class Reviewsupdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,13 +75,8 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HotelId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Rating")
                         .IsRequired()
@@ -91,7 +86,15 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("ReviewId");
+
+                    b.HasIndex("HotelId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });
@@ -198,6 +201,25 @@ namespace HotelBookingApplication.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("HotelBookingApplication.Models.Review", b =>
+                {
+                    b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
+                        .WithMany()
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("HotelBookingApplication.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("hotel");
 
                     b.Navigation("user");
                 });

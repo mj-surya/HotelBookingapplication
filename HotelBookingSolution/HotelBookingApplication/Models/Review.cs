@@ -7,8 +7,12 @@ namespace HotelBookingApplication.Models
     {
         [Key]
         public int ReviewId{ get; set; }
-        public string Email { get; set; }
-        public string HotelId { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public User user { get; set; }
+        public int HotelId { get; set; }
+        [ForeignKey("HotelId")]
+        public Hotel hotel { get; set; }
         public string Reviews { get; set; }
         public string Rating { get; set; }
         public string Date { get; set; }
