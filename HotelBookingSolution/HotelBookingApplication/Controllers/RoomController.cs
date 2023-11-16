@@ -28,15 +28,17 @@ namespace HotelBookingApplication.Controllers
                 var result = _roomService.GetRooms(hotelId);
                 if (result != null)
                 {
-                    return Ok(result);
                     _logger.LogInformation("Rooms Displayed");
+                    return Ok(result);
+                    
                 }
             }
             catch(NoRoomsAvailableException e){
                 errorMessage = e.Message;
             }
-            return BadRequest(errorMessage);
             _logger.LogError("Unable to display rooms");
+            return BadRequest(errorMessage);
+            
         }
         [HttpPost("CreateRooms")]
         [Authorize(Roles = "Admin")]
@@ -45,11 +47,13 @@ namespace HotelBookingApplication.Controllers
             var room = _roomService.AddRoom(roomDTO);
             if(room != null)
             {
-                return Ok(room);
                 _logger.LogInformation("Room Created");
+                return Ok(room);
+                
             }
-            return BadRequest("Could not add rooms");
             _logger.LogError("Unable to add room");
+            return BadRequest("Could not add rooms");
+            
         }
         [HttpDelete("DeleteRooms")]
         [Authorize(Roles = "Admin")]
@@ -58,11 +62,13 @@ namespace HotelBookingApplication.Controllers
             bool roomId = _roomService.RemoveRoom(id);
             if (roomId)
             {
-                return Ok("The room has been deleted successfully");
                 _logger.LogInformation("Room Deleted");
+                return Ok("The room has been deleted successfully");
+                
             }
-            return BadRequest("Invalid roomId");
             _logger.LogError("Unable to delete room");
+            return BadRequest("Invalid roomId");
+            
         }
         [HttpPost("PromoteRooms")]
         [Authorize(Roles = "Admin")]
@@ -71,11 +77,13 @@ namespace HotelBookingApplication.Controllers
             var room = _roomService.UpdateRoom(id,roomDTO);
             if (room != null)
             {
-                return Ok("Room updated successfully");
                 _logger.LogInformation("Room Updated");
+                return Ok("Room updated successfully");
+                
             }
-            return BadRequest("Unable to update");
             _logger.LogError("Unable to update room");
+            return BadRequest("Unable to update");
+            
         }
     }
 }

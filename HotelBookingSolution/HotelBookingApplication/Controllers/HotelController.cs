@@ -26,11 +26,12 @@ namespace HotelBookingApplication.Controllers
             var hotel = _hotelService.AddHotel(hotelDTO);
             if(hotel!=null)
             {
-                return Ok(hotel);
                 _logger.LogInformation("Hotel Added");
+                return Ok(hotel);
             }
-            return BadRequest("Could not add hotel");
             _logger.LogError("Could not add hotel");
+            return BadRequest("Could not add hotel");
+            
         }
 
         [HttpGet]
@@ -39,15 +40,17 @@ namespace HotelBookingApplication.Controllers
             try
             {
                 var result = _hotelService.GetHotels();
-                return Ok(result);
                 _logger.LogInformation("Displayed Hotels");
+                return Ok(result);
+                
             }
             catch (NoHotelsAvailableException ex)
             {
                 message = ex.Message;
             }
-            return BadRequest(message);
             _logger.LogError("Could not display hotels");
+            return BadRequest(message);
+            
 
         }
         [HttpPost("RemoveHotel")]
@@ -57,11 +60,13 @@ namespace HotelBookingApplication.Controllers
             var result = _hotelService.RemoveHotel(id);
             if (result)
             {
-                return Ok("Hotel removed successfully");
                 _logger.LogInformation("Hotel Removed");
+                return Ok("Hotel removed successfully");
+                
             }
-            return BadRequest("Could not remove hotel");
             _logger.LogError("Could not remove hotel");
+            return BadRequest("Could not remove hotel");
+            
         }
         [HttpPost("UpdateHotel")]
         [Authorize(Roles = "Admin")]
@@ -70,11 +75,13 @@ namespace HotelBookingApplication.Controllers
             var result = _hotelService.UpdateHotel(id, hotelDTO);
             if(result!= null)
             {
-                return Ok(result);
                 _logger.LogInformation("Hotel Updated");
+                return Ok(result);
+                
             }
-            return BadRequest("Could not update");
             _logger.LogError("Could not update hotel");
+            return BadRequest("Could not update");
+            
         }
     }
 }
