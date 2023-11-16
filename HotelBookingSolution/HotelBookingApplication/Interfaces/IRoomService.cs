@@ -5,7 +5,7 @@ namespace HotelBookingApplication.Interfaces
 {
     public interface IRoomService
     {
-        List<Room> GetRooms();
+        List<Room> GetRooms(int hotelid);
         RoomDTO AddRoom(RoomDTO room);
         RoomDTO UpdateRoom(int id, RoomDTO room);
         bool RemoveRoom(int id);

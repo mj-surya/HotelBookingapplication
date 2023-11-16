@@ -30,10 +30,10 @@ namespace HotelBookingApplication.Services
             return null;
         }
 
-        public List<Room> GetRooms()
+        public List<Room> GetRooms(int hotelId)
         {
-            var room = _roomrepository.GetAll();
-            if (room != null)
+            var room = _roomrepository.GetAll().Where(r => r.HotelId == hotelId).ToList();
+            if (room.Count != 0)
             {
                 return room.ToList();
             }
@@ -42,10 +42,10 @@ namespace HotelBookingApplication.Services
 
         public bool RemoveRoom(int id)
         {
-            var roomcheck = _roomrepository.GetAll().FirstOrDefault(r => r.RoomId == id);
+
+            var roomcheck = _roomrepository.Delete(id);
             if (roomcheck != null)
             {
-                var result = _roomrepository.Delete(id);
                 return true;
             }
             return false;

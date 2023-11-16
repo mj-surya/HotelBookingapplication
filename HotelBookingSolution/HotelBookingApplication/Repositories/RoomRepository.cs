@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelBookingApplication.Repositories
 {
-    public class Roomrepository : IRepository<int, Room>
+    public class RoomRepository : IRepository<int, Room>
     {
         private readonly BookingContext _context;
 
-        public Roomrepository(BookingContext context)
+        public RoomRepository(BookingContext context)
         {
             _context = context;
         }

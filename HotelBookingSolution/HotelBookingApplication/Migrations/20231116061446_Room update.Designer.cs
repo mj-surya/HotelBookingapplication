@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelBookingApplication.Migrations
 {
     [DbContext(typeof(BookingContext))]
-    [Migration("20231115090328_Hotel")]
-    partial class Hotel
+    [Migration("20231116061446_Room update")]
+    partial class Roomupdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,10 @@ namespace HotelBookingApplication.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HotelId"), 1L, 1);
 
                     b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Amenities")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -139,10 +143,6 @@ namespace HotelBookingApplication.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"), 1L, 1);
 
-                    b.Property<string>("AvailableRooms")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Capacity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -151,9 +151,8 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("HotelId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
@@ -162,7 +161,13 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TotalRooms")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("RoomId");
+
+                    b.HasIndex("HotelId");
 
                     b.ToTable("Rooms");
                 });
@@ -199,6 +204,17 @@ namespace HotelBookingApplication.Migrations
                     b.HasKey("Email");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("HotelBookingApplication.Models.Room", b =>
+                {
+                    b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
+                        .WithMany()
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("hotel");
                 });
 #pragma warning restore 612, 618
         }

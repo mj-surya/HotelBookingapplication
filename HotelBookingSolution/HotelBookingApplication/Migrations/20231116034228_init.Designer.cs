@@ -4,6 +4,7 @@ using HotelBookingApplication.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelBookingApplication.Migrations
 {
     [DbContext(typeof(BookingContext))]
-    partial class BookingContextModelSnapshot : ModelSnapshot
+    [Migration("20231116034228_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,8 +151,9 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HotelId")
-                        .HasColumnType("int");
+                    b.Property<string>("HotelId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
@@ -164,8 +167,6 @@ namespace HotelBookingApplication.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RoomId");
-
-                    b.HasIndex("HotelId");
 
                     b.ToTable("Rooms");
                 });
@@ -202,17 +203,6 @@ namespace HotelBookingApplication.Migrations
                     b.HasKey("Email");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("HotelBookingApplication.Models.Room", b =>
-                {
-                    b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
-                        .WithMany()
-                        .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("hotel");
                 });
 #pragma warning restore 612, 618
         }
