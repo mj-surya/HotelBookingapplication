@@ -15,5 +15,6 @@ namespace HotelBookingApplication.Models
         public string Capacity { get; set; }
         public string TotalRooms { get; set; }
         public string Description { get; set; }
+        public string Picture { get; set; }
     }
 }
