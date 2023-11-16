@@ -1,7 +1,10 @@
 ﻿using HotelBookingApplication.Contexts;
 using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace HotelBookingApplication.Repositories
 {
