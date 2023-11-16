@@ -34,7 +34,6 @@ namespace HotelBookingApplication.Controllers
             catch (DbUpdateException exp)
             {
                 message = "Duplicate username";
-                _logger.LogError("Duplicate username");
             }
             catch (Exception)
             {

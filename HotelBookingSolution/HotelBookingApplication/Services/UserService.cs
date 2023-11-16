@@ -54,6 +54,7 @@ namespace HotelBookingApplication.Services
             {
                 userRegisterDTO.Token = _tokenService.GetToken(userRegisterDTO);
                 userRegisterDTO.Password = "";
+                userRegisterDTO.ReTypePassword = "";
                 return userRegisterDTO;
             }
             return null;

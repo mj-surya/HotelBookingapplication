@@ -11,10 +11,10 @@ namespace HotelBookingApplication.Models
         public int HotelId { get; set; }
         [ForeignKey("HotelId")]
         public Hotel hotel { get; set; }
-        public float Price { get; set; }
-        public string Capacity { get; set; }
-        public string TotalRooms { get; set; }
-        public string Description { get; set; }
         public string Picture { get; set; }
+        public float Price { get; set; }
+        public int Capacity { get; set; }
+        public int TotalRooms { get; set; }
+        public string Description { get; set; }
     }
 }

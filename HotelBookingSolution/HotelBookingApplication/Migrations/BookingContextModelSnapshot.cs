@@ -39,6 +39,8 @@ namespace HotelBookingApplication.Migrations
 
                     b.HasKey("AmenityId");
 
+                    b.HasIndex("HotelId");
+
                     b.ToTable("Amenities");
                 });
 
@@ -54,10 +56,6 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Amenities")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -70,34 +68,19 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("HotelId");
-
-                    b.ToTable("Hotels");
-                });
-
-            modelBuilder.Entity("HotelBookingApplication.Models.Image", b =>
-                {
-                    b.Property<string>("ImageId")
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Picture")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("HotelId");
 
-                    b.Property<int>("RoomId")
-                        .HasColumnType("int");
+                    b.HasIndex("UserId");
 
-                    b.HasKey("ImageId");
-
-                    b.ToTable("Images");
+                    b.ToTable("Hotels");
                 });
 
             modelBuilder.Entity("HotelBookingApplication.Models.Review", b =>
@@ -112,13 +95,8 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HotelId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Rating")
                         .IsRequired()
@@ -128,7 +106,15 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("ReviewId");
+
+                    b.HasIndex("HotelId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });
@@ -141,9 +127,8 @@ namespace HotelBookingApplication.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"), 1L, 1);
 
-                    b.Property<string>("Capacity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -152,6 +137,10 @@ namespace HotelBookingApplication.Migrations
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Picture")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
@@ -159,15 +148,36 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TotalRooms")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TotalRooms")
+                        .HasColumnType("int");
 
                     b.HasKey("RoomId");
 
                     b.HasIndex("HotelId");
 
                     b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("HotelBookingApplication.Models.RoomAmenity", b =>
+                {
+                    b.Property<int>("RoomAmenityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomAmenityId"), 1L, 1);
+
+                    b.Property<string>("Amenities")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RoomAmenityId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("RoomAmenities");
                 });
 
             modelBuilder.Entity("HotelBookingApplication.Models.User", b =>
@@ -204,6 +214,47 @@ namespace HotelBookingApplication.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("HotelBookingApplication.Models.Amenity", b =>
+                {
+                    b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
+                        .WithMany()
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("hotel");
+                });
+
+            modelBuilder.Entity("HotelBookingApplication.Models.Hotel", b =>
+                {
+                    b.HasOne("HotelBookingApplication.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("HotelBookingApplication.Models.Review", b =>
+                {
+                    b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
+                        .WithMany("review")
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HotelBookingApplication.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("hotel");
+
+                    b.Navigation("user");
+                });
+
             modelBuilder.Entity("HotelBookingApplication.Models.Room", b =>
                 {
                     b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
@@ -213,6 +264,22 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired();
 
                     b.Navigation("hotel");
+                });
+
+            modelBuilder.Entity("HotelBookingApplication.Models.RoomAmenity", b =>
+                {
+                    b.HasOne("HotelBookingApplication.Models.Room", "room")
+                        .WithMany()
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("room");
+                });
+
+            modelBuilder.Entity("HotelBookingApplication.Models.Hotel", b =>
+                {
+                    b.Navigation("review");
                 });
 #pragma warning restore 612, 618
         }

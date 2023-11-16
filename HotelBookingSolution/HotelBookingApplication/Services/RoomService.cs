@@ -1,6 +1,7 @@
 ﻿using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models;
 using HotelBookingApplication.Models.DTOs;
+using HotelBookingApplication.Repositories;
 using System.Runtime.Serialization;
 
 namespace HotelBookingApplication.Services
@@ -8,10 +9,12 @@ namespace HotelBookingApplication.Services
     public class RoomService : IRoomService
     {
         private readonly IRepository<int, Room> _roomrepository;
+        private readonly IRepository<int, RoomAmenity> _roomAmenityRepository;
 
-        public RoomService(IRepository<int, Room> repository)
+        public RoomService(IRepository<int, Room> repository, IRepository<int, RoomAmenity> roomAmenityRepository)
         {
             _roomrepository = repository;
+            _roomAmenityRepository = roomAmenityRepository;
         }
 
         public RoomDTO AddRoom(RoomDTO roomDTO)
@@ -20,13 +23,28 @@ namespace HotelBookingApplication.Services
             {
                 RoomType = roomDTO.RoomType,
                 Price = roomDTO.Price,
+                HotelId=roomDTO.HotelId,
                 Capacity = roomDTO.Capacity,
                 TotalRooms = roomDTO.TotalRooms,
+                Picture = roomDTO.Picture,
                 Description = roomDTO.Description,
             };
             var result = _roomrepository.Add(room);
-            if (result != null)
+            int id = room.RoomId;
+            foreach (string a in roomDTO.roomAmenities)
+            {
+                RoomAmenity roomAmenity = new RoomAmenity()
+                {
+                    RoomId = id,
+                    Amenities = a,
+                };
+                _roomAmenityRepository.Add(roomAmenity);
+            }
+            if (result != null )
+            {
+                
                 return roomDTO;
+            }
             return null;
         }
 

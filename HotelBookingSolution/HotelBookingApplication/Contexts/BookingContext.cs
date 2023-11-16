@@ -24,9 +24,13 @@ namespace HotelBookingApplication.Contexts
         /// Creates Amenity table in database
         /// </summary>
         public DbSet<Amenity> Amenities { get; set; }
+        /// Creates Room Amenity table in database
+        /// </summary>
+        public DbSet<RoomAmenity> RoomAmenities { get; set; }
         /// <summary>
         /// Creates Review table in database
         /// </summary>
         public DbSet<Review> Reviews { get; set; }
+
     }
-}
+ }
