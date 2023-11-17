@@ -46,6 +46,7 @@ namespace HotelBookingApplication.Services
 
         public bool RemoveHotel(int id)
         {
+
             var result = _hotelRepository.Delete(id);
             if(result!= null)
             {

@@ -22,26 +22,50 @@ namespace HotelBookingApplication.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("HotelBookingApplication.Models.Amenity", b =>
+            modelBuilder.Entity("HotelBookingApplication.Models.Booking", b =>
                 {
-                    b.Property<int>("AmenityId")
+                    b.Property<int>("BookingId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AmenityId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingId"), 1L, 1);
 
-                    b.Property<string>("Amenities")
+                    b.Property<string>("BookingDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HotelId")
+                    b.Property<string>("CheckIn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckOut")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float?>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<int>("RoomId")
                         .HasColumnType("int");
 
-                    b.HasKey("AmenityId");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("HotelId");
+                    b.Property<int>("TotalRoom")
+                        .HasColumnType("int");
 
-                    b.ToTable("Amenities");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("BookingId");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("HotelBookingApplication.Models.Hotel", b =>
@@ -214,15 +238,23 @@ namespace HotelBookingApplication.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("HotelBookingApplication.Models.Amenity", b =>
+            modelBuilder.Entity("HotelBookingApplication.Models.Booking", b =>
                 {
-                    b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
+                    b.HasOne("HotelBookingApplication.Models.Room", "room")
                         .WithMany()
-                        .HasForeignKey("HotelId")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("HotelBookingApplication.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("hotel");
+                    b.Navigation("room");
+
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("HotelBookingApplication.Models.Hotel", b =>
@@ -239,7 +271,7 @@ namespace HotelBookingApplication.Migrations
             modelBuilder.Entity("HotelBookingApplication.Models.Review", b =>
                 {
                     b.HasOne("HotelBookingApplication.Models.Hotel", "hotel")
-                        .WithMany("review")
+                        .WithMany()
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -247,7 +279,7 @@ namespace HotelBookingApplication.Migrations
                     b.HasOne("HotelBookingApplication.Models.User", "user")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("hotel");
@@ -275,11 +307,6 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired();
 
                     b.Navigation("room");
-                });
-
-            modelBuilder.Entity("HotelBookingApplication.Models.Hotel", b =>
-                {
-                    b.Navigation("review");
                 });
 #pragma warning restore 612, 618
         }

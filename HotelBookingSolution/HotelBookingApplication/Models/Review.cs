@@ -11,6 +11,7 @@ namespace HotelBookingApplication.Models
         [ForeignKey("UserId")]
         public User user { get; set; }
         public int HotelId { get; set; }
+        [ForeignKey("HotelId")]
         public Hotel hotel { get; set; }
         public string Reviews { get; set; }
         public string Rating { get; set; }
