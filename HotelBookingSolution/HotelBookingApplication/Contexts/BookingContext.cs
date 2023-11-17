@@ -33,10 +33,9 @@ namespace HotelBookingApplication.Contexts
         {
             // Configure the relationship between Hotels and Reviews
             modelBuilder.Entity<Review>()
-            .HasOne(e => e.hotel)
+            .HasOne(e => e.user)
             .WithMany()
-            .OnDelete(DeleteBehavior.Restrict)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

@@ -8,10 +8,12 @@ namespace HotelBookingApplication.Services
     public class HotelService : IHotelService
     {
         private readonly IRepository<int, Hotel> _hotelRepository;
-        
-        public HotelService(IRepository<int, Hotel> repository)
+        private readonly IRepository<int, Review> _reviewRepository;
+
+        public HotelService(IRepository<int, Hotel> repository, IRepository<int, Review> reviewRepository)
         {
             _hotelRepository = repository;
+            _reviewRepository = reviewRepository;
         }
 
         public HotelDTO AddHotel(HotelDTO hotelDTO)
