@@ -37,10 +37,12 @@ namespace HotelBookingApplication.Contexts
             .WithMany()
             .OnDelete(DeleteBehavior.NoAction);
 
+
             modelBuilder.Entity<Booking>()
            .HasOne(e => e.room)
            .WithMany()
            .OnDelete(DeleteBehavior.NoAction);
+
         }
     }
  }
