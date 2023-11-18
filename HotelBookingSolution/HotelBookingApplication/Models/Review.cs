@@ -6,7 +6,7 @@ namespace HotelBookingApplication.Models
     public class Review
     {
         [Key]
-        public int ReviewId{ get; set; }
+        public int ReviewId { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public User user { get; set; }

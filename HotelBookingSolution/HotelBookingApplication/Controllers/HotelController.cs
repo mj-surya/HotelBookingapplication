@@ -31,7 +31,6 @@ namespace HotelBookingApplication.Controllers
             }
             _logger.LogError("Could not add hotel");
             return BadRequest("Could not add hotel");
-            
         }
 
         [HttpGet]

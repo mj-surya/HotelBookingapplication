@@ -76,6 +76,8 @@ namespace HotelBookingApplication
             builder.Services.AddScoped<IRoomService, RoomService>();
             builder.Services.AddScoped<IHotelService, HotelService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddScoped<IRepository<int, Booking> , BookingRepository>();    
+            builder.Services.AddScoped<IBookingService, BookingService>();
 
 
             var app = builder.Build();
