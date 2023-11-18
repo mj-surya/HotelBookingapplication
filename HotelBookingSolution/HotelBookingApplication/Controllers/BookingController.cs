@@ -15,6 +15,11 @@ namespace HotelBookingApplication.Controllers
         {
             _bookingService = bookingService;
         }
+        /// <summary>
+        /// Add the booking details
+        /// </summary>
+        /// <param name="bookingDTO">Details of booking to be added</param>
+        /// <returns>The booking details</returns>
         [HttpPost("addBooking")]
         public ActionResult AddBooking(BookingDTO bookingDTO)
         {
@@ -27,7 +32,11 @@ namespace HotelBookingApplication.Controllers
            // _logger.LogError("Could not add hotel");
             return BadRequest("Could not book");
         }
-
+        /// <summary>
+        /// Retrieve the booking of hotel
+        /// </summary>
+        /// <param name="id">id of hotel to retrieve</param>
+        /// <returns>All the booking details of a hotel</returns>
         [HttpGet("adminBooking")]
         public ActionResult GetAdminBooking(int id)
         {
@@ -38,7 +47,11 @@ namespace HotelBookingApplication.Controllers
             }
             return BadRequest("No bookings found");
         }
-
+        /// <summary>
+        /// Retrieve the user booking
+        /// </summary>
+        /// <param name="id">id of a user</param>
+        /// <returns>bookiong dteails of a user</returns>
         [HttpGet("userBooking")]
         public ActionResult GetUserBooking(string id)
         {
@@ -49,7 +62,12 @@ namespace HotelBookingApplication.Controllers
             }
             return BadRequest("No bookings found");
         }
-
+        /// <summary>
+        /// Update the status of booking
+        /// </summary>
+        /// <param name="id">Booking id</param>
+        /// <param name="status">Current status of booking</param>
+        /// <returns>the updated status</returns>
         [HttpPost("Update")]
         public ActionResult UpdateBooking(int id,string status)
         {

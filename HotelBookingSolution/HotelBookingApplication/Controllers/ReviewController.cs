@@ -18,6 +18,11 @@ namespace HotelBookingApplication.Controllers
             _reviewService = reviewService;
             _logger = logger;
         }
+        /// <summary>
+        /// Add the review of a hotel
+        /// </summary>
+        /// <param name="reviewDTO">Review details</param>
+        /// <returns>review added message</returns>
         [HttpPost("AddReview")]
         public ActionResult AddReview(ReviewDTO reviewDTO)
         {
@@ -30,6 +35,11 @@ namespace HotelBookingApplication.Controllers
             _logger.LogError("Could not add review");
             return BadRequest("Could not add rooms");
         }
+        /// <summary>
+        /// Remove the review
+        /// </summary>
+        /// <param name="id">review id</param>
+        /// <returns>Display deleted message</returns>
         [HttpPost("DeleteReview")]
         public ActionResult DeleteReviews(int id)
         {
@@ -42,8 +52,13 @@ namespace HotelBookingApplication.Controllers
             }
             _logger.LogError("Unable to delete review");
             return BadRequest("Invalid reviewId");
-
         }
+        /// <summary>
+        /// Update the review
+        /// </summary>
+        /// <param name="id">review id</param>
+        /// <param name="reviewDTO">datails of review</param>
+        /// <returns></returns>
         [HttpPost("UpdateReview")]
         public ActionResult UpdateReview(int id, ReviewDTO reviewDTO)
         {
@@ -56,8 +71,12 @@ namespace HotelBookingApplication.Controllers
             }
             _logger.LogError("Unable to update review");
             return BadRequest("Unable to update reivew");
-
         }
+        /// <summary>
+        /// Get the review of hotel
+        /// </summary>
+        /// <param name="hotelId">id of hotel</param>
+        /// <returns>display the review of hotel</returns>
         [HttpPost("GetReview")]
         public ActionResult GetAvailableReviews(int hotelId)
         {

@@ -19,6 +19,11 @@ namespace HotelBookingApplication.Controllers
             _hotelService = hotelService;
             _logger = logger;
         }
+        /// <summary>
+        /// Add the hotel 
+        /// </summary>
+        /// <param name="hotelDTO">Details of hotel to be added</param>
+        /// <returns>Details of hotel</returns>
         [HttpPost("AddHotel")]
         [Authorize(Roles ="Admin")]
         public ActionResult AddHotel(HotelDTO hotelDTO)
@@ -32,7 +37,11 @@ namespace HotelBookingApplication.Controllers
             _logger.LogError("Could not add hotel");
             return BadRequest("Could not add hotel");
         }
-
+        /// <summary>
+        /// Get the details of hotel
+        /// </summary>
+        /// <param name="city">city to be filter</param>
+        /// <returns>Display the hotel based on city</returns>
         [HttpGet]
         public ActionResult GetHotel(string city) {
             string message=string.Empty;
@@ -49,9 +58,12 @@ namespace HotelBookingApplication.Controllers
             }
             _logger.LogError("Could not display hotels");
             return BadRequest(message);
-            
-
         }
+        /// <summary>
+        /// Delete the hotel
+        /// </summary>
+        /// <param name="id">Id of a hotel</param>
+        /// <returns>Return a message</returns>
         [HttpDelete("RemoveHotel")]
         [Authorize(Roles = "Admin")]
         public ActionResult RemoveHotel(int id)
@@ -67,6 +79,12 @@ namespace HotelBookingApplication.Controllers
             return BadRequest("Could not remove hotel");
             
         }
+        /// <summary>
+        /// Update the hotel details
+        /// </summary>
+        /// <param name="id">hotel id</param>
+        /// <param name="hotelDTO">Inforamtion of hotel</param>
+        /// <returns>updated message</returns>
         [HttpPost("UpdateHotel")]
         [Authorize(Roles = "Admin")]
         public ActionResult UpdateHotel(int id, HotelDTO hotelDTO)

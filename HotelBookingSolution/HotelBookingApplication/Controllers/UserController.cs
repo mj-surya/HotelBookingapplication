@@ -18,6 +18,11 @@ namespace HotelBookingApplication.Controllers
             _userService = userService;
             _logger = logger;
         }
+        /// <summary>
+        /// Register the user
+        /// </summary>
+        /// <param name="userRegisterDTO">Information of user</param>
+        /// <returns>Display user details</returns>
         [HttpPost("register")]
         public ActionResult Register(UserRegisterDTO userRegisterDTO)
         {
@@ -41,6 +46,11 @@ namespace HotelBookingApplication.Controllers
             }
             return BadRequest(message);
         }
+        /// <summary>
+        /// Login the user
+        /// </summary>
+        /// <param name="userDTO">Login details of user</param>
+        /// <returns>Display the message</returns>
         [HttpPost("login")]
         public ActionResult Login(UserDTO userDTO)
         {
