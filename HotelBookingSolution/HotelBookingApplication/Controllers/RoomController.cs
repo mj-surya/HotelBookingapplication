@@ -20,12 +20,12 @@ namespace HotelBookingApplication.Controllers
             _logger = logger;
         }
         [HttpPost(" GetAvailableRooms")]
-        public ActionResult GetAvailableRooms(int hotelId)
+        public ActionResult GetAvailableRooms(int hotelId,string checkIn, string checkOut)
         {
             string errorMessage = "";
             try
             {
-                var result = _roomService.GetRooms(hotelId);
+                var result = _roomService.GetRooms(hotelId, checkIn, checkOut);
                 if (result != null)
                 {
                     _logger.LogInformation("Rooms Displayed");

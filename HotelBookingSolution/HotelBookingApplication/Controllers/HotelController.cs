@@ -34,11 +34,11 @@ namespace HotelBookingApplication.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetHotel() {
+        public ActionResult GetHotel(string city) {
             string message=string.Empty;
             try
             {
-                var result = _hotelService.GetHotels();
+                var result = _hotelService.GetHotels(city);
                 _logger.LogInformation("Displayed Hotels");
                 return Ok(result);
                 
