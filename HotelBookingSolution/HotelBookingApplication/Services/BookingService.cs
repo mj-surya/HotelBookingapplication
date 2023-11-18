@@ -19,6 +19,9 @@ namespace HotelBookingApplication.Services
         }
         public BookingDTO AddBookingDetails(BookingDTO bookingDTO)
         {
+            int roomId = bookingDTO.RoomId;
+            var room = _roomRepository.GetById(roomId);
+            float amount = (bookingDTO.TotalRoom * room.Price);
             DateTime dateTime = DateTime.Now;
             Booking booking = new Booking()
             {
@@ -28,7 +31,8 @@ namespace HotelBookingApplication.Services
                 RoomId = bookingDTO.RoomId,
                 TotalRoom = bookingDTO.TotalRoom,
                 Status = "Booked",
-                BookingDate = dateTime.ToString()
+                BookingDate = dateTime.ToString(),
+                Price = amount
           
             };
             var result = _bookingRepository.Add(booking);
@@ -52,7 +56,7 @@ namespace HotelBookingApplication.Services
                                 RoomId = Booking.RoomId,
                                 Status = Booking.Status,
                                 TotalRoom = Booking.TotalRoom,
-                                Price = Booking.Price,
+                                Price = Booking.Price ,
                                 UserId = Booking.UserId
                             })
                     .ToList();
