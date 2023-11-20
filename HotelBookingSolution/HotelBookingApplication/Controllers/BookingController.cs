@@ -1,6 +1,7 @@
 ﻿using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="bookingDTO">Details of booking to be added</param>
         /// <returns>The booking details</returns>
         [HttpPost("addBooking")]
+        [Authorize(Roles = "User")]
         public ActionResult AddBooking(BookingDTO bookingDTO)
         {
             var booking = _bookingService.AddBookingDetails(bookingDTO);
@@ -41,6 +43,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">id of hotel to retrieve</param>
         /// <returns>All the booking details of a hotel</returns>
         [HttpGet("adminBooking")]
+        [Authorize(Roles = "Admin")]
         public ActionResult GetAdminBooking(int id)
         {
             var booking = _bookingService.GetBooking(id);
@@ -58,6 +61,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">id of a user</param>
         /// <returns>bookiong dteails of a user</returns>
         [HttpGet("userBooking")]
+        [Authorize(Roles = "User")]
         public ActionResult GetUserBooking(string id)
         {
             var booking = _bookingService.GetUserBooking(id);

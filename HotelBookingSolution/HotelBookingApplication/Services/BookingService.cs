@@ -3,6 +3,10 @@ using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Repositories;
+using System.Net.Mail;
+using System.Net;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace HotelBookingApplication.Services
 {
@@ -10,12 +14,15 @@ namespace HotelBookingApplication.Services
     {
         private readonly IRepository<int, Booking> _bookingRepository;
         private readonly IRepository<int, Room> _roomRepository;
-        
+        private readonly IRepository<int, Hotel> _hotelRepository;
+        private readonly IRepository<string, User> _userRepository;
 
-        public BookingService(IRepository<int, Booking> bookingRepository,IRepository<int,Room> roomRepository)
+        public BookingService(IRepository<int, Booking> bookingRepository,IRepository<int,Room> roomRepository, IRepository<int , Hotel> hotelRepository, IRepository<string, User> userRepository)
         {
             _bookingRepository = bookingRepository;
             _roomRepository = roomRepository;
+            _hotelRepository = hotelRepository;
+            _userRepository = userRepository;
         }
 
         /// <summary>
@@ -29,6 +36,7 @@ namespace HotelBookingApplication.Services
             // Retrieve the room id based on the roomId from bookingDTO
             int roomId = bookingDTO.RoomId;
             var room = _roomRepository.GetById(roomId);
+            var hotel = _hotelRepository.GetById(room.HotelId);
 
             //Calculate the amount for booking based on the price of the room and total number of room
             float amount = (bookingDTO.TotalRoom * room.Price);
@@ -47,13 +55,18 @@ namespace HotelBookingApplication.Services
                 Price = amount
           
             };
-
             //Add the new booking to the repository
             var result = _bookingRepository.Add(booking);
+            var user = _userRepository.GetById(bookingDTO.UserId);
+            string message = $"Dear {user.Name},\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay. Your booking reference number is {result.BookingId}. \nSafe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
+            string subject = $"Booking Confirmation - {hotel.HotelName}";
+            string body = $"Dear Sir/Mam,\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay.\nBooking Details:-\nBooking ID: {result.BookingId}\nCheck-In Date: {result.CheckIn}\nCheck-Out Date: {result.CheckOut}\nRoom Type: {room.RoomType}\nTotal Price: {amount}\n\n\nWe look forward to making your stay at {hotel.HotelName} a memorable experience. Safe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
 
             //Check if the booking was added successfully and return the bookingDTO
-            if(result != null)
+            if (result != null)
             {
+                SendBookingConfirmationEmail(bookingDTO.UserId,subject,body);
+                //SendBookingConfirmationSms("+91"+user.Phone,message);
                 return bookingDTO;
             }
             //Returns null if booking was not added successfully
@@ -134,6 +147,58 @@ namespace HotelBookingApplication.Services
             }
             //Returns null if the Booking was found with the specified bookingId 
             return null;
+        }
+        /// <summary>
+        /// Sends booking confirmation Email to the user 
+        /// </summary>
+        /// <param name="recipientEmail">User's Email</param>
+        /// <param name="subject">Subject of the email</param>
+        /// <param name="body">Body text of thee email</param>
+        public void SendBookingConfirmationEmail(string recipientEmail, string subject, string body)
+        {
+
+            string email = "stayquesthotel@gmail.com";
+            string password = "quqzbhploasumxnd";
+
+            // Recipient email
+            string toEmail = recipientEmail;
+
+            // Create the email message
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(email);
+            mail.To.Add(toEmail);
+            mail.Subject = subject;
+            mail.Body = body;
+
+            // Set up SMTP client
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+            smtpClient.Port = 587;
+            smtpClient.Credentials = new NetworkCredential(email, password);
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+
+            // Send the email
+            smtpClient.Send(mail);
+
+        }
+        /// <summary>
+        /// Sends booking confirmation SMS to the user 
+        /// </summary>
+        /// <param name="recipientPhoneNumber">User's phone number</param>
+        /// <param name="message">SMS body text</param>
+        public void SendBookingConfirmationSms(string recipientPhoneNumber, string message)
+        {
+            string accountSid = "ACdcb9c57053fe86e8f654fe3e2ee72b29";
+            string authToken = "5db4611136c79fd4421f3cc4518c1914";
+            string twilioPhoneNumber = "+19089224315";
+
+            TwilioClient.Init(accountSid, authToken);
+
+            var smsMessage = MessageResource.Create(
+                body: message,
+                from: new Twilio.Types.PhoneNumber(twilioPhoneNumber),
+                to: new Twilio.Types.PhoneNumber(recipientPhoneNumber)
+            );
         }
     }
 }

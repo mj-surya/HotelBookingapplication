@@ -2,6 +2,7 @@
 using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="reviewDTO">Review details</param>
         /// <returns>review added message</returns>
         [HttpPost("AddReview")]
+        [Authorize(Roles = "User")]
         public ActionResult AddReview(ReviewDTO reviewDTO)
         {
             var review = _reviewService.AddReview(reviewDTO);
@@ -41,6 +43,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">review id</param>
         /// <returns>Display deleted message</returns>
         [HttpPost("DeleteReview")]
+        [Authorize(Roles = "User")]
         public ActionResult DeleteReviews(int id)
         {
             bool reviewId = _reviewService.DeleteReview(id);
@@ -60,6 +63,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="reviewDTO">datails of review</param>
         /// <returns></returns>
         [HttpPost("UpdateReview")]
+        [Authorize(Roles = "User")]
         public ActionResult UpdateReview(int id, ReviewDTO reviewDTO)
         {
             var review = _reviewService.UpdateReview(id, reviewDTO);
