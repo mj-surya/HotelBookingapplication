@@ -19,6 +19,13 @@ namespace HotelBookingApplication.Controllers
             _roomService = roomService;
             _logger = logger;
         }
+        /// <summary>
+        /// Get the available rooms
+        /// </summary>
+        /// <param name="hotelId">id of hotel</param>
+        /// <param name="checkIn">check in date</param>
+        /// <param name="checkOut">check out date</param>
+        /// <returns>Display the available room</returns>
         [HttpPost(" GetAvailableRooms")]
         public ActionResult GetAvailableRooms(int hotelId,string checkIn, string checkOut)
         {
@@ -40,6 +47,11 @@ namespace HotelBookingApplication.Controllers
             return BadRequest(errorMessage);
             
         }
+        /// <summary>
+        /// Add the room to hotel
+        /// </summary>
+        /// <param name="roomDTO">information of room</param>
+        /// <returns>the room details</returns>
         [HttpPost("CreateRooms")]
         [Authorize(Roles = "Admin")]
         public ActionResult CreateRooms(RoomDTO roomDTO)
@@ -55,6 +67,11 @@ namespace HotelBookingApplication.Controllers
             return BadRequest("Could not add rooms");
             
         }
+        /// <summary>
+        /// Remove the room from hotel
+        /// </summary>
+        /// <param name="id">Room id</param>
+        /// <returns>Deleted message</returns>
         [HttpDelete("DeleteRooms")]
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteRooms(int id)
@@ -68,8 +85,13 @@ namespace HotelBookingApplication.Controllers
             }
             _logger.LogError("Unable to delete room");
             return BadRequest("Invalid roomId");
-            
         }
+        /// <summary>
+        /// Update the room
+        /// </summary>
+        /// <param name="id">room id</param>
+        /// <param name="roomDTO">Details of room</param>
+        /// <returns>Display updated message</returns>
         [HttpPost("PromoteRooms")]
         [Authorize(Roles = "Admin")]
         public ActionResult PromoteRooms(int id,RoomDTO roomDTO)

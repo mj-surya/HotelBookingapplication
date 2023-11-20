@@ -28,6 +28,9 @@ namespace HotelBookingApplication.Contexts
         /// Creates Review table in database
         /// </summary>
         public DbSet<Review> Reviews { get; set; }
+        /// <summary>
+        /// Creates the Booking in the database
+        /// </summary>
         public DbSet<Booking> Bookings { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -43,7 +46,6 @@ namespace HotelBookingApplication.Contexts
            .HasOne(e => e.room)
            .WithMany()
            .OnDelete(DeleteBehavior.NoAction);
-
         }
     }
  }
