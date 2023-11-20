@@ -42,7 +42,7 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float?>("Price")
+                    b.Property<float>("Price")
                         .HasColumnType("real");
 
                     b.Property<int>("RoomId")
@@ -95,6 +95,9 @@ namespace HotelBookingApplication.Migrations
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("StartingPrice")
+                        .HasColumnType("real");
 
                     b.Property<string>("UserId")
                         .IsRequired()

@@ -9,11 +9,13 @@ namespace HotelBookingApplication.Services
     {
         private readonly IRepository<int, Hotel> _hotelRepository;
         private readonly IRepository<int, Review> _reviewRepository;
+        private readonly IRepository<int, Room> _roomRepository;
 
-        public HotelService(IRepository<int, Hotel> repository, IRepository<int, Review> reviewRepository)
+        public HotelService(IRepository<int, Hotel> repository, IRepository<int, Review> reviewRepository, IRepository<int, Room> roomRepository)
         {
             _hotelRepository = repository;
             _reviewRepository = reviewRepository;
+            _roomRepository = roomRepository;
         }
 
         public HotelDTO AddHotel(HotelDTO hotelDTO)
@@ -36,12 +38,26 @@ namespace HotelBookingApplication.Services
             return null;
         }
 
-        public List<Hotel> GetHotels()
+        public List<Hotel> GetHotels(string city)
         {
-            var hotels = _hotelRepository.GetAll();
-            if(hotels != null)
+
+            var hotels = _hotelRepository.GetAll().Where(c => c.Address.Contains(city, StringComparison.OrdinalIgnoreCase)).ToList(); 
+            foreach (var a in hotels)
             {
-                return hotels.ToList();
+                int id = a.HotelId;
+                if(_roomRepository.GetAll().Where(r => r.HotelId == id).ToList().Count != 0)
+                {
+                    float price = (from Room in _roomRepository.GetAll()
+                                   where Room.HotelId == id
+                                   select (Room.Price))
+                    .Min();
+                    a.StartingPrice = price;
+                }
+                
+            }
+            if (hotels != null)
+            {
+                return hotels;
             }
             throw new NoHotelsAvailableException();
         }

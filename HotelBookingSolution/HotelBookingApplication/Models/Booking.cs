@@ -18,6 +18,6 @@ namespace HotelBookingApplication.Models
         public Room room { get; set; }
         public string Status { get; set; }
         public int TotalRoom { get; set; }
-        public float? Price { get; set; }
+        public float Price { get; set; }
     }
 }
