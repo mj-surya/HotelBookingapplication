@@ -3,6 +3,7 @@ using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Repositories;
+using System.Security.Cryptography.X509Certificates;
 
 namespace HotelBookingApplication.Services
 {
@@ -47,7 +48,7 @@ namespace HotelBookingApplication.Services
                 Price = amount
           
             };
-
+            
             //Add the new booking to the repository
             var result = _bookingRepository.Add(booking);
 
