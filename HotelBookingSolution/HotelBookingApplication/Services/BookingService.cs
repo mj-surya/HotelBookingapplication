@@ -60,13 +60,13 @@ namespace HotelBookingApplication.Services
             var user = _userRepository.GetById(bookingDTO.UserId);
             string message = $"Dear {user.Name},\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay. Your booking reference number is {result.BookingId}. \nSafe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
             string subject = $"Booking Confirmation - {hotel.HotelName}";
-            string body = $"Dear Sir/Mam,\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay.\nBooking Details:-\nBooking ID: {result.BookingId}\nCheck-In Date: {result.CheckIn}\nCheck-Out Date: {result.CheckOut}\nRoom Type: {room.RoomType}\nTotal Price: {amount}\n\n\nWe look forward to making your stay at {hotel.HotelName} a memorable experience. Safe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
+            string body = $"Dear {user.Name},\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay.\nBooking Details:-\nBooking ID: {result.BookingId}\nCheck-In Date: {result.CheckIn}\nCheck-Out Date: {result.CheckOut}\nRoom Type: {room.RoomType}\nTotal Price: {amount}\n\nWe look forward to making your stay at {hotel.HotelName} a memorable experience. Safe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
 
             //Check if the booking was added successfully and return the bookingDTO
             if (result != null)
             {
                 SendBookingConfirmationEmail(bookingDTO.UserId,subject,body);
-                //SendBookingConfirmationSms("+91"+user.Phone,message);
+               // SendBookingConfirmationSms("+91"+user.Phone,message);
                 return bookingDTO;
             }
             //Returns null if booking was not added successfully
