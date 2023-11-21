@@ -5745,11 +5745,357 @@ DELETE FROM [Hotels]
 WHERE [HotelId] = @p0;
 SELECT @@ROWCOUNT;
 2023-11-17 10:44:02,865 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.HotelController.RemoveHotel[63] - Hotel Removed
+<<<<<<< HEAD
+2023-11-17 14:44:01,176 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-17 14:44:01,370 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-17 14:44:01,380 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-17 14:44:01,385 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-17 14:45:00,102 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 14:45:01,466 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (135ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 4000), @p4='?' (Size = 8000) (DbType = Binary), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Address], [Key], [Name], [Password], [Phone], [Role])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2023-11-17 14:45:02,006 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Register[30] - User Registerd
+2023-11-17 14:45:56,297 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 14:45:56,937 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (9ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Email], [u].[Address], [u].[Key], [u].[Name], [u].[Password], [u].[Phone], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__key_0
+2023-11-17 14:45:56,965 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Login[50] - Login Successful
+2023-11-17 14:47:08,420 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 14:47:08,558 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (56ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Hotels] ([Address], [City], [Description], [HotelName], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [HotelId]
+FROM [Hotels]
+WHERE @@ROWCOUNT = 1 AND [HotelId] = scope_identity();
+2023-11-17 14:47:08,610 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.HotelController.AddHotel[29] - Hotel Added
+=======
 >>>>>>> d962e80ec871da2172c4034577a98966c099fcb3
 2023-11-17 19:02:13,517 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
 2023-11-17 19:02:13,666 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
 2023-11-17 19:02:13,674 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
 2023-11-17 19:02:13,678 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+<<<<<<< HEAD
+>>>>>>> e5cf55b58c6cf160b9c78630c2c08e176ec61420
+2023-11-17 19:06:07,706 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-17 19:06:07,860 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-17 19:06:07,868 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-17 19:06:07,871 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-17 19:06:40,055 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:06:56,787 [.NET ThreadPool Worker] ERROR Microsoft.EntityFrameworkCore.Database.Connection.?[?] - An error occurred using the connection to database 'dbHotelBookingApp' on server 'NIRANJAN\DEMOINSTANCE'.
+2023-11-17 19:06:56,827 [.NET ThreadPool Worker] ERROR Microsoft.EntityFrameworkCore.Update.?[?] - An exception occurred in the database while saving changes for context type 'HotelBookingApplication.Contexts.BookingContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SNI_PN11, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SNI_PN11, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2023-11-17 19:06:56,948 [.NET ThreadPool Worker] ERROR HotelBookingApplication.Controllers.UserController.Register[27] - Could not register user
+2023-11-17 19:07:31,136 [1] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:07:43,607 [1] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:09:50,595 [1] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:09:56,986 [1] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:09:57,758 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (399ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [dbHotelBookingApp];
+2023-11-17 19:09:57,865 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (103ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [dbHotelBookingApp] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-11-17 19:09:57,962 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-11-17 19:09:58,087 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-11-17 19:09:58,090 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-11-17 19:09:58,114 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-11-17 19:09:58,124 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-11-17 19:09:58,142 [1] INFO Microsoft.EntityFrameworkCore.Migrations.?[?] - Applying migration '20231117133950_Booking'.
+2023-11-17 19:09:58,193 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Email] nvarchar(450) NOT NULL,
+    [Password] varbinary(max) NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Phone] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [Role] nvarchar(max) NOT NULL,
+    [Key] varbinary(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Email])
+);
+2023-11-17 19:09:58,237 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Hotels] (
+    [HotelId] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [HotelName] nvarchar(max) NOT NULL,
+    [City] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [Phone] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Hotels] PRIMARY KEY ([HotelId]),
+    CONSTRAINT [FK_Hotels_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Email]) ON DELETE CASCADE
+);
+2023-11-17 19:09:58,240 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Reviews] (
+    [ReviewId] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [HotelId] int NOT NULL,
+    [Reviews] nvarchar(max) NOT NULL,
+    [Rating] nvarchar(max) NOT NULL,
+    [Date] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Reviews] PRIMARY KEY ([ReviewId]),
+    CONSTRAINT [FK_Reviews_Hotels_HotelId] FOREIGN KEY ([HotelId]) REFERENCES [Hotels] ([HotelId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Reviews_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Email])
+);
+2023-11-17 19:09:59,831 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Rooms] (
+    [RoomId] int NOT NULL IDENTITY,
+    [RoomType] nvarchar(max) NOT NULL,
+    [HotelId] int NOT NULL,
+    [Picture] nvarchar(max) NOT NULL,
+    [Price] real NOT NULL,
+    [Capacity] int NOT NULL,
+    [TotalRooms] int NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Rooms] PRIMARY KEY ([RoomId]),
+    CONSTRAINT [FK_Rooms_Hotels_HotelId] FOREIGN KEY ([HotelId]) REFERENCES [Hotels] ([HotelId]) ON DELETE CASCADE
+);
+2023-11-17 19:09:59,836 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Bookings] (
+    [BookingId] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [BookingDate] nvarchar(max) NOT NULL,
+    [CheckIn] nvarchar(max) NOT NULL,
+    [CheckOut] nvarchar(max) NOT NULL,
+    [RoomId] int NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [TotalRoom] int NOT NULL,
+    [Price] real NULL,
+    CONSTRAINT [PK_Bookings] PRIMARY KEY ([BookingId]),
+    CONSTRAINT [FK_Bookings_Rooms_RoomId] FOREIGN KEY ([RoomId]) REFERENCES [Rooms] ([RoomId]),
+    CONSTRAINT [FK_Bookings_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Email]) ON DELETE CASCADE
+);
+2023-11-17 19:10:01,581 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [RoomAmenities] (
+    [RoomAmenityId] int NOT NULL IDENTITY,
+    [RoomId] int NOT NULL,
+    [Amenities] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_RoomAmenities] PRIMARY KEY ([RoomAmenityId]),
+    CONSTRAINT [FK_RoomAmenities_Rooms_RoomId] FOREIGN KEY ([RoomId]) REFERENCES [Rooms] ([RoomId]) ON DELETE CASCADE
+);
+2023-11-17 19:10:01,588 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Bookings_RoomId] ON [Bookings] ([RoomId]);
+2023-11-17 19:10:01,590 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Bookings_UserId] ON [Bookings] ([UserId]);
+2023-11-17 19:10:03,170 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Hotels_UserId] ON [Hotels] ([UserId]);
+2023-11-17 19:10:03,172 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Reviews_HotelId] ON [Reviews] ([HotelId]);
+2023-11-17 19:10:03,174 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Reviews_UserId] ON [Reviews] ([UserId]);
+2023-11-17 19:10:03,176 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_RoomAmenities_RoomId] ON [RoomAmenities] ([RoomId]);
+2023-11-17 19:10:03,178 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Rooms_HotelId] ON [Rooms] ([HotelId]);
+2023-11-17 19:10:03,186 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231117133950_Booking', N'6.0.24');
+2023-11-17 19:10:16,007 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-17 19:10:16,175 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-17 19:10:16,182 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-17 19:10:16,187 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-17 19:11:39,516 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:11:40,190 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (67ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 4000), @p4='?' (Size = 8000) (DbType = Binary), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Address], [Key], [Name], [Password], [Phone], [Role])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2023-11-17 19:11:40,426 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Register[30] - User Registerd
+2023-11-17 19:12:52,001 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:12:52,089 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (14ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Hotels] ([Address], [City], [Description], [HotelName], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [HotelId]
+FROM [Hotels]
+WHERE @@ROWCOUNT = 1 AND [HotelId] = scope_identity();
+2023-11-17 19:12:52,142 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.HotelController.AddHotel[29] - Hotel Added
+2023-11-17 19:13:56,152 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:13:56,193 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (DbType = Single), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Rooms] ([Capacity], [Description], [HotelId], [Picture], [Price], [RoomType], [TotalRooms])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [RoomId]
+FROM [Rooms]
+WHERE @@ROWCOUNT = 1 AND [RoomId] = scope_identity();
+2023-11-17 19:13:56,238 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RoomAmenities] ([Amenities], [RoomId])
+VALUES (@p0, @p1);
+SELECT [RoomAmenityId]
+FROM [RoomAmenities]
+WHERE @@ROWCOUNT = 1 AND [RoomAmenityId] = scope_identity();
+2023-11-17 19:13:56,246 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RoomAmenities] ([Amenities], [RoomId])
+VALUES (@p0, @p1);
+SELECT [RoomAmenityId]
+FROM [RoomAmenities]
+WHERE @@ROWCOUNT = 1 AND [RoomAmenityId] = scope_identity();
+2023-11-17 19:13:56,254 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RoomAmenities] ([Amenities], [RoomId])
+VALUES (@p0, @p1);
+SELECT [RoomAmenityId]
+FROM [RoomAmenities]
+WHERE @@ROWCOUNT = 1 AND [RoomAmenityId] = scope_identity();
+2023-11-17 19:13:56,259 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.RoomController.CreateRooms[50] - Room Created
+2023-11-17 19:14:21,481 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:14:21,495 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (DbType = Single), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Rooms] ([Capacity], [Description], [HotelId], [Picture], [Price], [RoomType], [TotalRooms])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [RoomId]
+FROM [Rooms]
+WHERE @@ROWCOUNT = 1 AND [RoomId] = scope_identity();
+2023-11-17 19:14:21,502 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RoomAmenities] ([Amenities], [RoomId])
+VALUES (@p0, @p1);
+SELECT [RoomAmenityId]
+FROM [RoomAmenities]
+WHERE @@ROWCOUNT = 1 AND [RoomAmenityId] = scope_identity();
+2023-11-17 19:14:21,507 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RoomAmenities] ([Amenities], [RoomId])
+VALUES (@p0, @p1);
+SELECT [RoomAmenityId]
+FROM [RoomAmenities]
+WHERE @@ROWCOUNT = 1 AND [RoomAmenityId] = scope_identity();
+2023-11-17 19:14:21,513 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RoomAmenities] ([Amenities], [RoomId])
+VALUES (@p0, @p1);
+SELECT [RoomAmenityId]
+FROM [RoomAmenities]
+WHERE @@ROWCOUNT = 1 AND [RoomAmenityId] = scope_identity();
+2023-11-17 19:14:21,518 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.RoomController.CreateRooms[50] - Room Created
+2023-11-17 19:15:03,485 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:15:03,520 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-17 19:15:17,985 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:15:17,991 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-17 19:15:30,559 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:15:31,057 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Bookings] AS [b]
+2023-11-17 19:15:31,113 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[BookingId], [b].[BookingDate], [b].[CheckIn], [b].[CheckOut], [b].[Price], [b].[RoomId], [b].[Status], [b].[TotalRoom], [b].[UserId]
+FROM [Bookings] AS [b]
+2023-11-17 19:15:51,158 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:15:51,164 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Bookings] AS [b]
+2023-11-17 19:15:51,170 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[BookingId], [b].[BookingDate], [b].[CheckIn], [b].[CheckOut], [b].[Price], [b].[RoomId], [b].[Status], [b].[TotalRoom], [b].[UserId]
+FROM [Bookings] AS [b]
+2023-11-17 19:15:51,176 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Rooms] AS [r]
+2023-11-17 19:15:51,184 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+2023-11-17 19:16:30,022 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:16:30,111 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [b].[BookingId], [b].[BookingDate], [b].[CheckIn], [b].[CheckOut], [b].[Price], [b].[RoomId], [b].[Status], [b].[TotalRoom], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[BookingId] = @__key_0
+2023-11-17 19:16:30,120 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [b].[BookingId], [b].[BookingDate], [b].[CheckIn], [b].[CheckOut], [b].[Price], [b].[RoomId], [b].[Status], [b].[TotalRoom], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[BookingId] = @__key_0
+2023-11-17 19:16:30,263 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (118ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Bookings] SET [BookingDate] = @p0, [CheckIn] = @p1, [CheckOut] = @p2, [Price] = @p3, [RoomId] = @p4, [Status] = @p5, [TotalRoom] = @p6, [UserId] = @p7
+WHERE [BookingId] = @p8;
+SELECT @@ROWCOUNT;
+2023-11-17 19:16:37,956 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-17 19:16:37,961 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Bookings] AS [b]
+2023-11-17 19:16:37,967 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[BookingId], [b].[BookingDate], [b].[CheckIn], [b].[CheckOut], [b].[Price], [b].[RoomId], [b].[Status], [b].[TotalRoom], [b].[UserId]
+FROM [Bookings] AS [b]
+=======
 2023-11-17 20:19:08,573 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
 2023-11-17 20:19:08,692 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
 2023-11-17 20:19:08,698 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
@@ -8815,6 +9161,253 @@ FROM [Rooms] AS [r]
 SELECT [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
 FROM [Rooms] AS [r]
 2023-11-18 13:31:36,650 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.HotelController.GetHotel[42] - Displayed Hotels
+<<<<<<< HEAD
+>>>>>>> 9773596fb81cba9bc88f3e3162897fc11586c860
+2023-11-18 13:35:44,961 [1] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:36:18,503 [1] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:36:20,220 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-11-18 13:36:20,321 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-11-18 13:36:20,328 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-11-18 13:36:20,331 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-11-18 13:36:20,409 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-11-18 13:36:20,476 [1] INFO Microsoft.EntityFrameworkCore.Migrations.?[?] - Applying migration '20231118073544_update price'.
+2023-11-18 13:36:20,998 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Hotels] ADD [StartingPrice] real NOT NULL DEFAULT CAST(0 AS real);
+2023-11-18 13:36:22,517 [1] ERROR Microsoft.EntityFrameworkCore.Database.Command.?[?] - Failed executing DbCommand (1,494ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Bookings]') AND [c].[name] = N'Price');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Bookings] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Bookings] ALTER COLUMN [Price] real NOT NULL;
+ALTER TABLE [Bookings] ADD DEFAULT CAST(0 AS real) FOR [Price];
+2023-11-18 13:38:50,048 [1] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:40:03,400 [1] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:40:05,474 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (636ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [dbHotelBookingApp];
+2023-11-18 13:40:05,819 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (331ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [dbHotelBookingApp] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-11-18 13:40:05,880 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-11-18 13:40:06,546 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (275ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-11-18 13:40:06,552 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2023-11-18 13:40:06,604 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-11-18 13:40:06,622 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-11-18 13:40:06,694 [1] INFO Microsoft.EntityFrameworkCore.Migrations.?[?] - Applying migration '20231118080850_init'.
+2023-11-18 13:40:06,859 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Email] nvarchar(450) NOT NULL,
+    [Password] varbinary(max) NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Phone] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [Role] nvarchar(max) NOT NULL,
+    [Key] varbinary(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Email])
+);
+2023-11-18 13:40:06,910 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (50ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Hotels] (
+    [HotelId] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [HotelName] nvarchar(max) NOT NULL,
+    [City] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [Phone] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [StartingPrice] real NOT NULL,
+    CONSTRAINT [PK_Hotels] PRIMARY KEY ([HotelId]),
+    CONSTRAINT [FK_Hotels_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Email]) ON DELETE CASCADE
+);
+2023-11-18 13:40:06,927 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Reviews] (
+    [ReviewId] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [HotelId] int NOT NULL,
+    [Reviews] nvarchar(max) NOT NULL,
+    [Rating] nvarchar(max) NOT NULL,
+    [Date] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Reviews] PRIMARY KEY ([ReviewId]),
+    CONSTRAINT [FK_Reviews_Hotels_HotelId] FOREIGN KEY ([HotelId]) REFERENCES [Hotels] ([HotelId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Reviews_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Email])
+);
+2023-11-18 13:40:07,552 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Rooms] (
+    [RoomId] int NOT NULL IDENTITY,
+    [RoomType] nvarchar(max) NOT NULL,
+    [HotelId] int NOT NULL,
+    [Picture] nvarchar(max) NOT NULL,
+    [Price] real NOT NULL,
+    [Capacity] int NOT NULL,
+    [TotalRooms] int NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Rooms] PRIMARY KEY ([RoomId]),
+    CONSTRAINT [FK_Rooms_Hotels_HotelId] FOREIGN KEY ([HotelId]) REFERENCES [Hotels] ([HotelId]) ON DELETE CASCADE
+);
+2023-11-18 13:40:07,557 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Bookings] (
+    [BookingId] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [BookingDate] nvarchar(max) NOT NULL,
+    [CheckIn] nvarchar(max) NOT NULL,
+    [CheckOut] nvarchar(max) NOT NULL,
+    [RoomId] int NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [TotalRoom] int NOT NULL,
+    [Price] real NOT NULL,
+    CONSTRAINT [PK_Bookings] PRIMARY KEY ([BookingId]),
+    CONSTRAINT [FK_Bookings_Rooms_RoomId] FOREIGN KEY ([RoomId]) REFERENCES [Rooms] ([RoomId]),
+    CONSTRAINT [FK_Bookings_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Email]) ON DELETE CASCADE
+);
+2023-11-18 13:40:09,504 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [RoomAmenities] (
+    [RoomAmenityId] int NOT NULL IDENTITY,
+    [RoomId] int NOT NULL,
+    [Amenities] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_RoomAmenities] PRIMARY KEY ([RoomAmenityId]),
+    CONSTRAINT [FK_RoomAmenities_Rooms_RoomId] FOREIGN KEY ([RoomId]) REFERENCES [Rooms] ([RoomId]) ON DELETE CASCADE
+);
+2023-11-18 13:40:09,507 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Bookings_RoomId] ON [Bookings] ([RoomId]);
+2023-11-18 13:40:11,222 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Bookings_UserId] ON [Bookings] ([UserId]);
+2023-11-18 13:40:11,225 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Hotels_UserId] ON [Hotels] ([UserId]);
+2023-11-18 13:40:11,229 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Reviews_HotelId] ON [Reviews] ([HotelId]);
+2023-11-18 13:40:11,234 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Reviews_UserId] ON [Reviews] ([UserId]);
+2023-11-18 13:40:11,238 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_RoomAmenities_RoomId] ON [RoomAmenities] ([RoomId]);
+2023-11-18 13:40:11,243 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Rooms_HotelId] ON [Rooms] ([HotelId]);
+2023-11-18 13:40:11,293 [1] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (48ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231118080850_init', N'6.0.24');
+2023-11-18 13:40:41,720 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-18 13:40:42,091 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-18 13:40:42,103 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-18 13:40:42,113 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-18 13:41:33,287 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:41:36,175 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (234ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 4000), @p4='?' (Size = 8000) (DbType = Binary), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Address], [Key], [Name], [Password], [Phone], [Role])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2023-11-18 13:41:36,699 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Register[30] - User Registerd
+2023-11-18 13:42:43,971 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:42:44,153 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (19ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Single), @p6='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Hotels] ([Address], [City], [Description], [HotelName], [Phone], [StartingPrice], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [HotelId]
+FROM [Hotels]
+WHERE @@ROWCOUNT = 1 AND [HotelId] = scope_identity();
+2023-11-18 13:42:44,259 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.HotelController.AddHotel[29] - Hotel Added
+2023-11-18 13:43:12,337 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:43:12,449 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (DbType = Single), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Rooms] ([Capacity], [Description], [HotelId], [Picture], [Price], [RoomType], [TotalRooms])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [RoomId]
+FROM [Rooms]
+WHERE @@ROWCOUNT = 1 AND [RoomId] = scope_identity();
+2023-11-18 13:43:12,517 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RoomAmenities] ([Amenities], [RoomId])
+VALUES (@p0, @p1);
+SELECT [RoomAmenityId]
+FROM [RoomAmenities]
+WHERE @@ROWCOUNT = 1 AND [RoomAmenityId] = scope_identity();
+2023-11-18 13:43:12,528 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.RoomController.CreateRooms[50] - Room Created
+2023-11-18 13:43:35,610 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:43:35,631 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (DbType = Single), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Rooms] ([Capacity], [Description], [HotelId], [Picture], [Price], [RoomType], [TotalRooms])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [RoomId]
+FROM [Rooms]
+WHERE @@ROWCOUNT = 1 AND [RoomId] = scope_identity();
+2023-11-18 13:43:35,647 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RoomAmenities] ([Amenities], [RoomId])
+VALUES (@p0, @p1);
+SELECT [RoomAmenityId]
+FROM [RoomAmenities]
+WHERE @@ROWCOUNT = 1 AND [RoomAmenityId] = scope_identity();
+2023-11-18 13:43:35,656 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.RoomController.CreateRooms[50] - Room Created
+2023-11-18 13:44:35,682 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:44:36,801 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-18 13:44:36,885 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-18 13:45:18,658 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:45:18,733 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Rooms] AS [r]
+2023-11-18 13:45:18,755 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+2023-11-18 13:45:18,775 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Bookings] AS [b]
+2023-11-18 13:45:18,796 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[BookingId], [b].[BookingDate], [b].[CheckIn], [b].[CheckOut], [b].[Price], [b].[RoomId], [b].[Status], [b].[TotalRoom], [b].[UserId]
+FROM [Bookings] AS [b]
+2023-11-18 13:45:18,819 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Bookings] AS [b]
+2023-11-18 13:45:18,831 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[BookingId], [b].[BookingDate], [b].[CheckIn], [b].[CheckOut], [b].[Price], [b].[RoomId], [b].[Status], [b].[TotalRoom], [b].[UserId]
+FROM [Bookings] AS [b]
+2023-11-18 13:45:18,844 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.RoomController.GetAvailableRooms[31] - Rooms Displayed
+2023-11-18 13:45:41,198 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-18 13:45:41,227 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Hotels] AS [h]
+2023-11-18 13:45:41,257 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+2023-11-18 13:45:41,270 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Rooms] AS [r]
+2023-11-18 13:45:41,297 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+2023-11-18 13:45:41,317 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Rooms] AS [r]
+2023-11-18 13:45:41,339 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+2023-11-18 13:45:41,365 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.HotelController.GetHotel[42] - Displayed Hotels
+=======
 2023-11-18 21:47:26,507 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
 2023-11-18 21:47:26,608 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
 2023-11-18 21:47:26,615 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
@@ -8914,3 +9507,382 @@ SELECT @@ROWCOUNT;
 2023-11-19 22:07:20,208 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
 2023-11-19 22:07:20,216 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
 2023-11-19 22:07:20,221 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+>>>>>>> e3f58ad7a6572e69fb0fe7934eee0432deb5cb61
+2023-11-20 08:49:03,300 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 08:49:03,493 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 08:49:03,505 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 08:49:03,511 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 08:49:33,580 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 08:49:33,760 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 08:49:33,772 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 08:49:33,812 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 09:12:24,935 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 09:12:25,119 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 09:12:25,132 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 09:12:25,138 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 09:21:04,846 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 09:21:05,005 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 09:21:05,014 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 09:21:05,019 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 10:19:43,665 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 10:19:44,665 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 10:19:44,701 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 10:19:44,708 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 10:20:59,198 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:21:02,061 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (236ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 4000), @p4='?' (Size = 8000) (DbType = Binary), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Address], [Key], [Name], [Password], [Phone], [Role])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2023-11-20 10:21:02,696 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Register[35] - User Registerd
+2023-11-20 10:21:35,954 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:21:37,529 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (66ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Hotels] AS [h]
+2023-11-20 10:21:37,685 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+2023-11-20 10:21:37,820 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Rooms] AS [r]
+2023-11-20 10:21:37,849 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+2023-11-20 10:21:37,907 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Rooms] AS [r]
+2023-11-20 10:21:37,913 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+2023-11-20 10:21:37,926 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.HotelController.GetHotel[51] - Displayed Hotels
+2023-11-20 10:24:30,536 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:24:31,070 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (333ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 10:24:31,102 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (9ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 10:24:32,138 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (781ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 10:35:47,084 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 10:35:47,280 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 10:35:47,285 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 10:35:47,288 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 10:36:57,671 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:36:59,791 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (102ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Email], [u].[Address], [u].[Key], [u].[Name], [u].[Password], [u].[Phone], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__key_0
+2023-11-20 10:37:00,654 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Login[60] - Login Successful
+2023-11-20 10:37:20,380 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:37:20,441 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (48ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 10:37:20,548 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (28ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 10:37:20,944 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (48ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 10:45:31,170 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 10:45:31,281 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 10:45:31,287 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 10:45:31,291 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 10:46:05,669 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:46:06,747 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (80ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Email], [u].[Address], [u].[Key], [u].[Name], [u].[Password], [u].[Phone], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__key_0
+2023-11-20 10:46:07,087 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Login[60] - Login Successful
+2023-11-20 10:46:35,977 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:46:36,033 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (44ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 10:46:36,126 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (23ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 10:46:36,427 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (39ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 10:49:08,333 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 10:49:08,394 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 10:49:08,398 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 10:49:08,400 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 10:49:38,430 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:49:39,493 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (77ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 10:49:39,651 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 10:49:39,920 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 10:53:29,692 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 10:53:29,999 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 10:53:30,010 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 10:53:30,015 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 10:53:57,425 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 10:53:58,505 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (79ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 10:53:58,705 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 10:53:58,981 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (9ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:03:34,728 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:03:34,943 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:03:34,956 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:03:34,973 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:04:22,768 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 11:04:23,895 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (90ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 11:04:24,057 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 11:04:24,388 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:08:13,357 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:08:13,633 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:08:13,642 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:08:13,645 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:08:47,265 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 11:08:48,366 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (77ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 11:08:48,501 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 11:08:48,753 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:08:52,795 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.AddBooking[34] - Booked successfully
+2023-11-20 11:12:02,940 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:12:03,014 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:12:03,018 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:12:03,021 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:13:12,324 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:13:12,395 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:13:12,399 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:13:12,402 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:13:38,424 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 11:13:39,571 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (76ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 11:13:39,812 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 11:13:40,161 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:13:44,213 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.AddBooking[34] - Booked successfully
+2023-11-20 11:19:12,948 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:19:13,019 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:19:13,023 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:19:13,026 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:19:39,301 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 11:19:40,336 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (72ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 11:19:40,469 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 11:19:40,716 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:19:44,564 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.AddBooking[34] - Booked successfully
+2023-11-20 11:21:08,279 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:21:08,357 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:21:08,362 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:21:08,368 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:21:31,930 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 11:21:32,972 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (86ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 11:21:33,116 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 11:21:33,402 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:21:37,289 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.AddBooking[34] - Booked successfully
+2023-11-20 11:25:22,382 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:25:22,456 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:25:22,460 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:25:22,462 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:25:44,535 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 11:25:45,473 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (78ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 11:25:45,606 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 11:25:45,880 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:25:49,776 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.AddBooking[34] - Booked successfully
+2023-11-20 11:42:37,244 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:42:37,404 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:42:37,537 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:42:37,542 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:43:03,496 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 11:43:04,814 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (76ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 11:43:05,029 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 11:43:05,353 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:43:05,424 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Email], [u].[Address], [u].[Key], [u].[Name], [u].[Password], [u].[Phone], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__key_0
+2023-11-20 11:43:11,233 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.AddBooking[34] - Booked successfully
+2023-11-20 11:53:16,803 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 11:53:16,886 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 11:53:16,893 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 11:53:16,896 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 11:53:42,229 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 11:53:43,201 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (70ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 11:53:43,339 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (4ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 11:53:43,600 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 11:53:43,668 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Email], [u].[Address], [u].[Key], [u].[Name], [u].[Password], [u].[Phone], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__key_0
+2023-11-20 11:53:49,074 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.AddBooking[34] - Booked successfully
+2023-11-20 12:11:30,060 [1] INFO Microsoft.Hosting.Lifetime.?[?] - Now listening on: http://localhost:5272
+2023-11-20 12:11:30,165 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Application started. Press Ctrl+C to shut down.
+2023-11-20 12:11:30,172 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Hosting environment: Development
+2023-11-20 12:11:30,175 [1] INFO Microsoft.Hosting.Lifetime.OnApplicationStarted[0] - Content root path: C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\
+2023-11-20 12:12:44,807 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 12:12:46,821 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (114ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 4000), @p4='?' (Size = 8000) (DbType = Binary), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Address], [Key], [Name], [Password], [Phone], [Role])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2023-11-20 12:12:47,157 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.Register[35] - User Registerd
+2023-11-20 12:13:10,841 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 12:13:11,281 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (48ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Hotels] AS [h]
+2023-11-20 12:13:11,382 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+2023-11-20 12:13:11,455 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Rooms] AS [r]
+2023-11-20 12:13:11,488 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+2023-11-20 12:13:11,520 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.HotelController.GetHotel[51] - Displayed Hotels
+2023-11-20 12:15:46,168 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Infrastructure.?[?] - Entity Framework Core 6.0.24 initialized 'BookingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.24' with options: None
+2023-11-20 12:15:46,245 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (6ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[RoomId], [r].[Capacity], [r].[Description], [r].[HotelId], [r].[Picture], [r].[Price], [r].[RoomType], [r].[TotalRooms]
+FROM [Rooms] AS [r]
+WHERE [r].[RoomId] = @__key_0
+2023-11-20 12:15:46,256 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (2ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [h].[HotelId], [h].[Address], [h].[City], [h].[Description], [h].[HotelName], [h].[Phone], [h].[StartingPrice], [h].[UserId]
+FROM [Hotels] AS [h]
+WHERE [h].[HotelId] = @__key_0
+2023-11-20 12:15:46,339 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Single), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Bookings] ([BookingDate], [CheckIn], [CheckOut], [Price], [RoomId], [Status], [TotalRoom], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [BookingId]
+FROM [Bookings]
+WHERE @@ROWCOUNT = 1 AND [BookingId] = scope_identity();
+2023-11-20 12:15:46,383 [.NET ThreadPool Worker] INFO Microsoft.EntityFrameworkCore.Database.Command.?[?] - Executed DbCommand (1ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Email], [u].[Address], [u].[Key], [u].[Name], [u].[Password], [u].[Phone], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__key_0
+2023-11-20 12:15:49,765 [.NET ThreadPool Worker] INFO HotelBookingApplication.Controllers.UserController.AddBooking[34] - Booked successfully

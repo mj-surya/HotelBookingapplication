@@ -32,14 +32,15 @@ namespace HotelBookingApplication.Contexts
         /// Creates the Booking in the database
         /// </summary>
         public DbSet<Booking> Bookings { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             // Configure the relationship between Hotels and Reviews
             modelBuilder.Entity<Review>()
             .HasOne(e => e.user)
             .WithMany()
             .OnDelete(DeleteBehavior.NoAction);
-
 
             modelBuilder.Entity<Booking>()
            .HasOne(e => e.room)
