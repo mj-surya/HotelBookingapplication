@@ -43,6 +43,10 @@ namespace HotelBookingApplication.Controllers
             catch(NoRoomsAvailableException e){
                 errorMessage = e.Message;
             }
+            catch(Exception e)
+            {
+                errorMessage = e.Message;
+            }
             _logger.LogError("Unable to display rooms");
             return BadRequest(errorMessage);
             
@@ -56,15 +60,23 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult CreateRooms(RoomDTO roomDTO)
         {
-            var room = _roomService.AddRoom(roomDTO);
-            if(room != null)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Room Created");
-                return Ok(room);
-                
+                var room = _roomService.AddRoom(roomDTO);
+                if (room != null)
+                {
+                    _logger.LogInformation("Room Created");
+                    return Ok(room);
+                }
+                message = "Could not add rooms";
+            }
+            catch(Exception e)
+            {
+                message = e.Message;
             }
             _logger.LogError("Unable to add room");
-            return BadRequest("Could not add rooms");
+            return BadRequest(message);
             
         }
         /// <summary>
@@ -75,16 +87,23 @@ namespace HotelBookingApplication.Controllers
         [HttpDelete("DeleteRooms")]
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteRooms(int id)
-        { 
-            bool roomId = _roomService.RemoveRoom(id);
-            if (roomId)
+        {
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Room Deleted");
-                return Ok("The room has been deleted successfully");
-                
+                bool roomId = _roomService.RemoveRoom(id);
+                if (roomId)
+                {
+                    _logger.LogInformation("Room Deleted");
+                    return Ok("The room has been deleted successfully");
+                }
+                message = "Invalid roomId";
+            }
+            catch(Exception e) { 
+                message = e.Message;    
             }
             _logger.LogError("Unable to delete room");
-            return BadRequest("Invalid roomId");
+            return BadRequest(message);
         }
         /// <summary>
         /// Update the room
@@ -96,15 +115,23 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult PromoteRooms(int id,RoomDTO roomDTO)
         {
-            var room = _roomService.UpdateRoom(id,roomDTO);
-            if (room != null)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Room Updated");
-                return Ok("Room updated successfully");
-                
+                var room = _roomService.UpdateRoom(id, roomDTO);
+                if (room != null)
+                {
+                    _logger.LogInformation("Room Updated");
+                    return Ok("Room updated successfully");
+                }
+                message = "Unable to update";
+            }
+             catch(Exception e)
+            {
+                message = e.Message;    
             }
             _logger.LogError("Unable to update room");
-            return BadRequest("Unable to update");
+            return BadRequest(message);
             
         }
     }

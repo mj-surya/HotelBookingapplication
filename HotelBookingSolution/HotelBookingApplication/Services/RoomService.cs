@@ -93,23 +93,24 @@ namespace HotelBookingApplication.Services
             foreach (var a in room)
             {
                 var booking = (from Booking in _bookingRepository
-            .GetAll()
-            .Where(booking =>
+                .GetAll()
+                .Where(booking =>
                 booking.RoomId == a.RoomId &&
                 (DateTime.Parse(checkIn).Date >= DateTime.Parse(booking.CheckIn).Date &&
-                 DateTime.Parse(checkIn).Date <= DateTime.Parse(booking.CheckOut).Date ||
-                 DateTime.Parse(checkOut).Date <= DateTime.Parse(booking.CheckOut).Date &&
-                 DateTime.Parse(checkOut).Date >= DateTime.Parse(booking.CheckIn).Date))
-                 select Booking
-            )
-            .ToList();
+                  DateTime.Parse(checkIn).Date <= DateTime.Parse(booking.CheckOut).Date ||
+                  DateTime.Parse(checkOut).Date <= DateTime.Parse(booking.CheckOut).Date &&
+                  DateTime.Parse(checkOut).Date >= DateTime.Parse(booking.CheckIn).Date))
+                  select Booking).ToList();
                 int count = 0;
                 foreach (var b in booking)
                 {
                     count += b.TotalRoom;
                 }
                 a.TotalRooms -= count;
-                roomList.Add(a);
+                if (a.TotalRooms > 0)
+                {
+                    roomList.Add(a);
+                }
             }
             return roomList;
         }

@@ -67,7 +67,7 @@ namespace HotelBookingApplication.Services
             if (result != null)
             {
                 SendBookingConfirmationEmail(bookingDTO.UserId,subject,body);
-                //SendBookingConfirmationSms("+91"+user.Phone,message);
+               // SendBookingConfirmationSms("+91"+user.Phone,message);
                 return bookingDTO;
             }
             //Returns null if booking was not added successfully
@@ -104,7 +104,7 @@ namespace HotelBookingApplication.Services
             {
                 return bookings;
             }
-            return null;
+            throw new NoBookingsAvailableException();
         }
 
         /// <summary>

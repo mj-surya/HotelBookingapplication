@@ -8,13 +8,13 @@ namespace HotelBookingApplication.Services
     public class HotelService : IHotelService
     {
         private readonly IRepository<int, Hotel> _hotelRepository;
-        private readonly IRepository<int, Review> _reviewRepository;
+      
         private readonly IRepository<int, Room> _roomRepository;
 
-        public HotelService(IRepository<int, Hotel> repository, IRepository<int, Review> reviewRepository, IRepository<int, Room> roomRepository)
+        public HotelService(IRepository<int, Hotel> repository,  IRepository<int, Room> roomRepository)
         {
             _hotelRepository = repository;
-            _reviewRepository = reviewRepository;
+           
             _roomRepository = roomRepository;
         }
         /// <summary>
@@ -35,11 +35,12 @@ namespace HotelBookingApplication.Services
                 Description = hotelDTO.Description,
             };
             //Add the hotel to the repository
+         
             var result = _hotelRepository.Add(hotel);
-             //Check if the hotel added sucessfully and returns the hotelDTO
-            if(result != null)
+            if (result != null)
             {
-                return hotelDTO;
+               //Check if the hotel added sucessfully and returns the hotelDTO
+               return hotelDTO;
             }
             //Returns null if the hotel was not added
             return null;
@@ -70,10 +71,8 @@ namespace HotelBookingApplication.Services
                                    select (Room.Price))
                     .Min();
                     a.StartingPrice = price;
-                }
-                
+                }  
             }
-
             // Check if the hotel is found with the specified city returns the hotel; Otherwise throws a new NoHotelsAvailableException
             if (hotels != null)
             {

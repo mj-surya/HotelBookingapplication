@@ -1,4 +1,5 @@
-﻿using HotelBookingApplication.Interfaces;
+﻿using HotelBookingApplication.Exceptions;
+using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -28,14 +29,23 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "User")]
         public ActionResult AddBooking(BookingDTO bookingDTO)
         {
-            var booking = _bookingService.AddBookingDetails(bookingDTO);
-            if (booking != null)
+            string message = string.Empty;  
+            try
             {
-                _logger.LogInformation("Booked successfully");
-                return Ok(booking);
+                var booking = _bookingService.AddBookingDetails(bookingDTO);
+                if (booking != null)
+                {
+                    _logger.LogInformation("Booked successfully");
+                    return Ok(booking);
+                }
+                message = "Could not book";
+            }
+            catch(Exception ex)
+            {
+                message = ex.Message;
             }
            _logger.LogError("Could not book rooms");
-            return BadRequest("Could not book");
+            return BadRequest(message);
         }
         /// <summary>
         /// Retrieve the booking of hotel
@@ -46,14 +56,23 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult GetAdminBooking(int id)
         {
-            var booking = _bookingService.GetBooking(id);
-            if(booking != null)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Admin booking details displayed");
-                return Ok(booking);
+                var booking = _bookingService.GetBooking(id);
+                    _logger.LogInformation("Admin booking details displayed");
+                    return Ok(booking);
+            }
+            catch(NoBookingsAvailableException e)
+            {
+                message = e.Message;
+            }
+            catch(Exception ex)
+            {
+                message = ex.Message;
             }
             _logger.LogError("Could not display admin bookings");
-            return BadRequest("No bookings found");
+            return BadRequest(message);
         }
         /// <summary>
         /// Retrieve the user booking
@@ -64,14 +83,23 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "User")]
         public ActionResult GetUserBooking(string id)
         {
-            var booking = _bookingService.GetUserBooking(id);
-            if (booking != null)
+            string message = string.Empty;
+            try
             {
+                var booking = _bookingService.GetUserBooking(id);
                 _logger.LogInformation("User booking details displayed");
-                return Ok(booking);
+                 return Ok(booking);
+            }
+            catch(NoBookingsAvailableException ex)
+            {
+                message = ex.Message;
+            }
+            catch(Exception e)
+            {
+                message = e.Message;    
             }
             _logger.LogError("Could not display user bookings");
-            return BadRequest("No bookings found");
+            return BadRequest(message);
         }
         /// <summary>
         /// Update the status of booking
@@ -82,14 +110,22 @@ namespace HotelBookingApplication.Controllers
         [HttpPost("Update")]
         public ActionResult UpdateBooking(int id,string status)
         {
-            var booking = _bookingService.UpdateBookingStatus(id,status);
-            if (booking != null)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Booking status updated");
-                return Ok(booking);
+                var booking = _bookingService.UpdateBookingStatus(id, status);
+                if (booking != null)
+                {
+                    _logger.LogInformation("Booking status updated");
+                    return Ok(booking);
+                }
+                message = "couldn't update";
+            }
+            catch(Exception ex) {
+                message = ex.Message;
             }
             _logger.LogError("Could not update booing status");
-            return BadRequest("couldn't update");
+            return BadRequest(message);
         }
     }
 }
