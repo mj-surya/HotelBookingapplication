@@ -16,11 +16,11 @@ namespace HotelBookingApplication.Repositories
         }
         public Hotel Add(Hotel entity)
         {
-            _context.Hotels.Add(entity);
-            _context.SaveChanges();
-            return entity;
+             _context.Hotels.Add(entity);
+             _context.SaveChanges();
+             return entity;
+           
         }
-
         public Hotel Delete(int key)
         {
             var hotel = GetById(key);

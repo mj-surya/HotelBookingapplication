@@ -3,10 +3,12 @@ using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Repositories;
+using System.Security.Cryptography.X509Certificates;
 using System.Net.Mail;
 using System.Net;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
+
 
 namespace HotelBookingApplication.Services
 {
@@ -55,7 +57,6 @@ namespace HotelBookingApplication.Services
                 Price = amount
           
             };
-            //Add the new booking to the repository
             var result = _bookingRepository.Add(booking);
             var user = _userRepository.GetById(bookingDTO.UserId);
             string message = $"Dear {user.Name},\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay. Your booking reference number is {result.BookingId}. \nSafe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
@@ -103,7 +104,7 @@ namespace HotelBookingApplication.Services
             {
                 return bookings;
             }
-            return null;
+            throw new NoBookingsAvailableException();
         }
 
         /// <summary>

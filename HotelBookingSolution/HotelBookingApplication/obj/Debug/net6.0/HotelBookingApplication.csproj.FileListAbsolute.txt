@@ -293,3 +293,6 @@ C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\ob
 E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\bin\Debug\net6.0\Newtonsoft.Json.dll
 E:\Hotel Booking\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\bin\Debug\net6.0\Twilio.dll
+C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Hotel\HotelBookingapplication\HotelBookingSolution\HotelBookingApplication\bin\Debug\net6.0\Twilio.dll

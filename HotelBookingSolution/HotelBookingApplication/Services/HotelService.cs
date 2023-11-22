@@ -8,13 +8,13 @@ namespace HotelBookingApplication.Services
     public class HotelService : IHotelService
     {
         private readonly IRepository<int, Hotel> _hotelRepository;
-        private readonly IRepository<int, Review> _reviewRepository;
+      
         private readonly IRepository<int, Room> _roomRepository;
 
-        public HotelService(IRepository<int, Hotel> repository, IRepository<int, Review> reviewRepository, IRepository<int, Room> roomRepository)
+        public HotelService(IRepository<int, Hotel> repository,  IRepository<int, Room> roomRepository)
         {
             _hotelRepository = repository;
-            _reviewRepository = reviewRepository;
+           
             _roomRepository = roomRepository;
         }
         /// <summary>
@@ -35,11 +35,12 @@ namespace HotelBookingApplication.Services
                 Description = hotelDTO.Description,
             };
             //Add the hotel to the repository
+         
             var result = _hotelRepository.Add(hotel);
-             //Check if the hotel added sucessfully and returns the hotelDTO
-            if(result != null)
+            if (result != null)
             {
-                return hotelDTO;
+               //Check if the hotel added sucessfully and returns the hotelDTO
+               return hotelDTO;
             }
             //Returns null if the hotel was not added
             return null;
@@ -63,6 +64,7 @@ namespace HotelBookingApplication.Services
                 {
                     int id = a.HotelId;
 
+<<<<<<< HEAD
                     //Check if the hotel has room
                     if (_roomRepository.GetAll().Where(r => r.HotelId == id).ToList().Count != 0)
                     {
@@ -82,6 +84,18 @@ namespace HotelBookingApplication.Services
                     return hotels;
                 }
             }catch (Exception ex)
+=======
+                    //Calculate the minimum price among all room in the hotel
+                    float price = (from Room in _roomRepository.GetAll()
+                                   where Room.HotelId == id
+                                   select (Room.Price))
+                    .Min();
+                    a.StartingPrice = price;
+                }  
+            }
+            // Check if the hotel is found with the specified city returns the hotel; Otherwise throws a new NoHotelsAvailableException
+            if (hotels != null)
+>>>>>>> 22f01333871eff8cad7ccf444fdbbb760025f3c3
             {
                 throw new NoHotelsAvailableException();
             }
