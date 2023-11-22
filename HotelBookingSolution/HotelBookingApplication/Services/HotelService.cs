@@ -64,7 +64,6 @@ namespace HotelBookingApplication.Services
                 {
                     int id = a.HotelId;
 
-<<<<<<< HEAD
                     //Check if the hotel has room
                     if (_roomRepository.GetAll().Where(r => r.HotelId == id).ToList().Count != 0)
                     {
@@ -84,18 +83,7 @@ namespace HotelBookingApplication.Services
                     return hotels;
                 }
             }catch (Exception ex)
-=======
-                    //Calculate the minimum price among all room in the hotel
-                    float price = (from Room in _roomRepository.GetAll()
-                                   where Room.HotelId == id
-                                   select (Room.Price))
-                    .Min();
-                    a.StartingPrice = price;
-                }  
-            }
             // Check if the hotel is found with the specified city returns the hotel; Otherwise throws a new NoHotelsAvailableException
-            if (hotels != null)
->>>>>>> 22f01333871eff8cad7ccf444fdbbb760025f3c3
             {
                 throw new NoHotelsAvailableException();
             }
