@@ -4,6 +4,7 @@ using HotelBookingApplication.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelBookingApplication.Controllers
 {
@@ -28,14 +29,22 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles ="Admin")]
         public ActionResult AddHotel(HotelDTO hotelDTO)
         {
-            var hotel = _hotelService.AddHotel(hotelDTO);
-            if(hotel!=null)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Hotel Added");
-                return Ok(hotel);
+                var hotel =_hotelService.AddHotel(hotelDTO);
+                if (hotel != null) {
+                    _logger.LogInformation("Hotel Added");
+                    return Ok(hotel);
+                }
+                message = "Could not add hotel";
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
             }
             _logger.LogError("Could not add hotel");
-            return BadRequest("Could not add hotel");
+            return BadRequest(message);
         }
         /// <summary>
         /// Get the details of hotel
@@ -56,6 +65,10 @@ namespace HotelBookingApplication.Controllers
             {
                 message = ex.Message;
             }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
             _logger.LogError("Could not display hotels");
             return BadRequest(message);
         }
@@ -68,15 +81,23 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult RemoveHotel(int id)
         {
-            var result = _hotelService.RemoveHotel(id);
-            if (result)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Hotel Removed");
-                return Ok("Hotel removed successfully");
-                
+                var result = _hotelService.RemoveHotel(id);
+                if (result)
+                {
+                    _logger.LogInformation("Hotel Removed");
+                    return Ok("Hotel removed successfully");
+                }
+                message = "Could not delete hotel";
+            }catch(Exception e)
+            {
+                message = e.Message;
             }
+            
             _logger.LogError("Could not remove hotel");
-            return BadRequest("Could not remove hotel");
+            return BadRequest(message);
             
         }
         /// <summary>
@@ -89,15 +110,23 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult UpdateHotel(int id, HotelDTO hotelDTO)
         {
-            var result = _hotelService.UpdateHotel(id, hotelDTO);
-            if(result!= null)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Hotel Updated");
-                return Ok(result);
-                
+                var result = _hotelService.UpdateHotel(id, hotelDTO);
+                if (result != null)
+                {
+                    _logger.LogInformation("Hotel Updated");
+                    return Ok(result);
+                }
+                message = "Could not update hotel";
+            }
+            catch(Exception e)
+            {
+                message = e.Message;
             }
             _logger.LogError("Could not update hotel");
-            return BadRequest("Could not update");
+            return BadRequest(message);
             
         }
     }
