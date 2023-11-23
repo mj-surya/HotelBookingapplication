@@ -8,13 +8,13 @@ namespace HotelBookingApplication.Services
     public class HotelService : IHotelService
     {
         private readonly IRepository<int, Hotel> _hotelRepository;
-      
+
         private readonly IRepository<int, Room> _roomRepository;
 
-        public HotelService(IRepository<int, Hotel> repository,  IRepository<int, Room> roomRepository)
+        public HotelService(IRepository<int, Hotel> repository, IRepository<int, Room> roomRepository)
         {
             _hotelRepository = repository;
-           
+
             _roomRepository = roomRepository;
         }
         /// <summary>
@@ -30,21 +30,21 @@ namespace HotelBookingApplication.Services
                 HotelName = hotelDTO.HotelName,
                 City = hotelDTO.City,
                 Address = hotelDTO.Address,
-                UserId= hotelDTO.UserId,
+                UserId = hotelDTO.UserId,
                 Phone = hotelDTO.Phone,
                 Description = hotelDTO.Description,
             };
             //Add the hotel to the repository
-         
+
             var result = _hotelRepository.Add(hotel);
             if (result != null)
             {
-               //Check if the hotel added sucessfully and returns the hotelDTO
-               return hotelDTO;
+                //Check if the hotel added sucessfully and returns the hotelDTO
+                return hotelDTO;
             }
             //Returns null if the hotel was not added
             return null;
-           
+
         }
         /// <summary>
         /// Retrieve the list of hotel object based on the city
@@ -52,9 +52,10 @@ namespace HotelBookingApplication.Services
         /// <param name="city">City to search for the hotel address </param>
         /// <returns>Return the list of hotel based on city</returns>
         /// <exception cref="NoHotelsAvailableException">Thrown when the no hotels are available for the specified city</exception>
+
         public List<Hotel> GetHotels(string city)
         {
-            try 
+            try
             {
                 //Retrieve the hotel based on the address containing containing the city from the repository
                 var hotels = _hotelRepository.GetAll().Where(c => c.Address.Contains(city, StringComparison.OrdinalIgnoreCase)).ToList();
@@ -82,7 +83,8 @@ namespace HotelBookingApplication.Services
                 {
                     return hotels;
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             // Check if the hotel is found with the specified city returns the hotel; Otherwise throws a new NoHotelsAvailableException
             {
                 throw new NoHotelsAvailableException();
@@ -101,7 +103,7 @@ namespace HotelBookingApplication.Services
             var result = _hotelRepository.Delete(id);
 
             //Check if the hotel is deleted successfully and returns true; Otherwise returns false
-            if(result!= null)
+            if (result != null)
             {
                 return true;
             }
@@ -114,13 +116,13 @@ namespace HotelBookingApplication.Services
         /// <param name="id">The unique hotel Id</param>
         /// <param name="hotelDTO">hotelDTO contains the updated details of hotel</param>
         /// <returns>Return hotelDTO when the update was success; Otherwise return null</returns>
-        public HotelDTO UpdateHotel(int id,HotelDTO hotelDTO)
-        { 
+        public HotelDTO UpdateHotel(int id, HotelDTO hotelDTO)
+        {
             //Retrieve the specified id from the repository
             var hotel = _hotelRepository.GetById(id);
 
             //Check if the hotel is found
-            if(hotel != null)
+            if (hotel != null)
             {
                 //Update the hotel details provided by the hotelDTO
                 hotel.Phone = hotelDTO.Phone;
