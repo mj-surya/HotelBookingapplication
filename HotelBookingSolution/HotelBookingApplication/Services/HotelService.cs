@@ -64,18 +64,23 @@ namespace HotelBookingApplication.Services
                 foreach (var a in hotels)
                 {
                     int id = a.HotelId;
-
-                    //Check if the hotel has room
-                    if (_roomRepository.GetAll().Where(r => r.HotelId == id).ToList().Count != 0)
+                    try
                     {
-
-                        //Calculate the minimum price among all room in the hotel
-                        float price = (from Room in _roomRepository.GetAll()
-                                       where Room.HotelId == id
-                                       select (Room.Price))
-                        .Min();
-                        a.StartingPrice = price;
+                        if (_roomRepository.GetAll().Where(r => r.HotelId == id) != null)
+                        {
+                            //Calculate the minimum price among all room in the hotel
+                            float price = (from Room in _roomRepository.GetAll()
+                                           where Room.HotelId == id
+                                           select (Room.Price))
+                            .Min();
+                            a.StartingPrice = price;
+                        }
+                    }catch (Exception ex)
+                    {
+                        a.StartingPrice = 0;
                     }
+                    //Check if the hotel has room
+                    
                 }
 
                 // Check if the hotel is found with the specified city returns the hotel; Otherwise throws a new NoHotelsAvailableException
@@ -91,7 +96,6 @@ namespace HotelBookingApplication.Services
             }
             throw new NoHotelsAvailableException();
         }
-
         /// <summary>
         /// Delete the hotel based on the unique identifier of a hotel
         /// </summary>

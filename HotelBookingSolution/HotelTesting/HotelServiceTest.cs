@@ -27,6 +27,7 @@ namespace HotelTesting
             repository = new HotelRepository(context);
             roomRepository = new RoomRepository(context);
         }
+
         [Test]
         public void AddHotelTest()
         {
@@ -40,9 +41,9 @@ namespace HotelTesting
                 UserId = "abc@gmail.com",
                 Phone = "123456789",
                 Description = "TestDescription"
+                
             };
 
-            //repository.Setup(repo => repo.Add(It.IsAny<Hotel>())).Returns(new Hotel());
 
             // Act
             var result = hotelService.AddHotel(hotelDTO);
@@ -59,29 +60,56 @@ namespace HotelTesting
             string city = "Test";
             var hotelDTO = new HotelDTO
             {
+                HotelName = "TestHotel2",
+                City = "TestCity2",
+                Address = "TestAddress2",
+                UserId = "abc@gmail.com2",
+                Phone = "1234567892",
+                Description = "TestDescription2"
+
+            };
+
+            // Act
+            hotelService.AddHotel(hotelDTO);
+            var result = hotelService.GetHotels(city);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1,result.Count);
+
+        }
+        [Test]
+        public void UpdateTest()
+        {
+            //Arrange
+            IHotelService hotelService = new HotelService(repository, roomRepository);
+            int id = 2;
+            var hotelDTO = new HotelDTO
+            {
                 HotelName = "TestHotel",
                 City = "TestCity",
                 Address = "TestAddress",
                 UserId = "abc@gmail.com",
-                Phone = "123456789",
+                Phone = "9988776655",
                 Description = "TestDescription"
             };
 
-            //repository.Setup(repo => repo.Add(It.IsAny<Hotel>())).Returns(new Hotel());
+            //Act
+            var result= hotelService.UpdateHotel(id, hotelDTO);
 
-            // Act
-            var result = hotelService.AddHotel(hotelDTO);
-            //var result2 = hotelService.GetHotels(city);
-
-            // Assert
+            //Assert
             Assert.IsNotNull(result);
-            //Assert.IsNotEmpty(result2); // Ensure that the result is not an empty list
-
-            // You might want to add more assertions based on the expected behavior of your GetHotels method
-            //Assert.AreEqual(2, result.Count); // Assuming you added two hotels in this test
-            //Assert.IsTrue(result.All(hotel => hotel.City == city));
-
+            Assert.AreEqual(hotelDTO, result);
         }
-    }
+        [Test]
+        public void DeleteTest()
+        {
+            //Arrange
+            IHotelService hotelService = new HotelService(repository, roomRepository);
+            int id = 1;
 
+            //Act
+            var result = hotelService.RemoveHotel(id);
+            Assert.IsTrue(result);        }
+    }
 }
