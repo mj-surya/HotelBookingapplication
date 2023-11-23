@@ -28,14 +28,23 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "User")]
         public ActionResult AddReview(ReviewDTO reviewDTO)
         {
-            var review = _reviewService.AddReview(reviewDTO);
-            if (review != null)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Review Added");
-                return Ok(review);
+                var review = _reviewService.AddReview(reviewDTO);
+                if (review != null)
+                {
+                    _logger.LogInformation("Review Added");
+                    return Ok(review);
+                }
+                message = "Could not add review";
+            }catch(Exception e)
+            {
+                message = e.Message;
             }
+            
             _logger.LogError("Could not add review");
-            return BadRequest("Could not add rooms");
+            return BadRequest(message);
         }
         /// <summary>
         /// Remove the review
@@ -46,15 +55,24 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "User")]
         public ActionResult DeleteReviews(int id)
         {
-            bool reviewId = _reviewService.DeleteReview(id);
-            if (reviewId)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Review Deleted");
-                return Ok("The review has been deleted successfully");
+                bool reviewId = _reviewService.DeleteReview(id);
+                if (reviewId)
+                {
+                    _logger.LogInformation("Review Deleted");
+                    return Ok("The review has been deleted successfully");
 
+                }
+                message = "Invalid Review ID";
+            }catch(Exception e)
+            {
+                message=e.Message;
             }
+            
             _logger.LogError("Unable to delete review");
-            return BadRequest("Invalid reviewId");
+            return BadRequest(message);
         }
         /// <summary>
         /// Update the review
@@ -66,15 +84,24 @@ namespace HotelBookingApplication.Controllers
         [Authorize(Roles = "User")]
         public ActionResult UpdateReview(int id, ReviewDTO reviewDTO)
         {
-            var review = _reviewService.UpdateReview(id, reviewDTO);
-            if (review != null)
+            string message = string.Empty;
+            try
             {
-                _logger.LogInformation("Review Updated");
-                return Ok("Review updated successfully");
+                var review = _reviewService.UpdateReview(id, reviewDTO);
+                if (review != null)
+                {
+                    _logger.LogInformation("Review Updated");
+                    return Ok("Review updated successfully");
 
+                }
+                message = "Unable to update review";
+            }
+            catch(Exception e)
+            {
+                message = e.Message;
             }
             _logger.LogError("Unable to update review");
-            return BadRequest("Unable to update reivew");
+            return BadRequest(message);
         }
         /// <summary>
         /// Get the review of hotel
