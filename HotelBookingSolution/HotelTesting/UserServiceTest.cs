@@ -24,7 +24,7 @@ namespace HotelTesting
         }
 
         [Test]
-        public void Test1()
+        public void UserTest()
         {
             //Arrange
             var appSettings = @"{""SecretKey"": ""Anything will work here this is just for testing""}";

@@ -42,17 +42,29 @@ namespace HotelBookingApplication.Services
 
             //Retrieve the roomId of the added room
             int id = room.RoomId;
-
-            //Iterator through each room amenities and add to the repository
-            foreach (string a in roomDTO.roomAmenities)
+            try
             {
-                RoomAmenity roomAmenity = new RoomAmenity()
+                if (roomDTO.roomAmenities.Count > 0)
                 {
-                    RoomId = id,
-                    Amenities = a,
-                };
-                _roomAmenityRepository.Add(roomAmenity);
+                    //Iterator through each room amenities and add to the repository
+                    foreach (string a in roomDTO.roomAmenities)
+                    {
+                        RoomAmenity roomAmenity = new RoomAmenity()
+                        {
+                            RoomId = id,
+                            Amenities = a,
+                        };
+                        _roomAmenityRepository.Add(roomAmenity);
+                    }
+
+                }
             }
+            catch(Exception ex)
+            {
+               
+            }
+       
+            
 
 
             //Check if the room is added sucessfully return roomDTO; Otherwise return null
@@ -90,29 +102,36 @@ namespace HotelBookingApplication.Services
         private List<Room> CheckAvailableRooms(List<Room> room, string checkIn, string checkOut)
         {
             List<Room> roomList = new List<Room>();
-            foreach (var a in room)
+            try
             {
-                var booking = (from Booking in _bookingRepository
-                .GetAll()
-                .Where(booking =>
-                booking.RoomId == a.RoomId &&
-                (DateTime.Parse(checkIn).Date >= DateTime.Parse(booking.CheckIn).Date &&
-                  DateTime.Parse(checkIn).Date <= DateTime.Parse(booking.CheckOut).Date ||
-                  DateTime.Parse(checkOut).Date <= DateTime.Parse(booking.CheckOut).Date &&
-                  DateTime.Parse(checkOut).Date >= DateTime.Parse(booking.CheckIn).Date))
-                  select Booking).ToList();
-                int count = 0;
-                foreach (var b in booking)
+                foreach (var a in room)
                 {
-                    count += b.TotalRoom;
+                    var booking = (from Booking in _bookingRepository
+                    .GetAll()
+                    .Where(booking =>
+                    booking.RoomId == a.RoomId &&
+                    (DateTime.Parse(checkIn).Date >= DateTime.Parse(booking.CheckIn).Date &&
+                      DateTime.Parse(checkIn).Date <= DateTime.Parse(booking.CheckOut).Date ||
+                      DateTime.Parse(checkOut).Date <= DateTime.Parse(booking.CheckOut).Date &&
+                      DateTime.Parse(checkOut).Date >= DateTime.Parse(booking.CheckIn).Date))
+                                   select Booking).ToList();
+                    int count = 0;
+                    foreach (var b in booking)
+                    {
+                        count += b.TotalRoom;
+                    }
+                    a.TotalRooms -= count;
+                    if (a.TotalRooms > 0)
+                    {
+                        roomList.Add(a);
+                    }
                 }
-                a.TotalRooms -= count;
-                if (a.TotalRooms > 0)
-                {
-                    roomList.Add(a);
-                }
+                return roomList;
             }
-            return roomList;
+            catch (Exception ex)
+            {
+                return room;
+            }
         }
 
         /// <summary>

@@ -51,7 +51,7 @@ namespace HotelBookingApplication.Models.DTOs
         /// Gets or sets the list of amenities available in the room.
         /// </summary>
         [Required(ErrorMessage = "Amenities cannot be empty")]
-        public List<string> roomAmenities { get; set; }
+        public List<string>? roomAmenities { get; set; }
 
     }
 }
