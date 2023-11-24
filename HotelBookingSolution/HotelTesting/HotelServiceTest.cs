@@ -46,7 +46,7 @@ namespace HotelTesting
 
 
             // Act
-            var result = hotelService.AddHotel(hotelDTO);
+            var result = hotelService.AddHotel(hotelDTO);   
 
             // Assert
             Assert.IsNotNull(result);
@@ -110,6 +110,8 @@ namespace HotelTesting
 
             //Act
             var result = hotelService.RemoveHotel(id);
+
+            //Assert
             Assert.IsTrue(result);        }
     }
 }
