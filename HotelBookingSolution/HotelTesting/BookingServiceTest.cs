@@ -39,6 +39,7 @@ namespace HotelTesting
         
         public void AddBookingTest()
         {
+            //Arrange
             IBookingService bookingService = new BookingService(repository, roomRepository, hotelRepository,userRepository);
             IHotelService hotelService = new HotelService(hotelRepository, roomRepository);
             IRoomService roomService = new RoomService(roomRepository, amenityRepository, repository);
@@ -96,40 +97,51 @@ namespace HotelTesting
                 RoomId = 1,
                 TotalRoom = 1,
             };
+            //Action
             var result1 = bookingService.AddBookingDetails(bookingDTO);
 
+            //Assert
             Assert.IsNotNull(result);
         }
         [Test]
         public void GetBookingTest()
         {
+            //Arrange
             IBookingService bookingService = new BookingService(repository, roomRepository, hotelRepository, userRepository);
             int hotelId = 1;
 
+            //Action
             var result = bookingService.GetBooking(hotelId);
 
+            //Assert
             Assert.IsNotNull(result);
         }
 
         [Test]
         public void GetUserBookingTest() 
         {
+            //Arrange
             IBookingService bookingService = new BookingService(repository, roomRepository, hotelRepository, userRepository);
             string userId = "surya@gmail.com";
 
+            //Action
             var result = bookingService.GetUserBooking(userId);
 
+            //Assert
             Assert.IsNotNull(result);
         }
 
         [Test]
         public void UpdateBookingTest() {
+            //Arrange
             IBookingService bookingService = new BookingService(repository, roomRepository, hotelRepository, userRepository);
             int id = 1;
             string status = "Cancelled";
 
+            //Action
             var result = bookingService.UpdateBookingStatus(id, status);   
             
+            //Assert
             Assert.AreEqual(result.Status,status);
         }
     }

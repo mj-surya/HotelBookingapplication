@@ -59,14 +59,15 @@ namespace HotelBookingApplication.Services
             };
             var result = _bookingRepository.Add(booking);
             var user = _userRepository.GetById(bookingDTO.UserId);
+
             string message = $"Dear {user.Name},\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay. Your booking reference number is {result.BookingId}. \nSafe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
-            string subject = $"Booking Confirmation - {hotel.HotelName}";
-            string body = $"Dear {user.Name},\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay.\nBooking Details:-\nBooking ID: {result.BookingId}\nCheck-In Date: {result.CheckIn}\nCheck-Out Date: {result.CheckOut}\nRoom Type: {room.RoomType}\nTotal Price: {amount}\n\nWe look forward to making your stay at {hotel.HotelName} a memorable experience. Safe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
+            
 
             //Check if the booking was added successfully and return the bookingDTO
             if (result != null)
             {
-                SendBookingConfirmationEmail(bookingDTO.UserId,subject,body);
+                //SendBookingConfirmationEmail(bookingDTO.UserId,subject,body);
+                SendBookingConfirmationEmail(result, hotel,user, room);
                // SendBookingConfirmationSms("+91"+user.Phone,message);
                 return bookingDTO;
             }
@@ -155,21 +156,24 @@ namespace HotelBookingApplication.Services
         /// <param name="recipientEmail">User's Email</param>
         /// <param name="subject">Subject of the email</param>
         /// <param name="body">Body text of thee email</param>
-        public void SendBookingConfirmationEmail(string recipientEmail, string subject, string body)
+        public void SendBookingConfirmationEmail(Booking booking, Hotel hotel,User user, Room room)
         {
 
             string email = "stayquesthotel@gmail.com";
             string password = "quqzbhploasumxnd";
 
             // Recipient email
-            string toEmail = recipientEmail;
+            string toEmail = booking.UserId;
 
             // Create the email message
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(email);
             mail.To.Add(toEmail);
-            mail.Subject = subject;
-            mail.Body = body;
+            mail.Subject = $"Booking Confirmation - {hotel.HotelName}"; 
+            mail.Body = $"<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Hotel Booking Confirmation</title>\r\n    <style>\r\n        body {{\r\n            font-family: Arial, sans-serif;\r\n            margin: 0;\r\n            padding: 0;\r\n            background-color: #A2FCF8;\r\n        }}\r\n\r\n        .container {{\r\n            max-width: 600px;\r\n            margin: 20px auto;\r\n            background-color: #A2FCF8;\r\n            padding: 20px;\r\n            border-radius: 10px;\r\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n        }}\r\n\r\n        h2 {{\r\n            color: #333333;\r\n        }}\r\n\r\n        p {{\r\n            color: #666666;\r\n        }}\r\n\r\n        .booking-details {{\r\n            margin-top: 20px;\r\n            padding: 10px;\r\n            background-color: #f0f0f0;\r\n            border-radius: 5px;\r\n        }}\r\n\r\n        .footer {{\r\n            margin-top: 20px;\r\n            text-align: center;\r\n            color: #999999;\r\n        }}\r\n    </style>\r\n</head>\r\n<body>\r\n    <div class=\"container\">\r\n        <h2>Hotel Booking Confirmation</h2>\r\n        <p>Dear {user.Name},</p>\r\n        <p>We are delighted to confirm your booking at {hotel.HotelName}.</p>\r\n\r\n        <div class=\"booking-details\">\r\n            <p><strong>Booking Details:</strong></p>\r\n            <p><strong>Booking ID:</strong>{booking.BookingId}</p>\r\n            <p><strong>Hotel:</strong>{hotel.HotelName} </p>\r\n            <p><strong>Check-in Date:</strong> {booking.CheckIn}</p>\r\n            <p><strong>Check-out Date:</strong>{booking.CheckOut} </p>\r\n            <p><strong>Room Type:</strong> {room.RoomType}</p>\r\n            <p><strong>Total Price:</strong> {booking.Price}</p>\r\n        </div>\r\n\r\n        <p>Thank you for choosing to stay with us. If you have any questions or need further assistance, feel free to contact us.</p>\r\n\r\n        <div class=\"footer\">\r\n            <p>Best Regards,<br>{hotel.HotelName} Team</p>\r\n        </div>\r\n    </div>\r\n</body>\r\n</html>\r\n";
+            mail.IsBodyHtml = true;
+
+
 
             // Set up SMTP client
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");

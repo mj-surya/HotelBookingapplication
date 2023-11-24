@@ -35,6 +35,7 @@ namespace HotelTesting
         [Test]
         public void AddRoomTest()
         {
+            //Arrange
             IRoomService roomService = new RoomService(repository, amenityRepository, bookingRepository);
 
             var roomDTO = new RoomDTO
@@ -48,19 +49,26 @@ namespace HotelTesting
                 TotalRooms = 2,
                 roomAmenities = {}
             };
+
+            //Action
             var result = roomService.AddRoom(roomDTO);
 
+            //Assert
             Assert.IsNotNull(result);
         }
         [Test]
         public void GetRoomTest()
         {
+            //Arrange
             IRoomService roomService = new RoomService(repository, amenityRepository, bookingRepository);
             int hotelId = 1;
             string checkIn = "23-11-2023";
             string checkOut = "25-11-2023";
+
+            //Action
             var result = roomService.GetRooms(hotelId, checkIn, checkOut);
       
+            //Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(1,result.Count);
            
@@ -68,6 +76,8 @@ namespace HotelTesting
 
         [Test]
         public void UpdateRoomsTest() {
+
+            //Arrange
             IRoomService roomService = new RoomService(repository, amenityRepository, bookingRepository);
             var roomDTO = new RoomDTO
             {
@@ -80,8 +90,11 @@ namespace HotelTesting
                 TotalRooms = 2,
                 roomAmenities = { }
             };
+
+            //Action
              var result = roomService.UpdateRoom(1,roomDTO);
             
+            //Assert
             Assert.IsNotNull(result);
 
             Assert.AreEqual(result.Capacity, roomDTO.Capacity);
@@ -90,6 +103,7 @@ namespace HotelTesting
         [Test]
         public void DeleteRoomsTest()
         {
+            //Arrange
             IRoomService roomService = new RoomService(repository, amenityRepository, bookingRepository);
             var roomDTO = new RoomDTO
             {
@@ -104,8 +118,10 @@ namespace HotelTesting
             };
             var result = roomService.AddRoom(roomDTO);
 
+            //Action
             var result2 = roomService.RemoveRoom(2);
 
+            //Assert
             Assert.IsTrue(result2);
         }
     }
