@@ -1,5 +1,6 @@
 ﻿using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models.DTOs;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ namespace HotelBookingApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("reactApp")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;

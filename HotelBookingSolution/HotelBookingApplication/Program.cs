@@ -48,7 +48,17 @@ namespace HotelBookingApplication
                      }
                  });
             });
-
+            
+            #region CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("reactApp", opts =>
+                {
+                    opts.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+                });
+            });
+            #endregion
+            
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -93,6 +103,7 @@ namespace HotelBookingApplication
 
             app.UseRouting();
 
+            app.UseCors("reactApp");
             app.UseAuthentication();
             app.UseAuthorization();
 
