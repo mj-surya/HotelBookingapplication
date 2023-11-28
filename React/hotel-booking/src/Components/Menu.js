@@ -1,0 +1,44 @@
+import './Menu.css';
+import { Link } from "react-router-dom";
+
+function Menu(){
+    return(
+        <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light pad ">
+            <a class="navbar-brand pad" href="#">Stay Quest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">☰</button> 
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active"> <Link class="nav-link" to="/Home">Home</Link>
+                    </li>
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hotels</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <Link class="dropdown-item" to="/AddHotel">Add Hotel</Link>
+                            <a class="dropdown-item" href="#">Update Hotel</a>
+                            <a class="dropdown-item" href="#">Delete Hotel</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Rooms</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Add Room</a>
+                            <a class="dropdown-item" href="#">Update Room</a>
+                            <a class="dropdown-item" href="#">Delete Room</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Bookings</a>
+                    </li>
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">UserName</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <Link class="dropdown-item" to="/Login">Login</Link>
+                            <a class="dropdown-item" href="#">logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    )
+}
+
+export default Menu;

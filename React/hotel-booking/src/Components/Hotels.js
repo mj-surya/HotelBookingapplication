@@ -25,7 +25,7 @@ function Hotels(){
     }
     var checkHotels = HotelList.length>0?true:false;
     return(
-        <div className="hotels">
+        <div className="hotels mrg" >
             <form>
                 <div class="row">
                     <div class="col">

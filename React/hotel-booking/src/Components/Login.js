@@ -5,13 +5,16 @@ function Login(){
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
 
-    const login = (event)=>{
-        event.preventDefault();
+    const login = ()=>{
         axios.post("http://localhost:5272/api/User/login",{
             email: username,
             password:password
         }).then((myData)=>{
-            console.log(myData)
+            var token = myData.data.token;
+            var role = myData.data.role;
+            localStorage.setItem("token",token);
+            localStorage.setItem("role",role);
+            
         })
         .catch((err)=>{
             console.log(err)

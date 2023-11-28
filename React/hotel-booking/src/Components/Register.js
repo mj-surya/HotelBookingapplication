@@ -11,8 +11,7 @@ function Register(){
     const [address,setAddress] = useState("");
     const [phone,setPhone] = useState("");
     
-    const signUp = (event)=>{
-        event.preventDefault();
+    const signUp = ()=>{
         axios.post("http://localhost:5272/api/User/register",{
             email: username,
             role:	role,
@@ -23,6 +22,9 @@ function Register(){
             reTypePassword : repassword
         })
         .then((userData)=>{
+            var token = userData.data.token;
+            localStorage.setItem("token",token);
+            localStorage.setItem("role",userData.data.role);
             console.log(userData)
         })
         .catch((err)=>{
