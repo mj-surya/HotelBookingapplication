@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
+
 
 namespace HotelBookingApplication.Models.DTOs
 {
@@ -39,5 +41,11 @@ namespace HotelBookingApplication.Models.DTOs
         /// Gets or sets the description of the hotel.
         /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// Gets and Sets Image for hotel
+        /// </summary>
+        [Required(ErrorMessage = "Image is Mandatory")]
+        public IFormFile Image { get; set; }
+        
     }
 }

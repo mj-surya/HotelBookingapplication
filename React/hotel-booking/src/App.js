@@ -1,13 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Register from './Components/Register';
-import Home from './Components/Home';
-import Login from './Components/Login';
+import Hotels from './Components/Hotels';
+import AddHotel from './Components/AddHotel';
 
 function App() {
   return (
     <div className="App">
-      <Login/>
+      <Hotels/>
+      <hr/>
+      <AddHotel/>
     </div>
   );
 }

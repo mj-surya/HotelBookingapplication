@@ -2,14 +2,18 @@
 using HotelBookingApplication.Interfaces;
 using HotelBookingApplication.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace HotelBookingApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("reactApp")]
     public class HotelController : ControllerBase
     {
         private readonly IHotelService _hotelService;
@@ -26,14 +30,32 @@ namespace HotelBookingApplication.Controllers
         /// <param name="hotelDTO">Details of hotel to be added</param>
         /// <returns>Details of hotel</returns>
         [HttpPost("AddHotel")]
-        [Authorize(Roles ="Admin")]
-        public ActionResult AddHotel(HotelDTO hotelDTO)
+        //[Authorize(Roles ="Admin")]
+        public ActionResult AddHotel([FromForm] IFormCollection data )
         {
+            IFormFile file = data.Files["image"]; 
+
+            if (file != null && file.Length > 0)
+            {
+                string filename = file.FileName;
+                string path = Path.Combine(@".\wwwroot\Images", filename);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+            }
+            string json = data["json"];
+            HotelDTO hotelDTO = JsonConvert.DeserializeObject<HotelDTO>(json);
+            hotelDTO.Image = file;
+
             string message = string.Empty;
             try
             {
-                var hotel =_hotelService.AddHotel(hotelDTO);
-                if (hotel != null) {
+
+
+                var hotel = _hotelService.AddHotel(hotelDTO);
+                if (hotel != null)
+                {
                     _logger.LogInformation("Hotel Added");
                     return Ok(hotel);
                 }

@@ -31,8 +31,7 @@ function Register(){
     }
         return (
             <div >
-              <section className='modal-main'>
-                { <form className="registerForm">
+              <form className="registerForm">
                 <label className="form-control">Name</label>
                 <input type="text" className="form-control" value={name}
                         onChange={(e)=>{setName(e.target.value)}}/>
@@ -66,8 +65,7 @@ function Register(){
            
             <br/>
             <button className="btn btn-primary button" onClick={signUp}>Sign Up</button>
-        </form>}
-              </section>
+        </form>
             </div>
           );
 

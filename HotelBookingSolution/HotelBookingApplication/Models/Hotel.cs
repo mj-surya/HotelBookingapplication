@@ -47,5 +47,7 @@ namespace HotelBookingApplication.Models
         /// Gets or sets the starting price of the hotel
         /// </summary>
         public float StartingPrice { get; set; } = 0;
+
+        public string Image { get; set; }
     }
 }

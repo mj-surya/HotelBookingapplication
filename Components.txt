@@ -1,0 +1,24 @@
+Components:
+User:
+	Login
+	Register
+	
+Hotels:
+	AddHotel(Admin)
+	SearchHotels
+	UpdateHotel(Admin)
+	
+Rooms:
+	AddRoom(Admin)
+	GetRooms
+	UpdateRoom(Admin)
+	
+Bookings:
+	AddBooking
+	GetUserBooking
+	GetAdminBooking(Admin)
+	
+Reviews:
+	AddReview
+	EditReview
+	GetReviews

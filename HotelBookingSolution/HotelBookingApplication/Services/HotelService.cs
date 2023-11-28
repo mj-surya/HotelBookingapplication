@@ -33,6 +33,7 @@ namespace HotelBookingApplication.Services
                 UserId = hotelDTO.UserId,
                 Phone = hotelDTO.Phone,
                 Description = hotelDTO.Description,
+                Image = "http://localhost:5272/Images/" + hotelDTO.Image.FileName
             };
             //Add the hotel to the repository
 
