@@ -2,13 +2,16 @@
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace HotelBookingApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("reactApp")]
     public class RoomController : ControllerBase
     {
         private readonly IRoomService _roomService;
@@ -57,9 +60,23 @@ namespace HotelBookingApplication.Controllers
         /// <param name="roomDTO">information of room</param>
         /// <returns>the room details</returns>
         [HttpPost("CreateRooms")]
-        [Authorize(Roles = "Admin")]
-        public ActionResult CreateRooms(RoomDTO roomDTO)
+       // [Authorize(Roles = "Admin")]
+        public ActionResult CreateRooms([FromForm] IFormCollection data)
         {
+            IFormFile file = data.Files["image"];
+
+            if (file != null && file.Length > 0)
+            {
+                string filename = file.FileName;
+                string path = Path.Combine(@".\wwwroot\Images", filename);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                        file.CopyTo(stream);
+                }
+            }
+            string json = data["json"];
+            RoomDTO roomDTO = JsonConvert.DeserializeObject<RoomDTO>(json);
+            roomDTO.Picture = file;
             string message = string.Empty;
             try
             {

@@ -33,7 +33,7 @@ namespace HotelBookingApplication.Services
                 HotelId=roomDTO.HotelId,
                 Capacity = roomDTO.Capacity,
                 TotalRooms = roomDTO.TotalRooms,
-                Picture = roomDTO.Picture,
+                Picture = "http://localhost:5272/Images/" + roomDTO.Picture.FileName,
                 Description = roomDTO.Description,
             };
 
