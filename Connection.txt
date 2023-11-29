@@ -1,0 +1,1 @@
+"shoppingCon": "Data source=MJSURYA\\DEMOINSTANCE;user id=sa;password=mj7surya;Initial catalog=dbShoppingApp"

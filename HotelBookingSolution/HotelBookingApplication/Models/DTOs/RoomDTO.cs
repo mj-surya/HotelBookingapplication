@@ -45,7 +45,7 @@ namespace HotelBookingApplication.Models.DTOs
         /// Gets or sets the path to the image representing the room.
         /// </summary>
         [Required(ErrorMessage = "Images cannot be empty")]
-        public string Picture { get; set; }
+        public IFormFile Picture { get; set; }
 
         /// <summary>
         /// Gets or sets the list of amenities available in the room.
