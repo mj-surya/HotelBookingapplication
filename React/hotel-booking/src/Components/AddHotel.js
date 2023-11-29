@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link, Navigate } from "react-router-dom";
 
 function Addhotel(){
     const [hotelname,setHotelname] = useState("");
@@ -8,7 +9,6 @@ function Addhotel(){
     const [address,setAddress] = useState("");
     const [phone,setPhone] = useState("");
     const [description,setDescription] = useState("");
-    //const [image, setImage] = useState("");
     var image =null;
 
     const addHotel = (event)=>{
@@ -32,11 +32,15 @@ function Addhotel(){
             }
         })
         .then((userData)=>{
+            alert("Hotel added successfully")
+            return(<Navigate to="/Home"/>)
             console.log(userData)
         })
         .catch((err)=>{
+            alert("Could not add hotel")
             console.log(err)
         })
+        
     }
     const handleimg=(e)=>{
         image=e.target.files[0];
@@ -45,14 +49,14 @@ function Addhotel(){
     return(
         <div>
             <form className="addhotel">
-                <input type="text" placeholder="Hotel Name" className="form-control" value={hotelname} onChange={(e)=>{setHotelname(e.target.value)}}/>
+                <input type="text" required placeholder="Hotel Name" className="form-control" value={hotelname} onChange={(e)=>{setHotelname(e.target.value)}}/>
                 <input type="email" placeholder="User Id" className="form-control" value={userId} onChange={(e)=>{setUserId(e.target.value)}}/>
                 <input type="text" placeholder="City" className="form-control" value={city} onChange={(e)=>{setCity(e.target.value)}}/>
                 <textarea  type="text" placeholder= "Adddress" className="form-control" value={address} onChange={(e)=>{setAddress(e.target.value)}}/>
                 <input type="tel" palaceholder="Phone" classNme="form-control" value={phone} onChange={(e)=>{setPhone(e.target.value)}}/>
                 <input type="text" placeholder="Description" className="form-control" value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
-                <input type="file" accept="image/*" placeholder="Image" className="form-control" value={image} onChange={handleimg}/>
-                <button className="btn btn-primary button" onClick={addHotel}>Add Hotel</button>
+                <input type="file" accept="image/*" placeholder="Image" className="form-control" value={image} onChange={handleimg} required/>
+                <button className="btn btn-primary button" to="/Home" onClick={addHotel} >Add Hotel</button>
             </form>
         </div>
     )

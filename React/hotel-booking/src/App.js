@@ -13,10 +13,10 @@ import MenuUser from './Components/MenuUser';
 function App() {
   var usertype = localStorage.getItem('role');
   return (
-    <div>
       <BrowserRouter>
       {usertype==="Admin"?<Menu/> : <MenuUser/> }
-        <Routes>
+      <div className='margin'>
+      <Routes>
           <Route path="Register" element={<Register/>} />
           <Route path="Home" element={<Hotels />} />
           <Route path="Login" element={<Login />} />
@@ -28,9 +28,8 @@ function App() {
               </Protected>
             }/>
         </Routes>
-        
+      </div>
       </BrowserRouter>
-    </div>
   );
 }
 

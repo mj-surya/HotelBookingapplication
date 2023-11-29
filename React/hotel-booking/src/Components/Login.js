@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link, Navigate } from "react-router-dom";
 
 function Login(){
     const [username,setUsername] = useState("");
@@ -19,6 +20,8 @@ function Login(){
         .catch((err)=>{
             console.log(err)
         })
+        window.reload();
+        
     }
 return(
     <div>
@@ -31,7 +34,7 @@ return(
         <input type="password" className="form-control" value={password}
                         onChange={(e)=>{setPassword(e.target.value)}}/>
 
-        <button className="btn btn-primary button" onClick={login}>Login</button>
+        <Link className="btn btn-primary button" to="/Home" onClick={login}>Login</Link>
         
         </form>
     </div>

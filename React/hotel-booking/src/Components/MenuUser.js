@@ -1,7 +1,13 @@
 import './Menu.css';
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 function MenuUser(){
+    const logout=()=>{
+        localStorage.clear();
+        window.reload();
+
+    }
+    
     return(
         <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light pad ">
             <a class="navbar-brand pad" href="#">Stay Quest</a>
@@ -32,7 +38,7 @@ function MenuUser(){
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">UserName</a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <Link class="dropdown-item" to="/Login">Login</Link>
-                            <a class="dropdown-item" href="#">logout</a>
+                            <Link class="dropdown-item" to="/Home" onClick={logout}>logout</Link>
                         </div>
                     </li>
                 </ul>

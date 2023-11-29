@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uDO7ioflOUMDBTI6OIXwI1UKk3G+875iKTU5Z8AE/n0=",
+  "Hash": "pOWEp+zIuWJEW6fr9Mf8HTEfTGQYQ6ZCfZZ+VAaDqpQ=",
   "Source": "HotelBookingApplication",
   "BasePath": "_content/HotelBookingApplication",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel2.jpg",
+      "SourceId": "HotelBookingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\",
+      "BasePath": "_content/HotelBookingApplication",
+      "RelativePath": "Images/Hotel2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Hotel2.jpg"
+    },
+    {
+      "Identity": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel3.jpg",
+      "SourceId": "HotelBookingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\",
+      "BasePath": "_content/HotelBookingApplication",
+      "RelativePath": "Images/Hotel3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Hotel3.jpg"
     },
     {
       "Identity": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\js\\site.js",

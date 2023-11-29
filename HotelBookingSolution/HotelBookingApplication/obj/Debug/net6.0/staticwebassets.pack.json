@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\HotelBookingApplication.bundle.scp.css"
     },
     {
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel2.jpg",
+      "PackagePath": "staticwebassets\\Images\\Hotel2.jpg"
+    },
+    {
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel3.jpg",
+      "PackagePath": "staticwebassets\\Images\\Hotel3.jpg"
+    },
+    {
       "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
