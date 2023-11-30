@@ -80,7 +80,7 @@ namespace HotelTesting
                 RoomType = "single",
                 HotelId = 1,
                 Price = 1000,
-      
+
                 Capacity = 2,
                 Description = "description",
                 TotalRooms = 2,

@@ -108,7 +108,7 @@ namespace HotelBookingApplication.Controllers
         /// </summary>
         /// <param name="hotelId">id of hotel</param>
         /// <returns>display the review of hotel</returns>
-        [HttpPost("GetReview")]
+        [HttpGet("GetReview")]
         public ActionResult GetAvailableReviews(int hotelId)
         {
             string errorMessage = "";

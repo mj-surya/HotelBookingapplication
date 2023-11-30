@@ -19,6 +19,7 @@ namespace HotelBookingApplication.Services
         /// <returns>Return the reviewDTO if the review is added successfully; Otherwise return null</returns>
         public ReviewDTO AddReview(ReviewDTO reviewDTO)
         {
+            DateTime dateTime = DateTime.Now;
             //Create a new review object with details provided by the reviewDTO
             Review review = new Review()
             {
@@ -26,7 +27,7 @@ namespace HotelBookingApplication.Services
                 HotelId = reviewDTO.HotelId,
                 Reviews = reviewDTO.Reviews,
                 Rating = reviewDTO.Rating,
-                Date = reviewDTO.Date
+                Date = dateTime.ToString()
             };
             
             //Add the review to the repository
@@ -89,6 +90,7 @@ namespace HotelBookingApplication.Services
             //Retrieve the review object based on the provided id from the repository
             var review = _reviewrepository.GetById(id);
 
+            DateTime dateTime = DateTime.Now;
             //Check if the review is found
             if (review != null)
             {
@@ -97,7 +99,7 @@ namespace HotelBookingApplication.Services
                 review.UserId = reviewDTO.UserId;
                 review.Reviews = reviewDTO.Reviews;
                 review.Rating = reviewDTO.Rating;
-                review.Date = reviewDTO.Date;
+                review.Date = dateTime.ToString();
 
                 //Update the review in the repository
                 var result = _reviewrepository.Update(review);

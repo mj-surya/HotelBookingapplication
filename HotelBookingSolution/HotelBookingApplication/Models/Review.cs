@@ -33,7 +33,7 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the rating given by the user for the hotel
         /// </summary>
-        public string Rating { get; set; }
+        public float Rating { get; set; }
 
         /// <summary>
         /// Gets or sets the date when the review was submitted 

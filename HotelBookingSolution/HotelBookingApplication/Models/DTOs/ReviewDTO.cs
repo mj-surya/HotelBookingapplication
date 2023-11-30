@@ -27,12 +27,6 @@ namespace HotelBookingApplication.Models.DTOs
         /// Gets or sets the rating given by the user for the hotel.
         /// </summary>
         [Required(ErrorMessage = "Rating cannot be empty")]
-        public string Rating { get; set; }
-        [Required(ErrorMessage = "Date cannot be empty")]
-
-        /// <summary>
-        /// Gets or sets the date when the review was submitted.
-        /// </summary>
-        public string Date { get; set; }
+        public float Rating { get; set; }
     }
 }
