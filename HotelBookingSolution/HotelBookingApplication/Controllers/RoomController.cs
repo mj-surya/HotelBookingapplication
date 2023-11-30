@@ -29,7 +29,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="checkIn">check in date</param>
         /// <param name="checkOut">check out date</param>
         /// <returns>Display the available room</returns>
-        [HttpPost(" GetAvailableRooms")]
+        [HttpGet("GetAvailableRooms")]
         public ActionResult GetAvailableRooms(int hotelId,string checkIn, string checkOut)
         {
             string errorMessage = "";

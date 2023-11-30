@@ -34,5 +34,6 @@ namespace HotelBookingApplication.Models.DTOs
         [Required(ErrorMessage = "Total rooms cannot be empty")]
         public int TotalRoom { get; set; }
 
+ 
     }
 }

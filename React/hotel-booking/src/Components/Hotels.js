@@ -1,12 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
 import './HotelCard.css';
+import Rooms from "./Rooms";
+import { Navigate } from "react-router";
+import { useNavigate } from "react-router";
+
 
 function Hotels(){
     const [HotelList,setHotelList]=useState([]);
     const [search,setSearch] = useState("");
     const [checkIn,setCheckIn] = useState("");
     const [checkOut,setCheckOut] = useState("");
+    const navigate = useNavigate();
+
     var getHotels = (event)=>{
         event.preventDefault();
         axios.get('http://localhost:5272/api/Hotel',{
@@ -23,7 +29,14 @@ function Hotels(){
             console.log(error);
         })
     }
+
+    
     var checkHotels = HotelList.length>0?true:false;
+
+    const view = (hotelId)=>{
+    navigate("/GetRoom", { state: { hotelId, checkIn, checkOut } }); 
+    }
+    
     return(
         <div className="hotels mrg" >
             <form>
@@ -60,8 +73,7 @@ function Hotels(){
                                 </div>
                                 < div class="col-3">
                                     <h5>Price</h5>
-                                    <button>View</button>
-                                    <button>Book</button>
+                                    <button onClick={()=>view(hotel.hotelId)}>View</button>
                                 </div>
                             </div>
                         </div>
