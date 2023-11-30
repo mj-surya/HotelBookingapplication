@@ -54,7 +54,8 @@ namespace HotelBookingApplication.Services
                 TotalRoom = bookingDTO.TotalRoom,
                 Status = "Booked",
                 BookingDate = dateTime.ToString(),
-                Price = amount
+                Price = amount,
+                Payment = bookingDTO.Payment
           
             };
             var result = _bookingRepository.Add(booking);

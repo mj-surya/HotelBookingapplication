@@ -29,7 +29,7 @@ function MenuUser(){
                         <div class="dropdown-menu dropdown-menu-right">
                             <Link class="dropdown-item" to="/AddRoom">Add Room</Link>
                             <Link class="dropdown-item" to="/GetRoom">Update Room</Link>
-                            <a class="dropdown-item" href="#">Delete Room</a>
+                            <Link class="dropdown-item" to="AddBooking">Delete Room</Link>
                         </div>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Bookings</a>

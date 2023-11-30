@@ -29,9 +29,9 @@ function Menu(){
                     <li class="nav-item dropdown"> 
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Rooms</a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Add Room</a>
-                            <a class="dropdown-item" href="#">Update Room</a>
-                            <a class="dropdown-item" href="#">Delete Room</a>
+                        <Link class="dropdown-item" to="/AddRoom">Add Room</Link>
+                            <Link class="dropdown-item" to="/GetRoom">Update Room</Link>
+                            <Link class="dropdown-item" to="AddBooking">Delete Room</Link>
                         </div>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Bookings</a>

@@ -32,7 +32,9 @@ function Rooms(props){
             setRoomList(posts);
         })
         .catch(function (error) {
+            alert("Could not get hotel")
             console.log(error);
+           
         })
     }
 

@@ -14,7 +14,7 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the unique identifier for the user making the booking.
         /// </summary>
-        public String UserId { get; set; }
+        public string UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the associated User object for the booking user.
@@ -59,6 +59,6 @@ namespace HotelBookingApplication.Models
         /// </summary>
         public float Price { get; set; }
 
-        
+        public string Payment { get; set; }
     }
 }

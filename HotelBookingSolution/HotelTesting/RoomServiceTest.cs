@@ -43,7 +43,7 @@ namespace HotelTesting
                 RoomType = "single",
                 HotelId = 1,
                 Price = 1000,
-                Picture = "",
+               
                 Capacity = 2,
                 Description = "description",
                 TotalRooms = 2,
@@ -84,7 +84,7 @@ namespace HotelTesting
                 RoomType = "single",
                 HotelId = 1,
                 Price = 1000,
-                Picture = "",
+               
                 Capacity = 4,
                 Description = "description",
                 TotalRooms = 2,
@@ -110,7 +110,7 @@ namespace HotelTesting
                 RoomType = "single",
                 HotelId = 1,
                 Price = 1000,
-                Picture = "",
+              
                 Capacity = 2,
                 Description = "description",
                 TotalRooms = 2,
