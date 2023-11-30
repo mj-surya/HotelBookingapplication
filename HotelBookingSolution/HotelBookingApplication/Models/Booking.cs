@@ -58,5 +58,6 @@ namespace HotelBookingApplication.Models
         /// Gets or sets the total price for the booking
         /// </summary>
         public float Price { get; set; }
+        public string Payment {  get; set; }
     }
 }

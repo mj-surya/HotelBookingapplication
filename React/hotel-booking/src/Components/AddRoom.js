@@ -55,6 +55,11 @@ function AddRoom(){
         image=e.target.files[0];
         console.log(e.target.files[0]);
     }
+    const RemoveAmenity = (index) => {
+    const updatedList = [...roomAmenities];
+    updatedList.splice(index, 1);
+    setRoomAmenities(updatedList);
+  };
     return(
         <div>
             <form>
@@ -68,7 +73,7 @@ function AddRoom(){
                 <ul>
                     <p>Amenities : {roomAmenities.length}</p>
                     {roomAmenities.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <li key={index} >{item} <span onClick={RemoveAmenity}>(remove)</span> </li>
                     ))}
                 </ul>
                     <input type="text" placeholder="Amenities" className="form-control" value={Amenity} onChange={(e)=> {setAmenity(e.target.value)}} />

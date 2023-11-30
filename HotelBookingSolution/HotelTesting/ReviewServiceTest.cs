@@ -36,16 +36,14 @@ namespace HotelTesting
                 UserId = "test@gmail.com",
                 HotelId= 1,
                 Reviews = "Test",
-                Rating = "5",
-                Date = "24-11-2023"
+                Rating = 5,
             };
             var reviewDTO2 = new ReviewDTO
             {
                 UserId = "test2@gmail.com",
                 HotelId = 1,
                 Reviews = "Test2",
-                Rating = "4",
-                Date = "26-11-2023"
+                Rating = 4,
             };
 
             //Act
@@ -79,8 +77,7 @@ namespace HotelTesting
                 UserId = "test@gmail.com",
                 HotelId = 1,
                 Reviews = "Test",
-                Rating = "3",
-                Date = "24-11-2023"
+                Rating = 3,
             };
 
             //Act
@@ -88,7 +85,7 @@ namespace HotelTesting
 
             //Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual("3", result.Rating);
+            Assert.AreEqual(3, result.Rating);
 
         }
         [Test]

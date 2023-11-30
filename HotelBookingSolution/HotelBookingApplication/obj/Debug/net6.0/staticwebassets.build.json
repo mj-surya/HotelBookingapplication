@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oMs8zB7XttBbuQwGgO0Dsb5Zrbx+MGDI/Gke4cBVUuQ=",
+  "Hash": "Ds6s+dw/zWH+d7wgLLQqFgc3RIpLDcrwkiiQ0erMuf4=",
   "Source": "HotelBookingApplication",
   "BasePath": "_content/HotelBookingApplication",
   "Mode": "Default",
@@ -119,6 +119,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\download.jpg"
     },
     {
+      "Identity": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel1.png",
+      "SourceId": "HotelBookingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\",
+      "BasePath": "_content/HotelBookingApplication",
+      "RelativePath": "Images/Hotel1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Hotel1.png"
+    },
+    {
       "Identity": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel3.jpg",
       "SourceId": "HotelBookingApplication",
       "SourceType": "Discovered",
@@ -151,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\pencil (1).png"
+    },
+    {
+      "Identity": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Room1.jpg",
+      "SourceId": "HotelBookingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\",
+      "BasePath": "_content/HotelBookingApplication",
+      "RelativePath": "Images/Room1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Room1.jpg"
     },
     {
       "Identity": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\js\\site.js",

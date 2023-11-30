@@ -9,6 +9,8 @@ import Protected from './Protected';
 import Login from './Components/Login';
 import MenuUser from './Components/MenuUser';
 import AddRoom from './Components/AddRoom';
+import AddReview from './Components/AddReview';
+import Reviews from './Components/Reviews';
 
 
 function App() {
@@ -31,7 +33,7 @@ function App() {
       //   </Routes>
       // </div>
       // </BrowserRouter>
-      <AddRoom/>
+      <Reviews/>
   );
 }
 

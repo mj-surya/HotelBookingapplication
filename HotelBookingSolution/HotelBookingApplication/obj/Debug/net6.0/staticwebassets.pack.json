@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\HotelBookingApplication.bundle.scp.css"
     },
     {
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel1.png",
+      "PackagePath": "staticwebassets\\Images\\Hotel1.png"
+    },
+    {
       "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel3.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel3.jpg"
+    },
+    {
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Room1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Room1.jpg"
     },
     {
       "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\blue-light-background.jpg",

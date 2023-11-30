@@ -37,8 +37,11 @@ function MenuUser(){
                     <li class="nav-item dropdown"> 
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">UserName</a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <Link class="dropdown-item" to="/Login">Login</Link>
-                            <Link class="dropdown-item" to="/Home" onClick={logout}>logout</Link>
+                            {localStorage.getItem("token")?<Link class="dropdown-item" to="/Home" onClick={logout}>logout</Link> 
+                            :
+                            <div><Link class="dropdown-item" to="/Login">Login</Link>
+                            <Link class="dropdown-item" to="/Register">Register</Link></div>
+                            }
                         </div>
                     </li>
                 </ul>
