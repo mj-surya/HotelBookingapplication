@@ -30,7 +30,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="hotelDTO">Details of hotel to be added</param>
         /// <returns>Details of hotel</returns>
         [HttpPost("AddHotel")]
-        //[Authorize(Roles ="Admin")]
+        [Authorize(Roles ="Admin")]
         public ActionResult AddHotel([FromForm] IFormCollection data )
         {
             IFormFile file = data.Files["image"]; 
@@ -100,7 +100,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">Id of a hotel</param>
         /// <returns>Return a message</returns>
         [HttpDelete("RemoveHotel")]
-      //  [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult RemoveHotel(int id)
         {
             string message = string.Empty;
@@ -129,7 +129,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="hotelDTO">Inforamtion of hotel</param>
         /// <returns>updated message</returns>
         [HttpPut("UpdateHotel")]
-       // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult UpdateHotel(int id,UpdateHotelDTO hotelDTO)
         {
             string message = string.Empty;

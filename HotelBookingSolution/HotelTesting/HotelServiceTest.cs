@@ -17,6 +17,8 @@ namespace HotelTesting
     {
         IRepository<int, Hotel> repository;
         IRepository<int, Room> roomRepository;
+        IRepository<int, Review> reviewRepository;
+
         [SetUp]
         public void Setup()
         {
@@ -32,7 +34,7 @@ namespace HotelTesting
         public void AddHotelTest()
         {
             //Arragne
-            IHotelService hotelService = new HotelService(repository,roomRepository);
+            IHotelService hotelService = new HotelService(repository,roomRepository, reviewRepository);
             var hotelDTO = new HotelDTO
             {
                 HotelName = "TestHotel",
@@ -41,7 +43,6 @@ namespace HotelTesting
                 UserId = "abc@gmail.com",
                 Phone = "123456789",
                 Description = "TestDescription"
-                
             };
 
 
@@ -56,7 +57,7 @@ namespace HotelTesting
         public void GetHotelTest()
         {
             // Arrange
-            IHotelService hotelService = new HotelService(repository, roomRepository);
+            IHotelService hotelService = new HotelService(repository, roomRepository, reviewRepository);
             string city = "Test";
             var hotelDTO = new HotelDTO
             {
@@ -82,14 +83,14 @@ namespace HotelTesting
         public void UpdateTest()
         {
             //Arrange
-            IHotelService hotelService = new HotelService(repository, roomRepository);
+            IHotelService hotelService = new HotelService(repository, roomRepository, reviewRepository);
             int id = 2;
-            var hotelDTO = new HotelDTO
+            var hotelDTO = new UpdateHotelDTO
             {
                 HotelName = "TestHotel",
                 City = "TestCity",
                 Address = "TestAddress",
-                UserId = "abc@gmail.com",
+               
                 Phone = "9988776655",
                 Description = "TestDescription"
             };
@@ -105,7 +106,7 @@ namespace HotelTesting
         public void DeleteTest()
         {
             //Arrange
-            IHotelService hotelService = new HotelService(repository, roomRepository);
+            IHotelService hotelService = new HotelService(repository, roomRepository, reviewRepository);
             int id = 1;
 
             //Act
