@@ -121,7 +121,7 @@ namespace HotelBookingApplication.Services
         /// <param name="id">The unique hotel Id</param>
         /// <param name="hotelDTO">hotelDTO contains the updated details of hotel</param>
         /// <returns>Return hotelDTO when the update was success; Otherwise return null</returns>
-        public HotelDTO UpdateHotel(int id, HotelDTO hotelDTO)
+        public UpdateHotelDTO UpdateHotel(int id, UpdateHotelDTO hotelDTO)
         {
             //Retrieve the specified id from the repository
             var hotel = _hotelRepository.GetById(id);
@@ -144,6 +144,15 @@ namespace HotelBookingApplication.Services
             }
             //Return null if the hotel was not found
             return null;
+        }
+
+        public Hotel GetByUserId(string id)
+        {
+            var hotel = _hotelRepository.GetAll().FirstOrDefault(u => u.UserId == id);
+            if (hotel != null)
+                return hotel;
+            return null;
+
         }
     }
 }

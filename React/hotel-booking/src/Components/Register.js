@@ -37,6 +37,7 @@ function Register(){
                 <label className="form-control">Name</label>
                 <input type="text" className="form-control" value={name}
                         onChange={(e)=>{setName(e.target.value)}}/>
+                        
                 <label className="form-control">Username</label>
                 <input type="email" className="form-control" value={username}
                         onChange={(e)=>{setUsername(e.target.value)}}/>

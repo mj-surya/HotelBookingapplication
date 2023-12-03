@@ -100,7 +100,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">Id of a hotel</param>
         /// <returns>Return a message</returns>
         [HttpDelete("RemoveHotel")]
-        [Authorize(Roles = "Admin")]
+      //  [Authorize(Roles = "Admin")]
         public ActionResult RemoveHotel(int id)
         {
             string message = string.Empty;
@@ -128,11 +128,12 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">hotel id</param>
         /// <param name="hotelDTO">Inforamtion of hotel</param>
         /// <returns>updated message</returns>
-        [HttpPost("UpdateHotel")]
-        [Authorize(Roles = "Admin")]
-        public ActionResult UpdateHotel(int id, HotelDTO hotelDTO)
+        [HttpPut("UpdateHotel")]
+       // [Authorize(Roles = "Admin")]
+        public ActionResult UpdateHotel(int id,UpdateHotelDTO hotelDTO)
         {
             string message = string.Empty;
+            
             try
             {
                 var result = _hotelService.UpdateHotel(id, hotelDTO);
@@ -148,8 +149,28 @@ namespace HotelBookingApplication.Controllers
                 message = e.Message;
             }
             _logger.LogError("Could not update hotel");
+            return BadRequest(message); 
+        }
+        [HttpGet("GetById")]
+        public ActionResult GetById(string id)
+        {
+            string message = string.Empty;
+            try
+            {
+                var result = _hotelService.GetByUserId(id);
+                if (result != null)
+                {
+                    _logger.LogInformation("Hotel Deleted");
+                    return Ok(result);
+                }
+                message = "Could not delete hotel";
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            _logger.LogError("Could not delete hotel");
             return BadRequest(message);
-            
         }
     }
 }

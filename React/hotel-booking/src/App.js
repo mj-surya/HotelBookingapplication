@@ -16,6 +16,7 @@ import Booking from './Components/Booking';
 
 import AddReview from './Components/AddReview';
 import Reviews from './Components/Reviews';
+import UpdateHotel from './Components/UpdateHotel';
 
 
 
@@ -26,7 +27,7 @@ function App() {
       // {usertype==="Admin"?<Menu/> : <MenuUser/> }
       // <div className='margin'>
       // <Routes>
-      //     <Route path="Register" element={<Register/>} />
+      //     {/* <Route path="Register" element={<Register/>} />
       //     <Route path="Home" element={<Hotels />} />
       //     <Route path="Login" element={<Login />} />
       //     <Route path="AddRoom" element={<AddRoom/>}/>
@@ -38,13 +39,14 @@ function App() {
       //         <Protected>
       //           <AddHotel />
       //         </Protected>
-      //       }/>
+      //       }/> */}
+           
       //   </Routes>
       // </div>
       // </BrowserRouter>
 
-      <Booking/>
-
+    //  <Booking/>
+    <UpdateHotel/>
 
   );
 }

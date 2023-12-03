@@ -7,7 +7,9 @@ namespace HotelBookingApplication.Interfaces
     {
         List<Hotel> GetHotels(string city);
         HotelDTO AddHotel(HotelDTO hotelDTO);
-        HotelDTO UpdateHotel(int id, HotelDTO hotelDTO);
+        UpdateHotelDTO UpdateHotel(int id, UpdateHotelDTO hotelDTO);
+
+        Hotel GetByUserId(string id);
         bool RemoveHotel(int id);
     }
 }
