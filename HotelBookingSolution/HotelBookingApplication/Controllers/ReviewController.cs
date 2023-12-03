@@ -130,5 +130,28 @@ namespace HotelBookingApplication.Controllers
             return BadRequest(errorMessage);
 
         }
+        [HttpGet("GetReviewAVG")]
+        public ActionResult GetReviewsAVG(int hotelId)
+        {
+            string errorMessage = "";
+            try
+            {
+                float result = _reviewService.GetReviews(hotelId).Select(r => r.Rating).Average();
+                if (result != null)
+                {
+                    _logger.LogInformation("Reviews Displayed");
+                    return Ok(result);
+
+                }
+            }
+            catch (NoReviewAvailableException e)
+            {
+                errorMessage = e.Message;
+            }
+            _logger.LogError("Unable to display reviews");
+            return BadRequest(errorMessage);
+
+        }
+
     }
 }

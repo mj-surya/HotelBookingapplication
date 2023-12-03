@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Images\\Hotel1.png"
     },
     {
+      "Id": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel2.jpg",
+      "PackagePath": "staticwebassets\\Images\\Hotel2.jpg"
+    },
+    {
       "Id": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel3.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel3.jpg"
     },

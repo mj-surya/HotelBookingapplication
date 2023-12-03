@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MtC2FmW6rnKKG2j2mqzEaCAQ3AA+MPlGyxM7QvRwAYQ=",
+  "Hash": "PW7p6yahfTUl3a0zOPRLh7nUyTUaHH+TRaqxAeFRemM=",
   "Source": "HotelBookingApplication",
   "BasePath": "_content/HotelBookingApplication",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Hotel1.png"
+    },
+    {
+      "Identity": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel2.jpg",
+      "SourceId": "HotelBookingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\",
+      "BasePath": "_content/HotelBookingApplication",
+      "RelativePath": "Images/Hotel2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Hotel2.jpg"
     },
     {
       "Identity": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel3.jpg",

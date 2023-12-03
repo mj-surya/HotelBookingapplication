@@ -5,7 +5,7 @@ namespace HotelBookingApplication.Interfaces
 {
     public interface IHotelService
     {
-        List<Hotel> GetHotels(string city);
+        List<HotelDisplayDTO> GetHotels(string city);
         HotelDTO AddHotel(HotelDTO hotelDTO);
         UpdateHotelDTO UpdateHotel(int id, UpdateHotelDTO hotelDTO);
 

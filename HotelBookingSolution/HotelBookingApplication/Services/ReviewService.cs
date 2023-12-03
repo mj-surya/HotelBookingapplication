@@ -69,14 +69,21 @@ namespace HotelBookingApplication.Services
         {
 
             //Retrieve the review based on the specified hotelId
-            var review = _reviewrepository.GetAll().Where(r => r.HotelId==hotelId).ToList();
-
-            //Check if review is found and return review; Otherwise throw new NoReviewAvailableException
-            if (review.Count != 0)
+            try
             {
-                return review.ToList();
+                var review = _reviewrepository.GetAll().Where(r => r.HotelId == hotelId).ToList();
+
+                //Check if review is found and return review; Otherwise throw new NoReviewAvailableException
+                if (review.Count != 0)
+                {
+                    return review.ToList();
+                }
             }
-            throw new NoReviewAvailableException();
+            catch(Exception ex)
+            {
+                throw new NoReviewAvailableException();
+            }
+            return null;
         }
 
         /// <summary>
