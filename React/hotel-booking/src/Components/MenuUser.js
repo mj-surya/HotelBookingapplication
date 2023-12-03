@@ -1,15 +1,17 @@
 import './Menu.css';
-import { Link} from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 
 function MenuUser(){
+    const navigate = useNavigate();
     const logout=()=>{
         localStorage.clear();
-        window.reload();
+        navigate('/Home');
+        window.location.reload();
 
     }
     
     return(
-        <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light pad ">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-light pad line ">
             <a class="navbar-brand pad" href="#">Stay Quest</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">☰</button> 
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -37,7 +39,7 @@ function MenuUser(){
                     <li class="nav-item dropdown"> 
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">UserName</a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            {localStorage.getItem("token")?<Link class="dropdown-item" to="/Home" onClick={logout}>logout</Link> 
+                            {localStorage.getItem("token")?<Link class="dropdown-item" onClick={logout}>logout</Link> 
                             :
                             <div><Link class="dropdown-item" to="/Login">Login</Link>
                             <Link class="dropdown-item" to="/Register">Register</Link></div>

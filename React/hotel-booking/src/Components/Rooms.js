@@ -1,29 +1,20 @@
 import { useState ,useEffect} from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import './Rooms.css';
 
-function Rooms(props){
+function Rooms({hotel}){
     const [roomList, setRoomList] = useState([]);
-
-    const location = useLocation(); // Access location state
-
     useEffect(() => {
-      // Extract data from location state
-      const { state } = location;
-      if (state) {
-        const { hotelId: receivedHotelId, checkIn: receivedCheckIn, checkOut: receivedCheckOut } = state;
-        getRoom(receivedHotelId,receivedCheckIn,receivedCheckOut);
-        // Now you have the hotelId, checkIn, and checkOut from the navigation state
-        // Use this data to fetch rooms or perform other actions
-      }
-    }, [location]);
-    const getRoom = (hotelId,checkIn,checkOut)=>{
-        //event.preventDefault();
+        getRoom();
+    }, []);
+
+    const getRoom = () => {
+        
         axios.get('http://localhost:5272/api/Room/GetAvailableRooms',{
             params: {
-              hotelId : hotelId,
-              checkIn : checkIn,
-              checkOut : checkOut
+              hotelId : hotel.hotelId,
+              checkIn : hotel.checkIn,
+              checkOut : hotel.checkOut
             }
           })
           .then((response) => {
@@ -32,11 +23,15 @@ function Rooms(props){
             setRoomList(posts);
         })
         .catch(function (error) {
-            alert("Could not get hotel")
+            alert("Could not get rooms")
             console.log(error);
            
         })
     }
+    const book=()=>{
+
+    }
+
 
     var CheckRooms = roomList.length>0 ? true : false;
     return(
@@ -46,24 +41,28 @@ function Rooms(props){
             {CheckRooms?
                 <div>
                     {roomList.map((room)=>
-                        <div key={room} class="card">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img class="card-img cardimg" src={room.picture} alt="Card image cap"/>
-                                </div>
-                                <div class="col-6">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{room.roomType}</h5>
-                                        <h6 class="card-title">{room.capacity}</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </div>
-                                </div>
-                                < div class="col-3">
-                                    <h5>Price</h5>
-                                    <button>Book</button>
-                                </div>
-                            </div>     
+                        <figure class="hotel-card">
+                        <div class="hotel__hero">
+                          <img src={room.picture} alt="Rambo" class="hotel__img"/>
                         </div>
+                        <div class="hotel__content">
+                          <div class="hotel__title">
+                            <h1 class="heading__primary">{room.roomType}</h1>
+                          </div>
+                          <p class="hotel__city">Capacity: {room.capacity} persons</p>
+                          <div class="hotel__rating">
+                          <h6>Amenities: </h6>
+                                        {(room.amenities).map((str, index) => (
+                                            <span key={index}><li><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
+                                            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                                          </svg>{str}</li></span>
+                                        ))}
+                            </div>
+                          <p class="hotel__description">{room.totalRooms} available to book.</p>
+                          <button class="btn btn-primary" onClick={()=>book()}>Book Rooms</button>
+                        </div>
+                        <div class="hotel__price">Price ₹.{room.price}</div>
+                      </figure>
                     )}
                 </div>
                 :

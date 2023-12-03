@@ -83,17 +83,35 @@ namespace HotelBookingApplication.Services
         /// <param name="checkOut">checkOut date</param>
         /// <returns>retuen the available room</returns>
         /// <exception cref="NoRoomsAvailableException">throw no rooms are available to display</exception>
-        public List<Room> GetRooms(int hotelId, string checkIn, string checkOut)
+        public List<RoomDisplayDTO> GetRooms(int hotelId, string checkIn, string checkOut)
         {
 
             //Retrive the room based on the hotelId
             var room = _roomrepository.GetAll().Where(r => r.HotelId == hotelId).ToList();
             var availableRoom = CheckAvailableRooms(room , checkIn, checkOut);
+            List<RoomDisplayDTO> roomAmenity = new List<RoomDisplayDTO>();
+            foreach(var a in availableRoom)
+            {
+                var amenity = _roomAmenityRepository.GetAll().Where(r =>r.RoomId==a.RoomId).Select(r=>r.Amenities).ToList();
+                RoomDisplayDTO dto = new RoomDisplayDTO()
+                {
+                    RoomId=a.RoomId,
+                    RoomType = a.RoomType,
+                    Price = a.Price,
+                    HotelId = a.HotelId,
+                    Capacity = a.Capacity,
+                    TotalRooms = a.TotalRooms,
+                    Picture = a.Picture,
+                    Description = a.Description,
+                    Amenities = amenity
+                };
+                roomAmenity.Add(dto);
+            }
 
             //Check if the room are available and return available room; Otherwise thrown no  rooms are available to display
             if (room.Count != 0)
             {
-                return availableRoom;
+                return roomAmenity;
             }
             throw new NoRoomsAvailableException();
         }
@@ -180,4 +198,5 @@ namespace HotelBookingApplication.Services
             return null;
         }
     }
+    
 }

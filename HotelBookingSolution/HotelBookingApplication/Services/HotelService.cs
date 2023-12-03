@@ -7,12 +7,14 @@ namespace HotelBookingApplication.Services
 {
     public class HotelService : IHotelService
     {
+        private readonly IRepository<int, Review> _reviewRepository;
         private readonly IRepository<int, Hotel> _hotelRepository;
 
         private readonly IRepository<int, Room> _roomRepository;
 
-        public HotelService(IRepository<int, Hotel> repository, IRepository<int, Room> roomRepository)
+        public HotelService(IRepository<int, Hotel> repository, IRepository<int, Room> roomRepository, IRepository<int,Review> reviewRepository)
         {
+            _reviewRepository=reviewRepository;
             _hotelRepository = repository;
 
             _roomRepository = roomRepository;
@@ -54,13 +56,13 @@ namespace HotelBookingApplication.Services
         /// <returns>Return the list of hotel based on city</returns>
         /// <exception cref="NoHotelsAvailableException">Thrown when the no hotels are available for the specified city</exception>
 
-        public List<Hotel> GetHotels(string city)
+        public List<HotelDisplayDTO> GetHotels(string city)
         {
             try
             {
                 //Retrieve the hotel based on the address containing containing the city from the repository
                 var hotels = _hotelRepository.GetAll().Where(c => c.Address.Contains(city, StringComparison.OrdinalIgnoreCase)).ToList();
-
+                List<HotelDisplayDTO> dto = new List<HotelDisplayDTO>();
                 //Iterating through each hotel to calculate the starting price based on the minimum room price
                 foreach (var a in hotels)
                 {
@@ -76,6 +78,30 @@ namespace HotelBookingApplication.Services
                             .Min();
                             a.StartingPrice = price;
                         }
+                        float avg = 0;
+                        try
+                        {
+                            avg = _reviewRepository.GetAll().Where(r => r.HotelId == id).Select(r => r.Rating).Average();
+                        }catch(Exception e)
+                        {
+                            avg = 0;
+                        }
+                        
+                        HotelDisplayDTO avgRating = new HotelDisplayDTO()
+                        {
+                            HotelId = a.HotelId,
+                            HotelName = a.HotelName,
+                            City = a.City,
+                            Address = a.Address,
+                            UserId = a.UserId,
+                            Phone = a.Phone,
+                            Description = a.Description,
+                            Image = a.Image,
+                            StartingPrice = a.StartingPrice,
+                            AvgRating = avg
+                        };
+                        dto.Add(avgRating);
+
                     }catch (Exception ex)
                     {
                         a.StartingPrice = 0;
@@ -87,7 +113,7 @@ namespace HotelBookingApplication.Services
                 // Check if the hotel is found with the specified city returns the hotel; Otherwise throws a new NoHotelsAvailableException
                 if (hotels != null)
                 {
-                    return hotels;
+                    return dto;
                 }
             }
             catch (Exception ex)

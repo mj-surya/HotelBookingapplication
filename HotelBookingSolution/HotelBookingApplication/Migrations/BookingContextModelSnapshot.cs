@@ -84,6 +84,9 @@ namespace HotelBookingApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<float>("AvgRating")
+                        .HasColumnType("real");
+
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

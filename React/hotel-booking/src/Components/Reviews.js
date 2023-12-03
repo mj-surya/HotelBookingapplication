@@ -2,14 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 
 
-function Reviews(){
-    const[reviewList, setReviewList]=useState([])
-    const hotelId = 1;
+function Reviews(id){
+    const[reviewList, setReviewList]=useState([]);
     var getReviews = (event)=>{
         event.preventDefault();
         axios.get('http://localhost:5272/api/review/getreview',{
             params: {
-              hotelId : hotelId
+              hotelId : id
             }
           })
           .then((response) => {
@@ -68,3 +67,4 @@ function Reviews(){
 }
 
 export default Reviews;
+

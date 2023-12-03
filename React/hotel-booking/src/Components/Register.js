@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import './Login.css';
 
 function Register(){
     const roles =["User","Admin"];
@@ -10,6 +12,7 @@ function Register(){
     const [name,setName] = useState("");
     const [address,setAddress] = useState("");
     const [phone,setPhone] = useState("");
+    const navigate =useNavigate();
     
     const signUp = ()=>{
         axios.post("http://localhost:5272/api/User/register",{
@@ -21,53 +24,67 @@ function Register(){
             name : name,
             reTypePassword : repassword
         })
-        .then((userData)=>{
-            var token = userData.data.token;
-            localStorage.setItem("token",token);
-            localStorage.setItem("role",userData.data.role);
+        .then (async (userData)=>{
+            var token = await userData.data.token;
+            await localStorage.setItem("token",token);
+            await localStorage.setItem("role",userData.data.role);
+            await localStorage.setItem("id",userData.data.userid);
             console.log(userData)
+            alert("Registeration Successfull...");
+            navigate("/Home");
+            window.location.reload();
         })
         .catch((err)=>{
             console.log(err)
         })
     }
         return (
-            <div >
-              <form className="registerForm">
-                <label className="form-control">Name</label>
-                <input type="text" className="form-control" value={name}
-                        onChange={(e)=>{setName(e.target.value)}}/>
-                <label className="form-control">Username</label>
-                <input type="email" className="form-control" value={username}
-                        onChange={(e)=>{setUsername(e.target.value)}}/>
-            
-                <label className="form-control">Password</label>
-                <input type="password" className="form-control" value={password}
-                        onChange={(e)=>{setPassword(e.target.value)}}/>
-                <label className="form-control">Re-Type Password</label>
-                <input type="password" className="form-control" value={repassword}
-                        onChange={(e)=>{setrePassword(e.target.value)}}/>
-
-                <label className="form-control">Phone</label>
-                <input type="tel" className="form-control" value={phone}
-                        onChange={(e)=>{setPhone(e.target.value)}}/>
-                <label className="form-control">Address</label>
-                <textarea  type="text" className="form-control" value={address}
-                        onChange={(e)=>{setAddress(e.target.value)}}/>
-
-                <label className="form-control">Role</label>
-                <select className="form-select" onChange={(e)=>{setRole(e.target.value)}}>
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="./Logo.png" alt=""/>
+                </div>
+                <div class="text-center mt-4 name">
+                    Stay Quest
+                </div>
+                <form class="p-3 mt-3">
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <input type="text"  value={name} placeholder="Name" onChange={(e)=>{setName(e.target.value)}}/>
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <input type="email"  value={username} placeholder="Email" onChange={(e)=>{setUsername(e.target.value)}}/>
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="fas fa-key"></span>
+                        <input type="password"  placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <input type="password"  value={repassword} placeholder="Re-Type Password" onChange={(e)=>{setrePassword(e.target.value)}}/>
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <input type="tel"  value={phone} placeholder="Phone" onChange={(e)=>{setPhone(e.target.value)}}/>
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <textarea type="text"  value={address} placeholder="Address" onChange={(e)=>{setAddress(e.target.value)}}/>
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <select className="form-select" onChange={(e)=>{setRole(e.target.value)}}>
                     <option value="select">Select Role</option>
                     {roles.map((r)=>
                         <option value={r} key={r}>{r}</option>
                     )}
             </select>
-            
-            
-           
-            <br/>
-            <button className="btn btn-primary button" onClick={signUp}>Sign Up</button>
-        </form>
+                    </div>
+                    <Link type="submit" class="btn mt-3" onClick={signUp}>Register</Link>
+                </form>
+                <div class="text-center fs-6">
+                or <Link to="/Login">Login</Link>
+                </div>
             </div>
           );
 
