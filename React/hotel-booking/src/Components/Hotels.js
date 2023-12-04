@@ -25,7 +25,7 @@ function Hotels(){
             await setHotelList(posts);
         })
         .catch(function (error) {
-            alert("Could not get hotel")
+            alert(error.response.data);
             console.log(error);
         })
     }
@@ -43,19 +43,19 @@ function Hotels(){
     return(
         <div className="hotel" >
             <div>
-                <form class="form-size">
+                <form class="form-size" onSubmit={getHotels}>
                     <div class="row">
                         <div class="col input-size">
-                            <input id="psearch" type="text" class="form-control input" placeholder="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
+                            <input id="psearch" required type="text" class="form-control input" placeholder="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
                         </div>
                         <div class="col input-size">
-                            <input id="pchechIn" type="date" class="form-control input" placeholder="Check-In" value={checkIn} onChange={(e)=>{setCheckIn(e.target.value)}}/>
+                            <input id="pchechIn" required type="date" class="form-control input" placeholder="Check-In" value={checkIn} onChange={(e)=>{setCheckIn(e.target.value)}}/>
                         </div>
                         <div class="col input-size">
-                            <input id="pcheckOut" type="date" class="form-control input" placeholder="Check-Out" value={checkOut} onChange={(e)=>{setCheckOut(e.target.value)}}/>
+                            <input id="pcheckOut" required type="date" class="form-control input" placeholder="Check-Out" value={checkOut} onChange={(e)=>{setCheckOut(e.target.value)}}/>
                         </div>
                         <div class="col">
-                        <button className="btn btn-primary button btn-size" onClick={getHotels}>Search</button>
+                        <button className="btn btn-primary button btn-size">Search</button>
                         </div>
                     </div>
                 </form>

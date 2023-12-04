@@ -1,9 +1,13 @@
 import { useState ,useEffect} from "react";
 import axios from "axios";
 import './Rooms.css';
+import Popup from "reactjs-popup";
+import AddBooking from './AddBooking.js';
 
 function Rooms({hotel}){
     const [roomList, setRoomList] = useState([]);
+    const [isPopupOpen, setPopupOpen] = useState(false);
+  const [selectedRoom, setSelectedRoom] = useState(null);
     useEffect(() => {
         getRoom();
     }, []);
@@ -23,14 +27,18 @@ function Rooms({hotel}){
             setRoomList(posts);
         })
         .catch(function (error) {
-            alert("Could not get rooms")
+            alert(error.response.data);
             console.log(error);
            
         })
     }
-    const book=()=>{
-
+    const book = (room) => {
+      setSelectedRoom(room);
+      setPopupOpen(true);
     }
+    const handleBookingComplete = () => {
+      setPopupOpen(false); 
+    };
 
 
     var CheckRooms = roomList.length>0 ? true : false;
@@ -59,7 +67,7 @@ function Rooms({hotel}){
                                         ))}
                             </div>
                           <p class="hotel__description">{room.totalRooms} available to book.</p>
-                          <button class="btn btn-primary" onClick={()=>book()}>Book Rooms</button>
+                          <button class="btn btn-primary" onClick={()=>book(room)}>Book Rooms</button>
                         </div>
                         <div class="hotel__price">Price ₹.{room.price}</div>
                       </figure>
@@ -68,6 +76,10 @@ function Rooms({hotel}){
                 :
                 <div>No Rooms available yet</div>    
             }
+              <Popup open={isPopupOpen} onClose={() => setPopupOpen(false)}>
+                <AddBooking room={selectedRoom} hotel={hotel} onBookingComplete={handleBookingComplete}/>
+              </Popup>
+            
         </div>
     )
 }

@@ -15,9 +15,10 @@ import Booking from './Components/Booking';
 import Reviews from './Components/Reviews';
 import ViewHotel from './Components/ViewHotel';
 import AddReview from './Components/AddReview';
-
 import UpdateUser from './Components/UpdateUser';
-import TermsAndCondition from './Components/TermsAndCondition';
+import Home from './Components/Home';
+
+
 
 
 
@@ -25,7 +26,8 @@ function App() {
   var usertype = localStorage.getItem('role');
   return (
     <div class="padding bg">
-      <BrowserRouter>
+
+      {/* <BrowserRouter>
       {usertype==="Admin"?<Menu/> : <MenuUser/> }
       <div className='margin'>
       <Routes>
@@ -48,16 +50,13 @@ function App() {
             }/>
         </Routes>
       </div>
-      </BrowserRouter>
+      </BrowserRouter> */}
+
+      <Booking/>
       
-      {/* <TermsAndCondition/> */}
-       {/* <UpdateUser/> */}
+     
 
     </div>
-      
-
-    
-
   );
 }
 

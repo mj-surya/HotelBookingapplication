@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import './Reviews.css';
 
-
-function Reviews(id){
+function Reviews({id}){
     const[reviewList, setReviewList]=useState([]);
-    var getReviews = (event)=>{
-        event.preventDefault();
+    var getReviews = ()=>{
         axios.get('http://localhost:5272/api/review/getreview',{
             params: {
               hotelId : id
@@ -18,23 +17,27 @@ function Reviews(id){
         })
         .catch(function (error) {
             console.log(error);
+            alert(error.response.data);
         })
     }
 
+    useEffect(()=>{
+        getReviews();
+    },[]);
     var checkReviews = reviewList.length>0?true:false;
     return(
-        <div>
-            <button onClick={getReviews}>Get Reviews</button>
+        <div class="review">
+            
             {checkReviews?
             <div>
                 {reviewList.map((review)=>
-                    <div key={review} class="card">
+                    <div key={review} class="card reviews">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col">
                             <h5 class="card-title">{review.userId}</h5>
                             <p class="card-text">{review.date}</p>
                             </div>
-                            <div class="col-6">
+                            <div class="col">
                                 <div class="card-body">
                                 <div>
                                     <span>Rating:  </span>
@@ -58,7 +61,7 @@ function Reviews(id){
                 )}
                 </div>
                 :
-                <div>No Hotels available yet</div>
+                <div>No Reviews available yet</div>
             }
         </div>
         

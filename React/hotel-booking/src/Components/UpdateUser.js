@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function UpdateUser(){
-
-    const roles =["User","Admin"];
     const [username,setUsername] = useState("");
     const [role,setRole] = useState("");
     const [name,setName] = useState("");
@@ -17,7 +15,7 @@ function UpdateUser(){
     const getUser=()=>{
         axios.get('http://localhost:5272/api/User/Get',{
             params: {
-              id : 'mj@gmail.com'
+              id : localStorage.getItem("id")
             }
           })
           .then((response) => {
@@ -50,7 +48,6 @@ function UpdateUser(){
         })
         .then(async (userData)=>{
             alert("Hotel updated successfully")
-         //   navigate("/Home");
         })
         .catch((err)=>{
             alert("Could not update hotel")
