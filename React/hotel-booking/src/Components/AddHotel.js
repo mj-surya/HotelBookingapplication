@@ -26,9 +26,11 @@ function Addhotel(){
         formdata.append('json',JSON.stringify( jsonData));
         formdata.append('image',image);
 
+        
         axios.post("http://localhost:5272/api/hotel/addhotel",formdata,
         {
             headers:{
+                 
                 'Content-Type':'multipart/form-data',
             }
         })
