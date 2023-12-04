@@ -4,13 +4,18 @@ import Reviews from './Reviews.js';
 import AddReview from './AddReview.js';
 import { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
+import Popup from 'reactjs-popup';
 
 function ViewHotel() {
   const location = useLocation();
   //const [hotel, setHotel] = useState(location.state?.hotel || {});
   const { hotel, checkIn, checkOut } = location.state || {};
+  const [isAddReviewOpen, setAddReviewOpen] = useState(false);
 
   console.log(hotel);
+  const addReview=()=>{
+    setAddReviewOpen(!isAddReviewOpen);
+  }
 
   return (
     <div class="view_hotel">
@@ -61,7 +66,10 @@ function ViewHotel() {
                 <div class="text-start mb-1-6 wow fadeIn">
                   <h2 class="mb-0 text-primary">Reviews &amp; Ratings</h2>
                 </div>
-                <AddReview/>
+                <button class="btn btn-success" onClick={addReview}>Add Review</button>
+                <Popup open={isAddReviewOpen} closeOnDocumentClick onClose={addReview}>
+                  <AddReview id={hotel.hotelId} />
+                </Popup>
                 <Reviews id={hotel.hotelId}/>
               </div>
             </div>

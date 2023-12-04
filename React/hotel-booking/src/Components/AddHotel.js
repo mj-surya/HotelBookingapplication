@@ -5,7 +5,6 @@ import './AddHotel.css';
 
 function Addhotel(){
     const [hotelname,setHotelname] = useState("");
-    const [userId,setUserId] = useState("");
     const [city,setCity] = useState("");
     const [address,setAddress] = useState("");
     const [phone,setPhone] = useState("");
@@ -37,7 +36,7 @@ function Addhotel(){
             navigate("/Home");
         })
         .catch((err)=>{
-            alert("Could not add hotel")
+            alert(err.response.data);
             console.log(err)
         })
         
@@ -51,34 +50,34 @@ function Addhotel(){
             <div class="contact-image">
                 <img src="./Logo.png" alt="rocket_contact"/>
             </div>
-            <form>
+            <form onSubmit={addHotel}>
                 <h3>Register Your Hotel</h3>
                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input id="hotelname" name="hotelname" type="text"  class="form-control" placeholder="Hotel Name *" value={hotelname} onChange={(e)=>{setHotelname(e.target.value)}} />
+                            <input id="hotelname" required name="hotelname" type="text"  class="form-control" placeholder="Hotel Name *" value={hotelname} onChange={(e)=>{setHotelname(e.target.value)}} />
                         </div>
                         <div class="form-group">
-                            <input id="city" name="city" type="text"  class="form-control" placeholder="City *" value={city} onChange={(e)=>{setCity(e.target.value)}} />
+                            <input id="city" required  name="city" type="text"  class="form-control" placeholder="City *" value={city} onChange={(e)=>{setCity(e.target.value)}} />
                         </div>
                         <div class="form-group">
-                            <textarea id="haddress" name="haddress" type="text"  class="form-control" placeholder="Address *" value={address} onChange={(e)=>{setAddress(e.target.value)}} />
+                            <textarea id="haddress" required name="haddress" type="text"  class="form-control" placeholder="Address *" value={address} onChange={(e)=>{setAddress(e.target.value)}} />
                         </div>
                         
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input id="hphone" name="hphone" type="tel"  class="form-control" placeholder="Phone *" value={phone} onChange={(e)=>{setPhone(e.target.value)}} />
+                            <input id="hphone" required name="hphone" type="tel"  class="form-control" placeholder="Phone *" value={phone} onChange={(e)=>{setPhone(e.target.value)}} />
                         </div>
                         <div class="form-group">
-                            <textarea  id="des" name="des" class="form-control msg" placeholder="Description *" value={description} onChange={(e)=>{setDescription(e.target.value)}} ></textarea>
+                            <textarea  id="des" required name="des" class="form-control msg" placeholder="Description *" value={description} onChange={(e)=>{setDescription(e.target.value)}} ></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="file" accept="image/*" class="form-control msg" placeholder="Image *" value={image} onChange={handleimg} />
+                            <input type="file" required accept="image/*" class="form-control msg" placeholder="Image *" value={image} onChange={handleimg} />
                         </div>
                     </div>
                     <div class="form-group">
-                        <Link className="btn btn-primary button" onClick={addHotel} >Add Hotel</Link>
+                        <button className="btn btn-primary button" >Add Hotel</button>
                     </div>
                 </div>
             </form>

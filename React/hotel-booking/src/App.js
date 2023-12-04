@@ -15,6 +15,7 @@ import Booking from './Components/Booking';
 import Reviews from './Components/Reviews';
 import ViewHotel from './Components/ViewHotel';
 import AddReview from './Components/AddReview';
+import Home from './Components/Home';
 
 
 
@@ -23,30 +24,24 @@ function App() {
   return (
     <div class="padding bg">
       <BrowserRouter>
-      {usertype==="Admin"?<Menu/> : <MenuUser/> }
-      <div className='margin'>
-      <Routes>
-          <Route path="Register" element={<Register/>} />
-          <Route path="Home" element={<Hotels />} />
-          <Route path="Login" element={<Login />} />
-          <Route path="AddRoom" element={<AddRoom/>}/>
-          <Route path="GetRoom" element={<Rooms/>}/>
-          <Route path="ViewHotel" element={<ViewHotel/>}/>
-          <Route path="Reviews" element={<Reviews/>}/>
-          <Route path="AddReview" element={<AddReview/>}/>
-          <Route path="AddBooking" element={<AddBooking/>}/>
-          <Route path="Booking" element={<Booking/>}/>
-          <Route
-            path="AddHotel"
-            element={
-              <Protected>
-                <AddHotel />
-              </Protected>
-            }/>
-        </Routes>
-      </div>
-      </BrowserRouter>
-
+        {usertype==="Admin"?<Menu/> : <MenuUser/> }
+        <div className='margin'>
+          <Routes>
+              <Route path="Home" element={<Home />} />
+              <Route path="Register" element={<Register/>} />
+              <Route path="Hotels" element={<Hotels />} />
+              <Route path="Login" element={<Login />} />
+              <Route path="AddRoom" element={<AddRoom/>}/>
+              <Route path="GetRoom" element={<Rooms/>}/>
+              <Route path="ViewHotel" element={<ViewHotel/>}/>
+              <Route path="Reviews" element={<Reviews/>}/>
+              <Route path="AddReview" element={<AddReview/>}/>
+              <Route path="AddBooking" element={<Protected><AddBooking/></Protected>}/>
+              <Route path="Booking" element={<Booking/>}/>
+              <Route path="AddHotel"element={<AddHotel />}/>
+          </Routes>
+        </div>
+        </BrowserRouter>
     </div>
       
 

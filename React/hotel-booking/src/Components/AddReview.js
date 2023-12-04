@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AddReview.css'
 
-function AddReview(){
+function AddReview({id}){
     const [rating, setRating] = useState(0);
-    const [userId, setUserId] = useState("");
-    const [hotelId, setHotelId] = useState(0);
     const [review, setReview] = useState("");
 
   const handleStarClick = (selectedRating) => {
@@ -14,8 +13,8 @@ function AddReview(){
   const addReview=(event)=>{
     event.preventDefault();
     const reviewDTO = {
-        hotelId : hotelId,
-        userId : userId,
+        hotelId : id,
+        userId : localStorage.getItem("id"),
         reviews : review,
         rating : rating
     }
@@ -26,14 +25,14 @@ function AddReview(){
     })
     .catch((err)=>{
         console.log(err)
+        alert(err.response.data);
     })
    
 }
 
   return (
-    <div>
-        <input type="text" placeholder="UserId" className="form-control" value={userId} onChange={(e)=>{setUserId(e.target.value)}}/>
-        <input type="text" placeholder="HotelId" className="form-control" value={hotelId} onChange={(e)=>{setHotelId(e.target.value)}}/>
+    <div class="addreview card">
+      <textarea type="text" placeholder="review" className="form-control" value={review} onChange={(e)=>{setReview(e.target.value)}}/>
         <div>
             <span>Rating:  </span>
             {[1, 2, 3, 4, 5].map((star) => (
@@ -48,7 +47,6 @@ function AddReview(){
             </span>
             ))}
         </div>
-        <textarea type="text" placeholder="review" className="form-control" value={review} onChange={(e)=>{setReview(e.target.value)}}/>
         <button className="btn btn-primary button" onClick={addReview}>Add Review</button>
     </div>
   );

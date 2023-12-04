@@ -1,15 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 
 function Booking(){
     const [bookingList, setBookingList] = useState([]);
-    const [userId, setUserId] = useState("mj@gmail.com");
 
-    var getBooking = (event)=>{
-        event.preventDefault();
+    useEffect(()=>{
+        getBooking();
+    },[]);
+
+    var getBooking = ()=>{
         axios.get('http://localhost:5272/api/Booking/userBooking',{
             params: {
-              id : userId
+              id : localStorage.getItem("id")
             }
           })
           .then((response) => {
@@ -18,7 +21,7 @@ function Booking(){
             setBookingList(posts);
         })
         .catch(function (error) {
-            alert("Could not get booking")
+            alert(error.response.data);
             console.log(error);
         })
     }
@@ -26,7 +29,6 @@ function Booking(){
     var CheckBooking = bookingList.length>0 ? true : false
     return(
         <div>
-            <button onClick={getBooking}>view</button>
             {CheckBooking?
                 <div>
                     {bookingList.map((booking)=>

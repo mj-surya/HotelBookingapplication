@@ -20,12 +20,14 @@ function Login(){
             await localStorage.setItem("role",role);
             await localStorage.setItem("id",myData.data.email);
             await console.log(myData);
+            const response = myData.data.response;
+            console.log(response);
             alert("Login Successfull...");
             navigate("/Home");
             window.location.reload();
         })
         .catch((err)=>{
-            console.log(err)
+            alert(err.response.data);
         })        
     }
 return(
@@ -36,16 +38,16 @@ return(
         <div class="text-center mt-4 name">
             Stay Quest
         </div>
-        <form class="p-3 mt-3">
+        <form class="p-3 mt-3" onSubmit={login}>
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="text" value={username} placeholder="Username" onChange={(e)=>{setUsername(e.target.value)}}/>
+                <input type="email" value={username} placeholder="Username" onChange={(e)=>{setUsername(e.target.value)}} required/>
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
-                <input type="password" placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+                <input type="password" required placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
             </div>
-            <Link type="submit" class="btn mt-3" onClick={login}>Login</Link>
+            <button type="submit" class="btn mt-3" >Login</button>
         </form>
         <div class="text-center fs-6">
          or <Link to="/Register">Sign up</Link>
