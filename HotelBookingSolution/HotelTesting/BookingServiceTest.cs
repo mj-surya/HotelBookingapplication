@@ -21,6 +21,7 @@ namespace HotelTesting
         IRepository<int, RoomAmenity> amenityRepository;
         IRepository<int, Hotel> hotelRepository;
         IRepository<string, User> userRepository;
+        IRepository<int, Review> reviewRepository;
         [SetUp]
         public void Setup()
         {
@@ -41,7 +42,7 @@ namespace HotelTesting
         {
             //Arrange
             IBookingService bookingService = new BookingService(repository, roomRepository, hotelRepository,userRepository);
-            IHotelService hotelService = new HotelService(hotelRepository, roomRepository);
+            IHotelService hotelService = new HotelService(hotelRepository, roomRepository, reviewRepository);
             IRoomService roomService = new RoomService(roomRepository, amenityRepository, repository);
             var appSettings = @"{""SecretKey"": ""Anything will work here this is just for testing""}";
             var configurationBuilder = new ConfigurationBuilder();

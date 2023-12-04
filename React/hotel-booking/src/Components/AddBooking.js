@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./AddBooking.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,10 +13,12 @@ function AddBooking({ room, hotel, onBookingComplete }){
     const [price, setPrice]=useState(room.price);
     const [totalPrice, setTotalPrice]=useState(room.price);
 
+    useEffect(() => {
+        setTotalPrice(totalRoom * price);
+    }, [totalRoom, price]);
     const incrementTotalRoom = () => {
         if(totalRoom<=room.totalRooms){
             setTotalRoom((prevCount) => prevCount + 1);
-            setTotalPrice(price*totalRoom);
         }
         
     };
@@ -24,15 +26,15 @@ function AddBooking({ room, hotel, onBookingComplete }){
     const decrementTotalRoom = () => {
         if (totalRoom > 1) {
             setTotalRoom((prevCount) => prevCount - 1);
-            setTotalPrice(price*totalRoom);
+            
         }
     };
     const handlePaymentChange = (e) => {
         setPayment(e.target.value);
     };
 
-    const AddBooking=()=>{
-       
+    const AddBooking=(event)=>{
+       event.preventDefault();
      
         axios.post("http://localhost:5272/api/Booking/addBooking",{
             userId : userId,
@@ -41,7 +43,10 @@ function AddBooking({ room, hotel, onBookingComplete }){
             roomId : roomId,
             totalRoom : totalRoom,
             payment : payment
-        })
+        },{headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }}
+        )
         .then((userData)=>{
             alert("Booking successfull");
             onBookingComplete();

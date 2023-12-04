@@ -10,11 +10,15 @@ function Booking(){
     },[]);
 
     var getBooking = ()=>{
+        console.log(localStorage.getItem("token"));
+        console.log(localStorage.getItem("id"));
         axios.get('http://localhost:5272/api/Booking/userBooking',{
             params: {
               id : localStorage.getItem("id")
             }
-          })
+          },{headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }})
           .then((response) => {
             const posts = response.data;
             console.log(posts);

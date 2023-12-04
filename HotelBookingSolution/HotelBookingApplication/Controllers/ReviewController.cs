@@ -25,7 +25,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="reviewDTO">Review details</param>
         /// <returns>review added message</returns>
         [HttpPost("AddReview")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public ActionResult AddReview(ReviewDTO reviewDTO)
         {
             string message = string.Empty;
@@ -52,7 +52,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">review id</param>
         /// <returns>Display deleted message</returns>
         [HttpPost("DeleteReview")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public ActionResult DeleteReviews(int id)
         {
             string message = string.Empty;
@@ -81,7 +81,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="reviewDTO">datails of review</param>
         /// <returns></returns>
         [HttpPost("UpdateReview")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public ActionResult UpdateReview(int id, ReviewDTO reviewDTO)
         {
             string message = string.Empty;

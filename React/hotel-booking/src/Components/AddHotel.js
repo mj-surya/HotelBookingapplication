@@ -28,6 +28,7 @@ function Addhotel(){
         axios.post("http://localhost:5272/api/hotel/addhotel",formdata,
         {
             headers:{
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
                 'Content-Type':'multipart/form-data',
             }
         })

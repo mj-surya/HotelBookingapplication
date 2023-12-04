@@ -60,7 +60,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="roomDTO">information of room</param>
         /// <returns>the room details</returns>
         [HttpPost("CreateRooms")]
-       // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult CreateRooms([FromForm] IFormCollection data)
         {
             IFormFile file = data.Files["image"];

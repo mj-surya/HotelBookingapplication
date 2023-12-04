@@ -1,4 +1,5 @@
-﻿using HotelBookingApplication.Models.DTOs;
+﻿using HotelBookingApplication.Models;
+using HotelBookingApplication.Models.DTOs;
 
 namespace HotelBookingApplication.Interfaces
 {
@@ -6,5 +7,8 @@ namespace HotelBookingApplication.Interfaces
     {
         UserDTO Login(UserDTO userDTO);
         UserDTO Register(UserRegisterDTO userRegisterDTO);
+
+        UpdateUserDto Update(string id,UpdateUserDto userDTO);
+        User GetById(string id);
     }
 }

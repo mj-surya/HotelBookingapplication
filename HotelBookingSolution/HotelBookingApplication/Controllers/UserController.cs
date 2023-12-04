@@ -65,5 +65,29 @@ namespace HotelBookingApplication.Controllers
             _logger.LogError("Login failed");
             return Unauthorized("Invalid username or password");
         }
+
+        [HttpGet("Get")]
+        public ActionResult GetUser(string id)
+        {
+            var result = _userService.GetById(id);
+            if (result != null)
+            {
+                _logger.LogInformation("User Displayed");
+                return Ok(result);
+            }
+            _logger.LogError("Failed to display");
+            return BadRequest("Invalid username");
+        }
+
+        [HttpPut("Update")]
+        public IActionResult UpdateUser(string id,UpdateUserDto updateUserDto)
+        {
+            var result = _userService.Update(id,updateUserDto);
+            if(result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest("Unable to update error");
+        }
     }
 }

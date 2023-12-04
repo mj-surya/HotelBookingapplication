@@ -27,7 +27,11 @@ function AddRoom(){
         hotel();
     },[]);
     const hotel=()=>{
-        axios.post("http://localhost:5272/api/hotel/getbyid",localStorage.getItem("id"))
+        axios.post("http://localhost:5272/api/hotel/getbyid",{
+            params:{
+                id: localStorage.getItem("id")
+            }
+        })
         .then((userData)=>{
             const data=userData.data;
             setHotelId(data.hotelId);
@@ -57,6 +61,7 @@ function AddRoom(){
         axios.post("http://localhost:5272/api/Room/CreateRooms",formdata,
         {
             headers:{
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
                 'Content-Type':'multipart/form-data',
             }
         })

@@ -19,7 +19,9 @@ function AddReview({id}){
         rating : rating
     }
     console.log(reviewDTO);
-    axios.post("http://localhost:5272/api/Review/AddReview",reviewDTO)
+    axios.post("http://localhost:5272/api/Review/AddReview",reviewDTO,{headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    }})
     .then((userData)=>{
         console.log(userData)
     })
