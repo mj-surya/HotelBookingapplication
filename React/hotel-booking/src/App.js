@@ -5,7 +5,6 @@ import AddHotel from './Components/AddHotel';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Menu from './Components/Menu';
 import Register from './Components/Register';
-import Protected from './Protected';
 import Login from './Components/Login';
 import MenuUser from './Components/MenuUser';
 import AddRoom from './Components/AddRoom';
@@ -17,7 +16,14 @@ import ViewHotel from './Components/ViewHotel';
 import AddReview from './Components/AddReview';
 import UpdateUser from './Components/UpdateUser';
 import Home from './Components/Home';
+import GuestPolicies from './Components/GuestPolicies';
+import PrivacyPolicy from './Components/PrivacyPolicy';
+import TrustAndSafety from './Components/TrustAndSafety';
+import AboutUs from './Components/AboutUs';
 import AdminBooking from './Components/AdminBooking';
+import TermsAndCondition from './Components/TermsAndCondition';
+import ViewAdminHotel from './Components/ViewAdminHotel';
+
 
 
 
@@ -28,35 +34,33 @@ function App() {
   return (
     <div class="padding bg">
 
-      {/* <BrowserRouter>
+      <BrowserRouter>
       {usertype==="Admin"?<Menu/> : <MenuUser/> }
       <div className='margin'>
       <Routes>
-          <Route path="Register" element={<Register/>} />
-          <Route path="Home" element={<Hotels />} />
-          <Route path="Login" element={<Login />} />
-          <Route path="AddRoom" element={<AddRoom/>}/>
-          <Route path="GetRoom" element={<Rooms/>}/>
-          <Route path="ViewHotel" element={<ViewHotel/>}/>
-          <Route path="Reviews" element={<Reviews/>}/>
-          <Route path="AddReview" element={<AddReview/>}/>
+          <Route path="AboutUs" element={<AboutUs/>}/>
           <Route path="AddBooking" element={<AddBooking/>}/>
+          <Route path="AddHotel" element={<AddHotel />}/>
+          <Route path="AddReview" element={<AddReview/>}/>
+          <Route path="AddRoom" element={<AddRoom/>}/>
+          <Route path="AdminBooking" element={<AdminBooking/>}/>
           <Route path="Booking" element={<Booking/>}/>
-          <Route
-            path="AddHotel"
-            element={
-              <Protected>
-                <AddHotel />
-              </Protected>
-            }/>
+          <Route path="GuestPolicy" element={<GuestPolicies/>}/>
+          <Route path="Home" element={<Home />} />
+          <Route path="Hotels" element={<Hotels />} />
+          <Route path="Login" element={<Login />} />
+          <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
+          <Route path="Register" element={<Register/>} />
+          <Route path="Reviews" element={<Reviews/>}/>
+          <Route path="Rooms" element={<Rooms/>}/>
+          <Route path="TermsAndCondition" element={<TermsAndCondition/>}/>
+          <Route path="TrustAndSafety" element={<TrustAndSafety/>}/>
+          <Route path="UpdateUser" element={<UpdateUser />} />
+          <Route path="ViewHotel" element={<ViewHotel/>}/>
+          <Route path="ViewAdminHotel" element={<ViewAdminHotel/>}/>
         </Routes>
       </div>
-      </BrowserRouter> */}
-
-      <AdminBooking/>
-      
-     
-
+      </BrowserRouter>
     </div>
   );
 }

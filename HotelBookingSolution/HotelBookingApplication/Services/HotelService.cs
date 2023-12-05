@@ -26,27 +26,36 @@ namespace HotelBookingApplication.Services
         /// <returns>Returns the HotelDTO if hotel was added successfully; Otherwise return null</returns>
         public HotelDTO AddHotel(HotelDTO hotelDTO)
         {
-            //Create a new hotel object based on the details of hotelDTO
-            Hotel hotel = new Hotel()
+            var check = _hotelRepository.GetAll().FirstOrDefault(u => u.UserId == hotelDTO.UserId);
+            if (check == null)
             {
-                HotelName = hotelDTO.HotelName,
-                City = hotelDTO.City,
-                Address = hotelDTO.Address,
-                UserId = hotelDTO.UserId,
-                Phone = hotelDTO.Phone,
-                Description = hotelDTO.Description,
-                Image = "http://localhost:5272/Images/" + hotelDTO.Image.FileName
-            };
-            //Add the hotel to the repository
+                //Create a new hotel object based on the details of hotelDTO
+                Hotel hotel = new Hotel()
+                {
+                    HotelName = hotelDTO.HotelName,
+                    City = hotelDTO.City,
+                    Address = hotelDTO.Address,
+                    UserId = hotelDTO.UserId,
+                    Phone = hotelDTO.Phone,
+                    Description = hotelDTO.Description,
+                    Image = "http://localhost:5272/Images/" + hotelDTO.Image.FileName
+                };
+                //Add the hotel to the repository
 
-            var result = _hotelRepository.Add(hotel);
-            if (result != null)
-            {
-                //Check if the hotel added sucessfully and returns the hotelDTO
-                return hotelDTO;
+                var result = _hotelRepository.Add(hotel);
+                if (result != null)
+                {
+                    //Check if the hotel added sucessfully and returns the hotelDTO
+                    return hotelDTO;
+                }
+                //Returns null if the hotel was not added
+                return null;
             }
-            //Returns null if the hotel was not added
-            return null;
+            else
+            {
+                throw new AlreadyAvailableException();
+            }
+           
 
         }
         /// <summary>

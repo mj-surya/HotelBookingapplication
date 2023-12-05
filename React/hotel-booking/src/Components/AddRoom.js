@@ -27,7 +27,7 @@ function AddRoom(){
         hotel();
     },[]);
     const hotel=()=>{
-        axios.post("http://localhost:5272/api/hotel/getbyid",{
+        axios.get("http://localhost:5272/api/hotel/getbyid",{
             params:{
                 id: localStorage.getItem("id")
             }
@@ -44,6 +44,7 @@ function AddRoom(){
     }
 
     const addRoom=(event)=>{
+        event.preventDefault();
         const jsonData = {
             roomType : roomType,
             hotelId : hotelId,

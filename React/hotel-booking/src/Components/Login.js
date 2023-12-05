@@ -19,6 +19,7 @@ function Login(){
             await localStorage.setItem("token",token);
             await localStorage.setItem("role",role);
             await localStorage.setItem("id",myData.data.email);
+            await localStorage.setItem("name",myData.data.name);
             await console.log(myData);
             const response = myData.data.response;
             console.log(response);

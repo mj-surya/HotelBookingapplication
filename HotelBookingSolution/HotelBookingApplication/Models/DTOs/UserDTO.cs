@@ -19,6 +19,10 @@ namespace HotelBookingApplication.Models.DTOs
         /// Gets or sets the authentication token for the user.
         /// </summary>
         public string? Token { get; set; }
+        /// <summary>
+        /// Gets name as required field
+        /// </summary>
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the password.

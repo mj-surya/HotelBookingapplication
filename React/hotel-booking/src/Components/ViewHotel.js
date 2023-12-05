@@ -2,19 +2,25 @@ import './ViewHotel.css';
 import Rooms from './Rooms.js';
 import Reviews from './Reviews.js';
 import AddReview from './AddReview.js';
+import Login from './Login.js';
 import { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import Popup from 'reactjs-popup';
 
 function ViewHotel() {
   const location = useLocation();
-  //const [hotel, setHotel] = useState(location.state?.hotel || {});
   const { hotel, checkIn, checkOut } = location.state || {};
   const [isAddReviewOpen, setAddReviewOpen] = useState(false);
+  const [isLoginOpen, setLoginOpen] = useState(false);
 
   console.log(hotel);
   const addReview=()=>{
-    setAddReviewOpen(!isAddReviewOpen);
+    if(localStorage.getItem("token")){
+      setAddReviewOpen(!isAddReviewOpen);
+    }else{
+      setLoginOpen(!isLoginOpen);
+    }
+    
   }
 
   return (
@@ -69,6 +75,9 @@ function ViewHotel() {
                 <button class="btn btn-success" onClick={addReview}>Add Review</button>
                 <Popup open={isAddReviewOpen} closeOnDocumentClick onClose={addReview}>
                   <AddReview id={hotel.hotelId} />
+                </Popup>
+                <Popup open={isLoginOpen} closeOnDocumentClick onClose={addReview}>
+                  <Login />
                 </Popup>
                 <Reviews id={hotel.hotelId}/>
               </div>

@@ -3,11 +3,13 @@ import axios from "axios";
 import './Rooms.css';
 import Popup from "reactjs-popup";
 import AddBooking from './AddBooking.js';
+import Login from './Login.js';
 
 function Rooms({hotel}){
     const [roomList, setRoomList] = useState([]);
     const [isPopupOpen, setPopupOpen] = useState(false);
-  const [selectedRoom, setSelectedRoom] = useState(null);
+    const [isLoginOpen, setLoginOpen] = useState(false);
+    const [selectedRoom, setSelectedRoom] = useState(null);
     useEffect(() => {
         getRoom();
     }, []);
@@ -34,7 +36,11 @@ function Rooms({hotel}){
     }
     const book = (room) => {
       setSelectedRoom(room);
-      setPopupOpen(true);
+      if(localStorage.getItem("token")){
+        setPopupOpen(true);
+      }else{
+        setLoginOpen(!isLoginOpen);
+      }
     }
     const handleBookingComplete = () => {
       setPopupOpen(false); 
@@ -78,6 +84,9 @@ function Rooms({hotel}){
             }
               <Popup open={isPopupOpen} onClose={() => setPopupOpen(false)}>
                 <AddBooking room={selectedRoom} hotel={hotel} onBookingComplete={handleBookingComplete}/>
+              </Popup>
+              <Popup open={isLoginOpen} closeOnDocumentClick onClose={()=>setLoginOpen(!isLoginOpen)}>
+                  <Login />
               </Popup>
             
         </div>

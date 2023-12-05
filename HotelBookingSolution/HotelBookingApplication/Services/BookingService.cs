@@ -81,13 +81,13 @@ namespace HotelBookingApplication.Services
         /// </summary>
         /// <param name="hotelId">The unique identifier of a hotel</param>
         /// <returns>Returns the list of booking object for the provided hotel; Otherwise return null</returns>
-        public List<Booking> GetBooking(int hotelId)
+        public List<DisplayUserBookingDTO> GetBooking(int hotelId)
         {
             //use LINQ to join booking and room entities based on room id and filtered by hotel id and project the result into new booking
             var bookings = (from Booking in _bookingRepository.GetAll()
                             join room in _roomRepository.GetAll() on Booking.RoomId equals room.RoomId
                             where room.HotelId == hotelId
-                            select new Booking
+                            select new DisplayUserBookingDTO
                             {
                                 BookingId = Booking.BookingId,
                                 BookingDate = Booking.BookingDate,
@@ -97,7 +97,8 @@ namespace HotelBookingApplication.Services
                                 Status = Booking.Status,
                                 TotalRoom = Booking.TotalRoom,
                                 Price = Booking.Price ,
-                                UserId = Booking.UserId
+                                UserId = Booking.UserId,
+                                RoomType=room.RoomType
                             })
                     .ToList();
 

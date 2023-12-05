@@ -43,6 +43,7 @@ namespace HotelBookingApplication.Services
                 userDTO.Role = user.Role;
                 userDTO.Token = _tokenService.GetToken(userDTO);
                 userDTO.Password = "";
+                userDTO.Name = user.Name;
                 return userDTO;
             }
             return null;

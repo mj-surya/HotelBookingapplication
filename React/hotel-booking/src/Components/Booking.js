@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import './Booking.css';
-import './Download.js';
 
 function Booking(){
     const [bookingList, setBookingList] = useState([]);
