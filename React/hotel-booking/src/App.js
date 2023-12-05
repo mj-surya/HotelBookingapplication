@@ -21,6 +21,8 @@ import GuestPolicies from './Components/GuestPolicies';
 import PrivacyPolicy from './Components/PrivacyPolicy';
 import TrustAndSafety from './Components/TrustAndSafety';
 import AboutUs from './Components/AboutUs';
+import AdminBooking from './Components/AdminBooking';
+
 
 
 
@@ -31,7 +33,7 @@ function App() {
   return (
     <div class="padding bg">
 
-      {/* <BrowserRouter>
+      <BrowserRouter>
       {usertype==="Admin"?<Menu/> : <MenuUser/> }
       <div className='margin'>
       <Routes>
@@ -54,10 +56,12 @@ function App() {
             }/>
         </Routes>
       </div>
-      </BrowserRouter> */}
+      </BrowserRouter>
 
-    {/* <TrustAndSafety/> */}
-      <AboutUs/>
+
+    <AdminBooking/>
+      
+
      
 
     </div>
