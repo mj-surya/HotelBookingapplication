@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import './Booking.css';
+import './Download.js';
 
 function Booking(){
     const [bookingList, setBookingList] = useState([]);
@@ -49,6 +50,7 @@ function Booking(){
         const checkIn = new Date(checkInDate);
         return currentDate > checkIn;
     };
+    
     var CheckBooking = bookingList.length>0 ? true : false
     return(
         <div>
@@ -78,8 +80,8 @@ function Booking(){
                                     </div>
                                 </div>
                                 < div class="col">
-                                <h5 class="card-title">Status: {booking.status}</h5>
-                                {isCheckInDatePassed(booking.checkIn) || booking.status=='Cancelled' ? null : ( <button className="btn btn-danger" onClick={() => cancel(booking.bookingId)}>Cancel</button>)}
+                                    <h5 class="card-title">Status: {booking.status}</h5>
+                                    {isCheckInDatePassed(booking.checkIn) || booking.status=='Cancelled' ? null : ( <button className="btn btn-danger" onClick={() => cancel(booking.bookingId)}>Cancel</button>)}
                                 </div>
                             </div>
                         </div>
