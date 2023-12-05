@@ -17,6 +17,7 @@ import ViewHotel from './Components/ViewHotel';
 import AddReview from './Components/AddReview';
 import UpdateUser from './Components/UpdateUser';
 import Home from './Components/Home';
+import AdminBooking from './Components/AdminBooking';
 
 
 
@@ -52,7 +53,7 @@ function App() {
       </div>
       </BrowserRouter> */}
 
-      <Booking/>
+      <AdminBooking/>
       
      
 

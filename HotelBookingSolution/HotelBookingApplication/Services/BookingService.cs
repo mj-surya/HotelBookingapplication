@@ -115,15 +115,34 @@ namespace HotelBookingApplication.Services
         /// <param name="userId">Unique id of a user</param>
         /// <returns>Returns the list of booking object from the provided user id</returns>
         /// <exception cref="NoBookingsAvailableException">Thrown when no bookings are available for the specified user</exception>
-        public List<Booking> GetUserBooking(string userId)
+        public List<DisplayUserBookingDTO> GetUserBooking(string userId)
         {
             //Retrieve the booking details for the specified user
-            var user = _bookingRepository.GetAll().Where(u => u.UserId == userId).ToList();
+            var bookings = (from Booking in _bookingRepository.GetAll()
+                            join room in _roomRepository.GetAll() on Booking.RoomId equals room.RoomId
+                            join hotel in _hotelRepository.GetAll() on room.HotelId equals hotel.HotelId
+                            where Booking.UserId== userId
+                            select new DisplayUserBookingDTO
+                            {
+                                BookingId = Booking.BookingId,
+                                BookingDate = Booking.BookingDate,
+                                CheckIn = Booking.CheckIn,
+                                CheckOut = Booking.CheckOut,
+                                RoomId = Booking.RoomId,
+                                Status = Booking.Status,
+                                TotalRoom = Booking.TotalRoom,
+                                Price = Booking.Price,
+                                UserId = Booking.UserId,
+                                HotelName = hotel.HotelName,
+                                RoomType = room.RoomType,
+                                Payment =Booking.Payment
+                            })
+                    .ToList();
 
             //Check if the booking was found and return the booking list; Otherwise thows a NoBookingsAvailableException
-            if (user != null)
+            if (bookings != null)
             {
-                return user;
+                return bookings;
             }
             throw new NoBookingsAvailableException();
         }

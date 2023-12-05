@@ -109,7 +109,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">Booking id</param>
         /// <param name="status">Current status of booking</param>
         /// <returns>the updated status</returns>
-        [HttpPost("Update")]
+        [HttpPut("Update")]
         public ActionResult UpdateBooking(int id,string status)
         {
             string message = string.Empty;
