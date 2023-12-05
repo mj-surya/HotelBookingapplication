@@ -51,7 +51,7 @@ namespace HotelBookingApplication.Controllers
         /// </summary>
         /// <param name="id">review id</param>
         /// <returns>Display deleted message</returns>
-        [HttpPost("DeleteReview")]
+        [HttpDelete("DeleteReview")]
         [Authorize(Roles = "User")]
         public ActionResult DeleteReviews(int id)
         {
@@ -80,7 +80,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">review id</param>
         /// <param name="reviewDTO">datails of review</param>
         /// <returns></returns>
-        [HttpPost("UpdateReview")]
+        [HttpPut("UpdateReview")]
         [Authorize(Roles = "User")]
         public ActionResult UpdateReview(int id, ReviewDTO reviewDTO)
         {

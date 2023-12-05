@@ -17,6 +17,10 @@ import ViewHotel from './Components/ViewHotel';
 import AddReview from './Components/AddReview';
 import UpdateUser from './Components/UpdateUser';
 import Home from './Components/Home';
+import GuestPolicies from './Components/GuestPolicies';
+import PrivacyPolicy from './Components/PrivacyPolicy';
+import TrustAndSafety from './Components/TrustAndSafety';
+import AboutUs from './Components/AboutUs';
 
 
 
@@ -52,8 +56,8 @@ function App() {
       </div>
       </BrowserRouter> */}
 
-      <Booking/>
-      
+    {/* <TrustAndSafety/> */}
+      <AboutUs/>
      
 
     </div>

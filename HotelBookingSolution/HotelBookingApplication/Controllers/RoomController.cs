@@ -128,7 +128,7 @@ namespace HotelBookingApplication.Controllers
         /// <param name="id">room id</param>
         /// <param name="roomDTO">Details of room</param>
         /// <returns>Display updated message</returns>
-        [HttpPost("PromoteRooms")]
+        [HttpPut("PromoteRooms")]
         [Authorize(Roles = "Admin")]
         public ActionResult PromoteRooms(int id,RoomDTO roomDTO)
         {
