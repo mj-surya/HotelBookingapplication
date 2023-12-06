@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PW7p6yahfTUl3a0zOPRLh7nUyTUaHH+TRaqxAeFRemM=",
+  "Hash": "i3O39eCu5pFUpbSm0lQIxff9QwR5a0qBrphOuebAszo=",
   "Source": "HotelBookingApplication",
   "BasePath": "_content/HotelBookingApplication",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\download (1).jpg",
+      "SourceId": "HotelBookingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\",
+      "BasePath": "_content/HotelBookingApplication",
+      "RelativePath": "Images/download (1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\download (1).jpg"
     },
     {
       "Identity": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\download.jpg",

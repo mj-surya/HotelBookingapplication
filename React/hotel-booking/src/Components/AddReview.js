@@ -23,7 +23,8 @@ function AddReview({id}){
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     }})
     .then((userData)=>{
-        console.log(userData)
+      alert("review added");
+      console.log(userData)
     })
     .catch((err)=>{
         console.log(err)

@@ -73,7 +73,6 @@ function AdminBooking(){
                         <div key={booking} class="card booking">
                             <div class="row">
                                 <div class="col">
-                                <h3 class="card-title">{booking.hotelName}</h3>
                                 <h5 class="card-title">Room Type: {booking.roomType}</h5>
                                 <p class ="card-description">Booked on: {booking.bookingDate}</p>
                                 </div>
@@ -93,8 +92,8 @@ function AdminBooking(){
                                     </div>
                                 </div>
                                 < div class="col">
-                                <h5 class="card-title">Status: {booking.status}</h5>
-                                {isCheckInDatePassed(booking.checkIn) || booking.status=='Cancelled' ? null : ( <button className="btn btn-danger" onClick={() => cancel(booking.bookingId)}>Cancel</button>)}
+                                    <h5 class="card-title">Status: {booking.status}</h5>
+                                    {isCheckInDatePassed(booking.checkIn) || booking.status=='Cancelled' ? null : ( <button className="btn btn-danger" onClick={() => cancel(booking.bookingId)}>Cancel</button>)}
                                 </div>
                             </div>
                         </div>

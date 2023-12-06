@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\Images\\Room1.jpg"
     },
     {
+      "Id": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\download (1).jpg",
+      "PackagePath": "staticwebassets\\Images\\download (1).jpg"
+    },
+    {
       "Id": "C:\\Hotel\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\download.jpg",
       "PackagePath": "staticwebassets\\Images\\download.jpg"
     },

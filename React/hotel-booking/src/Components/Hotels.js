@@ -39,6 +39,7 @@ function Hotels(){
     const view = (hotel)=>{
         navigate('/ViewHotel',{ state: { hotel,checkIn,checkOut } });
     }
+    const currentDate = new Date().toISOString().split('T')[0];
     
     return(
         <div className="hotel" >
@@ -49,10 +50,10 @@ function Hotels(){
                             <input id="psearch" required type="text" class="form-control input" placeholder="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
                         </div>
                         <div class="col input-size">
-                            <input id="pchechIn" required type="date" class="form-control input" placeholder="Check-In" value={checkIn} onChange={(e)=>{setCheckIn(e.target.value)}}/>
+                            <input id="pchechIn" required type="date" class="form-control input" placeholder="Check-In" value={checkIn} onChange={(e)=>{setCheckIn(e.target.value)}} min={currentDate}/>
                         </div>
                         <div class="col input-size">
-                            <input id="pcheckOut" required type="date" class="form-control input" placeholder="Check-Out" value={checkOut} onChange={(e)=>{setCheckOut(e.target.value)}}/>
+                            <input id="pcheckOut" required type="date" class="form-control input" placeholder="Check-Out" value={checkOut} onChange={(e)=>{setCheckOut(e.target.value)}} min={checkIn}/>
                         </div>
                         <div class="col">
                         <button className="btn btn-primary button btn-size">Search</button>

@@ -27,7 +27,7 @@ function AddRoom(){
         hotel();
     },[]);
     const hotel=()=>{
-        axios.post("http://localhost:5272/api/hotel/getbyid",{
+        axios.get("http://localhost:5272/api/hotel/getbyid",{
             params:{
                 id: localStorage.getItem("id")
             }
@@ -44,6 +44,7 @@ function AddRoom(){
     }
 
     const addRoom=(event)=>{
+        event.preventDefault();
         const jsonData = {
             roomType : roomType,
             hotelId : hotelId,
@@ -66,6 +67,7 @@ function AddRoom(){
             }
         })
         .then((userData)=>{
+            alert("Room added sucessfully");
             console.log(userData)
         })
         .catch((err)=>{
@@ -128,7 +130,7 @@ function AddRoom(){
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" className="btn btn-primary button" >Add Hotel</button>
+                        <button type="submit" className="btn btn-primary button" >Add Room</button>
                     </div>
                 </div>
             </form>

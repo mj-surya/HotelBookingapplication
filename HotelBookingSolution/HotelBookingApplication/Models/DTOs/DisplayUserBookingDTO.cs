@@ -14,7 +14,7 @@ namespace HotelBookingApplication.Models.DTOs
         public int TotalRoom { get; set; }
         public float Price { get; set; }
         public string Payment { get; set; }
-        public string HotelName { get; set; }
+        public string? HotelName { get; set; }
         public string RoomType { get; set; }
     }
 }

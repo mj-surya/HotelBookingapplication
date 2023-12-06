@@ -28,7 +28,8 @@ function Register(){
             var token = await userData.data.token;
             await localStorage.setItem("token",token);
             await localStorage.setItem("role",userData.data.role);
-            await localStorage.setItem("id",userData.data.userid);
+            await localStorage.setItem("id",userData.data.email);
+            await localStorage.setItem("name",userData.data.name);
             console.log(userData)
             alert("Registeration Successfull...");
             navigate("/Home");

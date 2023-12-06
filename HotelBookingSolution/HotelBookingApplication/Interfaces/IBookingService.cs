@@ -9,6 +9,6 @@ namespace HotelBookingApplication.Interfaces
         public Booking UpdateBookingStatus(int bookingId, string status);
         public List<DisplayUserBookingDTO> GetUserBooking(string userId);
 
-        public List<Booking> GetBooking(int hotelId);
+        public List<DisplayUserBookingDTO> GetBooking(int hotelId);
     }
 }
