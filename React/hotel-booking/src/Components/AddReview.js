@@ -25,6 +25,8 @@ function AddReview({id}){
     .then((userData)=>{
         console.log(userData)
         alert("Review added");
+      alert("review added");
+      console.log(userData)
     })
     .catch((err)=>{
         console.log(err)

@@ -26,7 +26,16 @@ namespace HotelBookingApplication.Services
         /// <returns>Returns the HotelDTO if hotel was added successfully; Otherwise return null</returns>
         public HotelDTO AddHotel(HotelDTO hotelDTO)
         {
-            var check = _hotelRepository.GetAll().FirstOrDefault(u => u.UserId == hotelDTO.UserId);
+            Hotel check;   
+            try
+            {
+                check = _hotelRepository.GetAll().FirstOrDefault(u => u.UserId == hotelDTO.UserId);
+            }
+            catch(Exception ex)
+            {
+                check = null;
+            }
+           
             if (check == null)
             {
                 //Create a new hotel object based on the details of hotelDTO

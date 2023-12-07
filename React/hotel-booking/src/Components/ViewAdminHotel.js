@@ -1,5 +1,5 @@
 import './ViewHotel.css';
-import Rooms from './Rooms.js';
+import AdminRooms from './AdminRooms.js';
 import Reviews from './Reviews.js';
 import { useEffect,useState} from 'react';
 import axios from "axios";
@@ -9,6 +9,7 @@ function ViewAdminHotel() {
   const [checkOut, setCheckOut] = useState("2023-11-13");
   const [hotel, setHotel] = useState({});
   const [hotelId, setHotelId] = useState();
+  const [reviewsVisible, setReviewsVisible] = useState(false);
 
   useEffect(()=>{
     axios.get('http://localhost:5272/api/hotel/getbyid',{
@@ -19,9 +20,12 @@ function ViewAdminHotel() {
     .then((response)=>{
         console.log(response);
         const posts= response.data;
-        setHotel(posts);
-        console.log(hotel);
+        setReviewsVisible(true);
         setHotelId(posts.hotelId);
+        setHotel(response.data);
+        console.log(hotel);
+        console.log(posts.hotelId);
+       
     })
     .catch((error)=>{
         console.log(error);
@@ -72,14 +76,14 @@ function ViewAdminHotel() {
                   <h2 class="mb-0 text-primary">Available Rooms</h2>
                 </div>
                 <div class="row mt-n4">
-                  {/* <Rooms hotel={{hotelId:hotel.hotelId,checkIn:checkIn,checkOut:checkOut}}/> */}
+                   {reviewsVisible && <AdminRooms hotel={{hotelId:hotel.hotelId,checkIn:checkIn,checkOut:checkOut}}/> }
                 </div>
               </div>
               <div class="wow fadeIn">
                 <div class="text-start mb-1-6 wow fadeIn">
                   <h2 class="mb-0 text-primary">Reviews &amp; Ratings</h2>
                 </div>
-                <Reviews id={hotelId}/>
+                {reviewsVisible && <Reviews id={hotelId} />}
               </div>
             </div>
           </div>

@@ -23,6 +23,7 @@ import AboutUs from './Components/AboutUs';
 import AdminBooking from './Components/AdminBooking';
 import TermsAndCondition from './Components/TermsAndCondition';
 import ViewAdminHotel from './Components/ViewAdminHotel';
+import AdminRooms from './Components/AdminRooms';
 
 
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="UpdateUser" element={<UpdateUser />} />
           <Route path="ViewHotel" element={<ViewHotel/>}/>
           <Route path="ViewAdminHotel" element={<ViewAdminHotel/>}/>
+          <Route path="AdminRooms" element={<AdminRooms/>}/>
         </Routes>
       </div>
       </BrowserRouter>

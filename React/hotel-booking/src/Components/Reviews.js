@@ -17,7 +17,7 @@ function Reviews({id}){
         })
         .catch(function (error) {
             console.log(error);
-            alert(error.response.data);
+           // alert(error.response.data);
         })
     }
 

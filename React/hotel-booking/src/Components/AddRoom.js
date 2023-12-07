@@ -67,6 +67,7 @@ function AddRoom(){
             }
         })
         .then((userData)=>{
+            alert("Room added sucessfully");
             console.log(userData)
         })
         .catch((err)=>{
@@ -129,7 +130,7 @@ function AddRoom(){
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" className="btn btn-primary button" >Add Hotel</button>
+                        <button type="submit" className="btn btn-primary button" >Add Room</button>
                     </div>
                 </div>
             </form>
