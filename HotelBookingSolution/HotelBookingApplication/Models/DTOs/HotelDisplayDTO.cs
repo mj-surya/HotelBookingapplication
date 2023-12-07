@@ -7,7 +7,6 @@ namespace HotelBookingApplication.Models
     {
         public int HotelId { get; set; }
         public string UserId { get; set; }
-        public User user { get; set; }
         public string HotelName { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
