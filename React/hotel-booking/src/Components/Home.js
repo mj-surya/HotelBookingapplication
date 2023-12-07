@@ -4,7 +4,13 @@ import { Link, useNavigate} from "react-router-dom";
 function Home() {
   const navigate=useNavigate();
   const explore=()=>{
-    navigate('/Hotels');
+    if(localStorage.getItem("role")=="Admin"){
+      navigate('/ViewAdminHotel');
+    }
+    else{
+      navigate('/Hotels');
+    }
+    
   }
   return (
     <div className="home">

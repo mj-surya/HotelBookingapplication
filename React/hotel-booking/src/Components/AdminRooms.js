@@ -32,9 +32,12 @@ function AdminRooms({hotel}){
     const deleteRoom = (id) => {
       // Get the token from localStorage
       const token = localStorage.getItem('token');
-    
+       console.log(id);
       // Make the delete request
-      axios.delete('http://localhost:5272/api/Room/deleterooms',id, {
+      axios.delete('http://localhost:5272/api/Room/deleterooms', {
+        params :{
+          id : id
+        },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

@@ -4,6 +4,7 @@ using HotelBookingApplication.Models;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Repositories;
 using HotelBookingApplication.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -43,11 +44,16 @@ namespace HotelTesting
                 RoomType = "single",
                 HotelId = 1,
                 Price = 1000,
-
                 Capacity = 2,
                 Description = "description",
                 TotalRooms = 2,
-                roomAmenities = {}
+                Picture = new FormFile(Stream.Null, 0, 0, "TestImage", "TestData/Images/test.jpg"),
+                roomAmenities = new List<string>
+                {
+                    "Wi-Fi",
+                    "TV",
+                    "Air Conditioning"
+                }
             };
 
             //Action
@@ -110,11 +116,16 @@ namespace HotelTesting
                 RoomType = "single",
                 HotelId = 1,
                 Price = 1000,
-
+                Picture = new FormFile(Stream.Null, 0, 0, "TestImage", "TestData/Images/test.jpg"),
                 Capacity = 2,
                 Description = "description",
                 TotalRooms = 2,
-                roomAmenities = { }
+                roomAmenities = new List<string>
+                {
+                    "Wi-Fi",
+                    "TV",
+                    "Air Conditioning"
+                }
             };
             var result = roomService.AddRoom(roomDTO);
 

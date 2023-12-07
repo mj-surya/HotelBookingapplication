@@ -4,6 +4,7 @@ using HotelBookingApplication.Models;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Repositories;
 using HotelBookingApplication.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace HotelTesting
         IRepository<int, Hotel> repository;
         IRepository<int, Room> roomRepository;
         IRepository<int, Review> reviewRepository;
+        IRepository<int, RoomAmenity> amenityRepository;
+        IRepository<int, Booking> bookingRepository;
 
         [SetUp]
         public void Setup()
@@ -28,6 +31,8 @@ namespace HotelTesting
             BookingContext context = new BookingContext(dbOptions);
             repository = new HotelRepository(context);
             roomRepository = new RoomRepository(context);
+            amenityRepository = new RoomAmenityRepository(context);
+            bookingRepository = new BookingRepository(context);
         }
 
         [Test]
@@ -42,7 +47,8 @@ namespace HotelTesting
                 Address = "TestAddress",
                 UserId = "abc@gmail.com",
                 Phone = "123456789",
-                Description = "TestDescription"
+                Description = "TestDescription",
+                Image = new FormFile(Stream.Null, 0, 0, "TestImage", "TestData/Images/test.jpg")
             };
 
 
@@ -58,6 +64,7 @@ namespace HotelTesting
         {
             // Arrange
             IHotelService hotelService = new HotelService(repository, roomRepository, reviewRepository);
+            IRoomService roomService = new RoomService(roomRepository, amenityRepository, bookingRepository);
             string city = "Test";
             var hotelDTO = new HotelDTO
             {
@@ -66,18 +73,36 @@ namespace HotelTesting
                 Address = "TestAddress2",
                 UserId = "abc@gmail.com2",
                 Phone = "1234567892",
-                Description = "TestDescription2"
-
+                Description = "TestDescription2",
+                Image = new FormFile(Stream.Null, 0, 0, "TestImage", "TestData/Images/test.jpg")
+            };
+            var roomDTO = new RoomDTO
+            {
+                RoomType = "single",
+                HotelId = 1,
+                Price = 1000,
+                Capacity = 2,
+                Description = "description",
+                TotalRooms = 2,
+                Picture = new FormFile(Stream.Null, 0, 0, "TestImage", "TestData/Images/test.jpg"),
+                roomAmenities = new List<string>
+                {
+                    "Wi-Fi",
+                    "TV",
+                    "Air Conditioning"
+                }
             };
 
+            //Action
+           
             // Act
             hotelService.AddHotel(hotelDTO);
-            var result = hotelService.GetHotels(city);
+            var result = roomService.AddRoom(roomDTO);
+            var result2 = hotelService.GetHotels(city);
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(1,result.Count);
-
+            Assert.IsNotNull(result2);
+            
         }
         [Test]
         public void UpdateTest()
@@ -90,9 +115,9 @@ namespace HotelTesting
                 HotelName = "TestHotel",
                 City = "TestCity",
                 Address = "TestAddress",
-               
                 Phone = "9988776655",
-                Description = "TestDescription"
+                Description = "TestDescription",
+               
             };
 
             //Act

@@ -4,6 +4,7 @@ using HotelBookingApplication.Models;
 using HotelBookingApplication.Models.DTOs;
 using HotelBookingApplication.Repositories;
 using HotelBookingApplication.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -33,7 +34,7 @@ namespace HotelTesting
             hotelRepository = new HotelRepository(context);
             roomRepository = new RoomRepository(context);
             userRepository = new UserRepository(context);
-           
+            amenityRepository = new RoomAmenityRepository(context);
         }
 
         [Test]
@@ -68,8 +69,8 @@ namespace HotelTesting
                 Address = "TestAddress",
                 UserId = "abc@gmail.com",
                 Phone = "123456789",
-                Description = "TestDescription"
-
+                Description = "TestDescription",
+                 Image = new FormFile(Stream.Null, 0, 0, "TestImage", "TestData/Images/test.jpg")
             };
 
 
@@ -81,11 +82,16 @@ namespace HotelTesting
                 RoomType = "single",
                 HotelId = 1,
                 Price = 1000,
-
+                Picture = new FormFile(Stream.Null, 0, 0, "TestImage", "TestData/Images/test.jpg"),
                 Capacity = 2,
                 Description = "description",
                 TotalRooms = 2,
-                roomAmenities = { }
+                roomAmenities = new List<string>
+                {
+                    "Wi-Fi",
+                    "TV",
+                    "Air Conditioning"
+                }
             };
             var result2 = roomService.AddRoom(roomDTO);
 
@@ -97,6 +103,7 @@ namespace HotelTesting
                 CheckOut = "25-11-2023",
                 RoomId = 1,
                 TotalRoom = 1,
+                Payment = "Online"
             };
             //Action
             var result1 = bookingService.AddBookingDetails(bookingDTO);
