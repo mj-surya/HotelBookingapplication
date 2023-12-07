@@ -49,7 +49,7 @@ function MenuUser(){
                             {localStorage.getItem("token")?
                             <div>
                                 <Link class="dropdown-item" to="/UpdateUser">Profile</Link>
-                                <Link class="dropdown-item" to="/AdBooking">Bookings</Link>
+                                <Link class="dropdown-item" to="/Booking">Bookings</Link>
                                 <Link class="dropdown-item" onClick={logout}>logout</Link>
                             </div> 
                             :

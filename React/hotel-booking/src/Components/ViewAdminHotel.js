@@ -3,24 +3,20 @@ import Rooms from './Rooms.js';
 import Reviews from './Reviews.js';
 import { useEffect,useState} from 'react';
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
 
 function ViewAdminHotel() {
   const [checkIn, setCheckIn] = useState("2023-11-12");
   const [checkOut, setCheckOut] = useState("2023-11-13");
-  const [hotel, setHotel] = useState([]);
+  const [hotel, setHotel] = useState({});
   const [hotelId, setHotelId] = useState();
 
   useEffect(()=>{
-    gethotel();
-  },[]);
-  const gethotel=()=>{
     axios.get('http://localhost:5272/api/hotel/getbyid',{
         params:{
             id:localStorage.getItem('id')
         }
     })
-    .then(async( response)=>{
+    .then((response)=>{
         console.log(response);
         const posts= response.data;
         setHotel(posts);
@@ -30,7 +26,8 @@ function ViewAdminHotel() {
     .catch((error)=>{
         console.log(error);
     })
-  }
+  },[]);
+
   
 
   return (
