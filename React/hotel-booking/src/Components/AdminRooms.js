@@ -1,6 +1,7 @@
 import { useState ,useEffect} from "react";
 import axios from "axios";
-import './Rooms.css';
+
+import './HotelCard.css';
 
 function AdminRooms({hotel}){
     const [roomList, setRoomList] = useState([]);
@@ -61,11 +62,11 @@ function AdminRooms({hotel}){
       {CheckRooms?
           <div>
               {roomList.map((room)=>
-                  <figure class="hotel-card">
-                  <div class="hotel__hero">
+                  <figure class="hotel-card row">
+                  <div class="hotel__hero col">
                     <img src={room.picture} alt="Rambo" class="hotel__img"/>
                   </div>
-                  <div class="hotel__content">
+                  <div class="hotel__content col">
                     <div class="hotel__title">
                       <h1 class="heading__primary">{room.roomType}</h1>
                     </div>

@@ -28,9 +28,7 @@ function UpdateUser(){
             setRole(posts.role);
             
         })
-        .catch(function (error) {
-                
-        })
+       
     }
 
     const save=(event)=>{

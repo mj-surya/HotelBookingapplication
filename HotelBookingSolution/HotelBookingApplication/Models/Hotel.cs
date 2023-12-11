@@ -9,7 +9,7 @@ namespace HotelBookingApplication.Models
         /// Gets or sets the unique identifier of the hotel
         /// </summary>
         [Key]
-        public int HotelId { get; set; }
+        public int HotelId { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the user identifier associated with the hotel
@@ -21,7 +21,9 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the hotel name
         /// </summary>
+
         public string  HotelName { get; set; } = "";
+
 
         /// <summary>
         /// Gets or sets city where hotel is located
@@ -47,9 +49,11 @@ namespace HotelBookingApplication.Models
         /// Gets or sets the starting price of the hotel
         /// </summary>
         public float StartingPrice { get; set; } = 0;
+
         /// <summary>
         /// Gets and sets the image of the hotel
         /// </summary>
+
         public string Image { get; set; } = "";
     }
 }

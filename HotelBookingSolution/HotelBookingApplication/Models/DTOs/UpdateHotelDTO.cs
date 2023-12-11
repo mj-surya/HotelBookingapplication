@@ -2,6 +2,7 @@
 {
     public class UpdateHotelDTO
     {
+
         /// <summary>
         /// Gets and sets hotel name
         /// </summary>

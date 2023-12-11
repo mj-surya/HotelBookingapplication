@@ -33,10 +33,12 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the role of the user
         /// </summary>        
+
         public string Role { get; set; } = "";
         /// <summary>
         /// Gets and sets the key value
         /// </summary>
+
         public byte[] Key { get; set; } = new byte[32];
     }
 }

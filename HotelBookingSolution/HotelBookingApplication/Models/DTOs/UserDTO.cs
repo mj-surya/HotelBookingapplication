@@ -13,7 +13,7 @@ namespace HotelBookingApplication.Models.DTOs
         /// <summary>
         /// Gets or sets the role of the user and it could be nullable.
         /// </summary>
-        public string? Role { get; set; }
+        public string? Role { get; set; } 
 
         /// <summary>
         /// Gets or sets the authentication token for the user.

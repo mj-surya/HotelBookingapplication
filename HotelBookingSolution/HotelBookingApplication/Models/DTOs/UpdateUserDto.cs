@@ -2,6 +2,7 @@
 {
     public class UpdateUserDto
     {
+
         /// <summary>
         /// Gets and sets user's name
         /// </summary>

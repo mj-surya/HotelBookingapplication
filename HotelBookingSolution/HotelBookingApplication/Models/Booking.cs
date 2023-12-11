@@ -20,7 +20,7 @@ namespace HotelBookingApplication.Models
         /// Gets or sets the associated User object for the booking user.
         /// </summary>
         [ForeignKey("UserId")]
-        public User user { get; set; }
+        public User user { get; set; } 
 
         /// <summary>
         /// Gets or sets the booking date.
@@ -40,9 +40,9 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the unique identifier for the booked room.
         /// </summary>
-        public int RoomId { get; set; }
+        public int RoomId { get; set; } = 0;
         [ForeignKey("RoomId")]
-        public Room room { get; set; }
+        public Room room { get; set; } 
 
         /// <summary>
         /// Gets or sets the status of the booking
@@ -63,8 +63,6 @@ namespace HotelBookingApplication.Models
         /// Gets and sets the payment method
         /// </summary>
         public string Payment { get; set; } = "";
-
-
 
     }
 }

@@ -23,8 +23,35 @@ namespace HotelTesting
             repository = new UserRepository(context);
         }
 
+
         [Test]
-        public void UserTest()
+        public void Register()
+        {
+            //Arrange
+            var appSettings = @"{""SecretKey"": ""Anything will work here this is just for testing""}";
+            var configurationBuilder = new ConfigurationBuilder();
+            configurationBuilder.AddJsonStream(new MemoryStream(Encoding.UTF8.GetBytes(appSettings)));
+            var tokenService = new TokenService(configurationBuilder.Build());
+            IUserService userService = new UserService(repository, tokenService);
+
+            //Action
+            var result = userService.Register(new UserRegisterDTO
+            {
+                Email = "soori@gmail.com",
+                Address = "xyz",
+                ReTypePassword = "1234",
+                Phone = "9988776655",
+                Name = "surya",
+                Role = "Admin",
+                Password = "1234"
+            });
+            //Assert
+            Assert.AreEqual("soori@gmail.com", result.Email);
+        }
+
+
+        [Test]
+        public void Login()
         {
             //Arrange
             var appSettings = @"{""SecretKey"": ""Anything will work here this is just for testing""}";
@@ -46,6 +73,25 @@ namespace HotelTesting
             var result = userService.Login(new UserDTO { Email = "surya@gmail.com", Password = "1234" });
             //Assert
             Assert.AreEqual("surya@gmail.com", result.Email);
+        }
+
+        [Test]
+        public void UpdateUser()
+        {
+            var appSettings = @"{""SecretKey"": ""Anything will work here this is just for testing""}";
+            var configurationBuilder = new ConfigurationBuilder();
+            configurationBuilder.AddJsonStream(new MemoryStream(Encoding.UTF8.GetBytes(appSettings)));
+            var tokenService = new TokenService(configurationBuilder.Build());
+            IUserService userService = new UserService(repository, tokenService);
+            UpdateUserDto user = new UpdateUserDto
+            {
+                Address = "xyz",
+                Phone = "9988776655",
+                Name = "mj"
+            };
+           var result = userService.Update("surya@gmail.com", user);
+
+            Assert.AreEqual("mj", result.Name);
         }
     }
 }

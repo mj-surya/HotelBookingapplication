@@ -44,6 +44,7 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets and sets the average rating 
         /// </summary>
+
         public float AvgRating { get; set; } = 0;
     }
 }

@@ -21,7 +21,7 @@ namespace HotelBookingApplication.Models
         /// </summary>
         public int HotelId { get; set; } = 0;
         [ForeignKey("HotelId")]
-        public Hotel hotel { get; set; }
+        public Hotel hotel { get; set; } 
 
         /// <summary>
         /// Gets or sets the path of image representing the room
@@ -41,11 +41,15 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the total room of available room
         /// </summary>
+
         public int TotalRooms { get; set; } = 0;
+
 
         /// <summary>
         /// Gets or sets the description
         /// </summary>
+
         public string Description { get; set; } = "";
+
     }
 }

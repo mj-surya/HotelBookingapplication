@@ -42,5 +42,6 @@ namespace HotelBookingApplication.Models.DTOs
         /// Gets and sets room amenities list
         /// </summary>
         public List<string> Amenities { get; set; }= new List<string>();
+
     }
 }

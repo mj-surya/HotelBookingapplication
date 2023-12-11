@@ -59,6 +59,7 @@ namespace HotelBookingApplication.Services
 
                 }
             }
+
             catch(Exception)
             {
                 throw new NoRoomsAvailableException();

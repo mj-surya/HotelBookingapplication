@@ -4,6 +4,9 @@ namespace HotelBookingApplication.Models.DTOs
 {
     public class DisplayUserBookingDTO
     {
+
+
+
         /// <summary>
         /// Gets and sets Booking ID
         /// </summary>
@@ -51,6 +54,7 @@ namespace HotelBookingApplication.Models.DTOs
         /// <summary>
         /// Gets and sets the room type
         /// </summary>
+
         public string RoomType { get; set; } = "";
     }
 }

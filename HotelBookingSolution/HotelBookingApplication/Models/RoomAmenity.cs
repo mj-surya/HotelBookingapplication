@@ -9,14 +9,14 @@ namespace HotelBookingApplication.Models
         /// Gets or sets the unique identifier of the amenity
         /// </summary>
         [Key]
-        public int RoomAmenityId { get; set; }
+        public int RoomAmenityId { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the unique room identifier associated with room amenity
         /// </summary>
-        public int RoomId { get; set; }
+        public int RoomId { get; set; } = 0;
         [ForeignKey("RoomId")]
-        public Room room { get; set; }
+        public Room room { get; set; } 
 
         /// <summary>
         /// Gets or sets the amenities for the room

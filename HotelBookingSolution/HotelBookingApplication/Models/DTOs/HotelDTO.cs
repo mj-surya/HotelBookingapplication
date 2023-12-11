@@ -46,6 +46,5 @@ namespace HotelBookingApplication.Models.DTOs
         /// </summary>
         [Required(ErrorMessage = "Image is Mandatory")]
         public IFormFile? Image { get; set; } 
-
     }
 }
