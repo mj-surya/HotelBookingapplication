@@ -69,10 +69,10 @@ function Hotels(){
                     <div>
                         {HotelList.map((hotel)=>
                             <figure class="hotel-card row">
-                            <div class="hotel__hero col-6">
+                            <div class="hotel__hero col">
                               <img src={hotel.image} alt="Rambo" class="hotel__img"/>
                             </div>
-                            <div class="hotel__content col-6">
+                            <div class="hotel__content col">
                               <div class="hotel__title">
                                 <h1 class="heading__primary">{hotel.hotelName}</h1>
                               </div>
@@ -95,9 +95,9 @@ function Hotels(){
                                 </div>
                               <p class="hotel__description">{shorten(hotel.description)}</p>
                               <button class="btn btn-primary" onClick={()=>view(hotel)}>View Rooms</button>
-                              <div class="hotel__price">Starts from ₹.{hotel.startingPrice}</div>
+                              
                             </div>
-                           
+                            <div class="hotel__price">Starts from ₹.{hotel.startingPrice}</div>
                           </figure>
                         )}
                     </div>

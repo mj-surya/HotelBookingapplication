@@ -1,8 +1,5 @@
-/*  
-background-color: #A9C9FF;
-background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+/* Common styles for all screen sizes */
 
-*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 * {
@@ -11,19 +8,19 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
     box-sizing: border-box;
 }
 
-.row>*{
-  padding-right: 0;
-  padding-left: 0;
-}
+/* .row > * {
+    padding-right: 0;
+    padding-left: 0;
+} */
 
 .hotel-card {
     max-width: 100%;
     border-radius: 5px;
-    max-height:fit-content;
+    max-height: auto;
     display: flex;
     box-shadow: 0 5px 20px 10px rgba(0, 0, 0, .2);
-   overflow: hidden;
-   font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
     color: #444;
@@ -31,12 +28,12 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 
 .hotel__hero {
-  flex: 0 0 45%;
+    flex: 0 0 45%;
 }
 
 .hotel__img {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: 300px;
     display: block;
 }
 
@@ -49,7 +46,7 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 
 .hotel__price {
-    background:linear-gradient(to bottom, #4285f4 30%, #34a8eb 70%);
+    background: linear-gradient(to bottom, #4285f4 30%, #34a8eb 70%);
     flex: 0 0 50px;
     font-size: 15px;
     font-weight: bold;
@@ -62,8 +59,8 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 
 .hotel__title {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .heading__primary {
@@ -77,23 +74,40 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 
 .hotel__city {
-   font-size: 16px;
-   font-weight: bold;
-   margin-right: 20px;
-   display: flex;
-   align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
 }
 
-.mid{
-  text-align: center;
+.mid {
+    text-align: center;
 }
 
-.hotel__rating{
-  font-size:18px;
-  font-weight: 2px;
-  margin-bottom: 5px;
+.hotel__rating {
+    font-size: 18px;
+    font-weight: 2px;
+    margin-bottom: 5px;
 }
 
-.down{
-  margin-top:22px;
+.down {
+    margin-top: 22px;
+}
+
+/* Responsive styles for smaller screens */
+@media only screen and (max-width: 768px) {
+   
+
+    .hotel__hero {
+        flex: 1 1 100%;
+    }
+
+    .hotel__content {
+        padding: 15px;
+    }
+
+    .hotel__img {
+        height: 200px;
+    }
 }
