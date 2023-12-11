@@ -9,58 +9,58 @@ namespace HotelBookingApplication.Models
         /// Gets or sets the unique identifier for the booking.
         /// </summary>
         [Key]
-        public int BookingId { get; set; }
+        public int BookingId { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the unique identifier for the user making the booking.
         /// </summary>
-        public string UserId { get; set; }
+        public string UserId { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the associated User object for the booking user.
         /// </summary>
         [ForeignKey("UserId")]
-        public User user { get; set; }
+        public User user { get; set; } 
 
         /// <summary>
         /// Gets or sets the booking date.
         /// </summary>
-        public string BookingDate { get; set; }
+        public string BookingDate { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the check in date
         /// </summary>
-        public string CheckIn { get; set; }
+        public string CheckIn { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the check out
         /// </summary>
-        public string CheckOut { get; set; }
+        public string CheckOut { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the unique identifier for the booked room.
         /// </summary>
-        public int RoomId { get; set; }
+        public int RoomId { get; set; } = 0;
         [ForeignKey("RoomId")]
-        public Room room { get; set; }
+        public Room room { get; set; } 
 
         /// <summary>
         /// Gets or sets the status of the booking
         /// </summary>
-        public string Status { get; set; }
+        public string Status { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the total number of booked
         /// </summary>
-        public int TotalRoom { get; set; }
+        public int TotalRoom { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the total price for the booking
         /// </summary>
-        public float Price { get; set; }
+        public float Price { get; set; } = 0;
 
 
-        public string Payment { get; set; }
+        public string Payment { get; set; } = "";
 
      
 

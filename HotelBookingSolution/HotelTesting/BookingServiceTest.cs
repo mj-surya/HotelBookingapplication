@@ -53,7 +53,7 @@ namespace HotelTesting
 
             userService.Register(new UserRegisterDTO
             {
-                Email = "surya@gmail.com",
+                Email = "surya1@gmail.com",
                 Address = "xyz",
                 ReTypePassword = "1234",
                 Phone = "9988776655",
@@ -98,7 +98,7 @@ namespace HotelTesting
 
             var bookingDTO = new BookingDTO
             {
-                UserId = "surya@gmail.com",
+                UserId = "surya1@gmail.com",
                 CheckIn = "23-11-2023",
                 CheckOut = "25-11-2023",
                 RoomId = 1,
@@ -130,7 +130,7 @@ namespace HotelTesting
         {
             //Arrange
             IBookingService bookingService = new BookingService(repository, roomRepository, hotelRepository, userRepository);
-            string userId = "surya@gmail.com";
+            string userId = "surya1@gmail.com";
 
             //Action
             var result = bookingService.GetUserBooking(userId);

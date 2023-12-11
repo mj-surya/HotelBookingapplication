@@ -59,7 +59,7 @@ namespace HotelBookingApplication.Services
 
                 }
             }
-            catch(Exception ex)
+            catch(Exception )
             {
                 throw new NoRoomsAvailableException();
             }
@@ -131,7 +131,7 @@ namespace HotelBookingApplication.Services
                     (DateTime.Parse(checkIn).Date >= DateTime.Parse(booking.CheckIn).Date &&
                       DateTime.Parse(checkIn).Date <= DateTime.Parse(booking.CheckOut).Date ||
                       DateTime.Parse(checkOut).Date <= DateTime.Parse(booking.CheckOut).Date &&
-                      DateTime.Parse(checkOut).Date >= DateTime.Parse(booking.CheckIn).Date))
+                      DateTime.Parse(checkOut).Date >= DateTime.Parse(booking.CheckIn).Date) && booking.Status == "Booked")
                                    select Booking).ToList();
                     int count = 0;
                     foreach (var b in booking)
@@ -146,7 +146,7 @@ namespace HotelBookingApplication.Services
                 }
                 return roomList;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return room;
             }

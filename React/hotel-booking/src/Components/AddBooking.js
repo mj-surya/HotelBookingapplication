@@ -17,7 +17,7 @@ function AddBooking({ room, hotel, onBookingComplete }){
         setTotalPrice(totalRoom * price);
     }, [totalRoom, price]);
     const incrementTotalRoom = () => {
-        if(totalRoom<=room.totalRooms){
+        if(totalRoom<room.totalRooms){
             setTotalRoom((prevCount) => prevCount + 1);
         }
         

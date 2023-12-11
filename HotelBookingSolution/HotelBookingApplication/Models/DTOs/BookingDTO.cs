@@ -8,33 +8,33 @@ namespace HotelBookingApplication.Models.DTOs
         /// <summary>
         /// Gets or sets the unique identifier for the user.
         /// </summary>
-        [Required(ErrorMessage ="User ID cannot be empty")]
-        public String UserId { get; set; }
+        [Required(ErrorMessage = "User ID cannot be empty")]
+        public String UserId { get; set; } = "";
         /// <summary>
         /// Gets or sets the check-in date  for a reservation.
         /// </summary>
         [Required(ErrorMessage = "Check_In Date cannot be empty")]
-        public string CheckIn { get; set; }
+        public string CheckIn { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the check-out date for a reservation.
         /// </summary>
         [Required(ErrorMessage = "check_out Date cannot be empty")]
-        public string CheckOut { get; set; }
+        public string CheckOut { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the unique identifier for the room.
         /// </summary>
-        [Required(ErrorMessage ="Room ID cannot be empty")]
-        public int RoomId { get; set; }
+        [Required(ErrorMessage = "Room ID cannot be empty")]
+        public int RoomId { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the total number of rooms for a reservation.
         /// </summary>
         [Required(ErrorMessage = "Total rooms cannot be empty")]
-        public int TotalRoom { get; set; }
+        public int TotalRoom { get; set; } = 0;
 
-        public string Payment { get; set; }
+        public string Payment { get; set; } = "";
 
     }
 }

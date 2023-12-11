@@ -42,7 +42,7 @@ namespace HotelTesting
             var roomDTO = new RoomDTO
             {
                 RoomType = "single",
-                HotelId = 1,
+                HotelId = 2,
                 Price = 1000,
                 Capacity = 2,
                 Description = "description",
@@ -67,7 +67,7 @@ namespace HotelTesting
         {
             //Arrange
             IRoomService roomService = new RoomService(repository, amenityRepository, bookingRepository);
-            int hotelId = 1;
+            int hotelId = 2;
             string checkIn = "23-11-2023";
             string checkOut = "25-11-2023";
 

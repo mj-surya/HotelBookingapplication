@@ -85,8 +85,10 @@ namespace HotelBookingApplication.Controllers
             var result = _userService.Update(id,updateUserDto);
             if(result != null)
             {
+                _logger.LogError("user updated");
                 return Ok(result);
             }
+            _logger.LogError("Failed to update");
             return BadRequest("Unable to update error");
         }
     }

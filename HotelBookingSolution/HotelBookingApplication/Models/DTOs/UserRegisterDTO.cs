@@ -9,18 +9,18 @@ namespace HotelBookingApplication.Models.DTOs
         /// </summary>
         [Required(ErrorMessage = "Re type password cannot be empty")]
         [Compare("Password", ErrorMessage = "Password and retype password do not match")]
-        public string ReTypePassword { get; set; }
-        
+        public string ReTypePassword { get; set; } = "";
+
         /// <summary>
         /// Gets Phone as required field
         /// </summary>
         [Required(ErrorMessage = "Phone cannot be empty")]
-        public string Phone { get; set; }
+        public string Phone { get; set; } = "";
         /// <summary>
         /// Gets address as required field
         /// </summary>
         [Required(ErrorMessage = "Address cannot be empty")]
-        public string Address { get; set; }
+        public string Address { get; set; } = "";
 
     }
 }

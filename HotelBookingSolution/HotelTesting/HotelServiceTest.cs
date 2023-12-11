@@ -45,7 +45,7 @@ namespace HotelTesting
                 HotelName = "TestHotel",
                 City = "TestCity",
                 Address = "TestAddress",
-                UserId = "abc@gmail.com",
+                UserId = "abc1@gmail.com",
                 Phone = "123456789",
                 Description = "TestDescription",
                 Image = new FormFile(Stream.Null, 0, 0, "TestImage", "TestData/Images/test.jpg")

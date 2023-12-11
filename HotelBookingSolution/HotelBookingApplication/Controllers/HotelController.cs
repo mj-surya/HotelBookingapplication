@@ -151,6 +151,13 @@ namespace HotelBookingApplication.Controllers
             _logger.LogError("Could not update hotel");
             return BadRequest(message); 
         }
+
+
+        /// <summary>
+        /// Get the hotel details with the userId
+        /// </summary>
+        /// <param name="id">User Id</param>
+        /// <returns>returns a hotel informartion with the provided user id or returns a error message</returns>
         [HttpGet("GetById")]
         public ActionResult GetById(string id)
         {

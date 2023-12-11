@@ -130,6 +130,12 @@ namespace HotelBookingApplication.Controllers
             return BadRequest(errorMessage);
 
         }
+
+        /// <summary>
+        /// Get the average rating with the provided hotelId
+        /// </summary>
+        /// <param name="hotelId">Unique hotel identifier</param>
+        /// <returns>returna average rating for the given hotel id ; else return a error message</returns>
         [HttpGet("GetReviewAVG")]
         public ActionResult GetReviewsAVG(int hotelId)
         {
