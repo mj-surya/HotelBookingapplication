@@ -11,12 +11,15 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
     box-sizing: border-box;
 }
 
-
+.row>*{
+  padding-right: 0;
+  padding-left: 0;
+}
 
 .hotel-card {
-    max-width: auto;
+    max-width: 100%;
     border-radius: 5px;
-    max-height:300px;
+    max-height:fit-content;
     display: flex;
     box-shadow: 0 5px 20px 10px rgba(0, 0, 0, .2);
    overflow: hidden;
@@ -32,7 +35,7 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 
 .hotel__img {
-    width: 100%;
+    width: auto;
     height: 100%;
     display: block;
 }

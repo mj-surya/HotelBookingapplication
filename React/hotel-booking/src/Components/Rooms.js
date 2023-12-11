@@ -50,11 +50,11 @@ function Rooms({hotel}){
             {CheckRooms?
                 <div>
                     {roomList.map((room)=>
-                        <figure class="hotel-card">
-                        <div class="hotel__hero">
-                          <img src={room.picture} alt="Rambo" class="hotel__img"/>
+                        <figure class="hotel-card row">
+                        <div class="hotel__hero col">
+                          <img src={room.picture} class="hotel__img"/>
                         </div>
-                        <div class="hotel__content">
+                        <div class="hotel__content col">
                           <div class="hotel__title">
                             <h1 class="heading__primary">{room.roomType}</h1>
                           </div>
@@ -70,7 +70,7 @@ function Rooms({hotel}){
                           <p class="hotel__description">{room.totalRooms} available to book.</p>
                           <button class="btn btn-primary" onClick={()=>book(room)}>Book Rooms</button>
                         </div>
-                        <div class="hotel__price">Price ₹.{room.price}</div>
+                        <div class="hotel__price ">Price ₹.{room.price}</div>
                       </figure>
                     )}
                 </div>
