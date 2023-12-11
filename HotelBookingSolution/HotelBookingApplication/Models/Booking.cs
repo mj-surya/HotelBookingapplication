@@ -59,10 +59,10 @@ namespace HotelBookingApplication.Models
         /// </summary>
         public float Price { get; set; } = 0;
 
-
+        /// <summary>
+        /// Gets and sets the payment method
+        /// </summary>
         public string Payment { get; set; } = "";
-
-     
 
     }
 }

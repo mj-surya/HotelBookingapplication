@@ -59,14 +59,11 @@ namespace HotelBookingApplication.Services
 
                 }
             }
-            catch(Exception )
+
+            catch(Exception)
             {
                 throw new NoRoomsAvailableException();
             }
-       
-            
-
-
             //Check if the room is added sucessfully return roomDTO; Otherwise return null
             if (result != null )
             {
@@ -116,7 +113,13 @@ namespace HotelBookingApplication.Services
             throw new NoRoomsAvailableException();
         }
 
-
+        /// <summary>
+        /// Checks for the availability on the given dates
+        /// </summary>
+        /// <param name="room">list of rooms</param>
+        /// <param name="checkIn">CheckIn date</param>
+        /// <param name="checkOut">CheckOut date</param>
+        /// <returns>Returns list of rooms with available room count</returns>
         private List<Room> CheckAvailableRooms(List<Room> room, string checkIn, string checkOut)
         {
             List<Room> roomList = new List<Room>();
@@ -131,7 +134,7 @@ namespace HotelBookingApplication.Services
                     (DateTime.Parse(checkIn).Date >= DateTime.Parse(booking.CheckIn).Date &&
                       DateTime.Parse(checkIn).Date <= DateTime.Parse(booking.CheckOut).Date ||
                       DateTime.Parse(checkOut).Date <= DateTime.Parse(booking.CheckOut).Date &&
-                      DateTime.Parse(checkOut).Date >= DateTime.Parse(booking.CheckIn).Date) && booking.Status == "Booked")
+                      DateTime.Parse(checkOut).Date >= DateTime.Parse(booking.CheckIn).Date)&& booking.Status=="Booked") 
                                    select Booking).ToList();
                     int count = 0;
                     foreach (var b in booking)

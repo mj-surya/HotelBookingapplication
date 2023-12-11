@@ -13,7 +13,6 @@ function ViewHotel() {
   const [isAddReviewOpen, setAddReviewOpen] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
 
-  console.log(hotel);
   const addReview=()=>{
     if(localStorage.getItem("token")){
       setAddReviewOpen(!isAddReviewOpen);
@@ -73,10 +72,19 @@ function ViewHotel() {
                   <h2 class="mb-0 text-primary">Reviews &amp; Ratings</h2>
                 </div>
                 <button class="btn btn-success" onClick={addReview}>Add Review</button>
-                <Popup open={isAddReviewOpen} closeOnDocumentClick onClose={addReview}>
-                  <AddReview id={hotel.hotelId} />
-                </Popup>
-                <Popup open={isLoginOpen} closeOnDocumentClick onClose={addReview}>
+                <Popup
+  open={isAddReviewOpen}
+  closeOnDocumentClick
+  onClose={addReview}
+  overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} 
+  contentStyle={{ background: 'transparent', padding: 0 }}
+  className={isAddReviewOpen ? 'blur-background' : 'blr'} >
+  <AddReview id={hotel.hotelId} oncompleted={addReview}/>
+</Popup>
+
+                <Popup open={isLoginOpen} closeOnDocumentClick onClose={addReview} overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} 
+  contentStyle={{ background: 'transparent', padding: 0 }}
+  className={isAddReviewOpen ? 'blur-background' : 'blr'}>
                   <Login />
                 </Popup>
                 <Reviews id={hotel.hotelId}/>

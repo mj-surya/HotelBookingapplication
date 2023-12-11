@@ -5,6 +5,7 @@ import './Booking.css';
 
 function AdminBooking(){
     const [bookingList, setBookingList] = useState([]);
+    const[id,setId]=useState(0);
 
     useEffect(()=>{
         hotel();
@@ -17,13 +18,11 @@ function AdminBooking(){
             }
         })
         .then((response)=>{
-            console.log(response);
             const posts=response.data;
-            console.log(posts.hotelId);
             getBooking(posts.hotelId);
+            setId(posts.hotelId);
         })
         .catch((error)=>{
-            console.log(error);
         })
         
     }
@@ -38,25 +37,25 @@ function AdminBooking(){
           })
           .then((response) => {
             const posts = response.data;
-            console.log(posts);
             setBookingList(posts);
         })
         .catch(function (error) {
             alert(error.response.data);
-            console.log(error);
         })
     }
     const cancel = (bookingId) => {
-        console.log(bookingId);
-        axios.put(`http://localhost:5272/api/Booking/Update?id=${bookingId}&status=Cancelled`)
+        const confirmation = window.confirm("Are you sure you want to cancel this booking?");
+        if(confirmation){
+            axios.put(`http://localhost:5272/api/Booking/Update?id=${bookingId}&status=Cancelled`)
           .then((response) => {
             alert("Booking Cancelled");
+            getBooking(id);
           })
           .catch(function (error) {
             alert("Could not cancel booking.");
-            console.log(error);
           });
-      }
+        }
+    }
       
       
     const isCheckInDatePassed = (checkInDate) => {

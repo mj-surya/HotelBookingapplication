@@ -8,7 +8,9 @@ namespace HotelBookingApplication.Models.DTOs
         /// <summary>
         /// Gets or sets the unique identifier for the user.
         /// </summary>
+
         [Required(ErrorMessage = "User ID cannot be empty")]
+
         public String UserId { get; set; } = "";
         /// <summary>
         /// Gets or sets the check-in date  for a reservation.
@@ -25,7 +27,9 @@ namespace HotelBookingApplication.Models.DTOs
         /// <summary>
         /// Gets or sets the unique identifier for the room.
         /// </summary>
-        [Required(ErrorMessage = "Room ID cannot be empty")]
+
+      
+        [Required(ErrorMessage ="Room ID cannot be empty")]
         public int RoomId { get; set; } = 0;
 
         /// <summary>
@@ -33,6 +37,9 @@ namespace HotelBookingApplication.Models.DTOs
         /// </summary>
         [Required(ErrorMessage = "Total rooms cannot be empty")]
         public int TotalRoom { get; set; } = 0;
+        /// <summary>
+        /// Gets and sets the payment method 
+        /// </summary>
 
         public string Payment { get; set; } = "";
 

@@ -18,17 +18,13 @@ function ViewAdminHotel() {
         }
     })
     .then((response)=>{
-        console.log(response);
         const posts= response.data;
         setReviewsVisible(true);
         setHotelId(posts.hotelId);
         setHotel(response.data);
-        console.log(hotel);
-        console.log(posts.hotelId);
        
     })
     .catch((error)=>{
-        console.log(error);
     })
   },[]);
 

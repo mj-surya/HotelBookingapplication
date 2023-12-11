@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddReview.css'
 
-function AddReview({id}){
+function AddReview({id,oncompleted}){
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState("");
 
@@ -23,13 +23,10 @@ function AddReview({id}){
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     }})
     .then((userData)=>{
-        console.log(userData)
         alert("Review added");
-      alert("review added");
-      console.log(userData)
+        oncompleted();
     })
     .catch((err)=>{
-        console.log(err)
         alert(err.response.data);
     })
    

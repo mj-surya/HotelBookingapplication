@@ -41,11 +41,15 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the total room of available room
         /// </summary>
-        public int TotalRooms { get; set; } = 0;        
+
+        public int TotalRooms { get; set; } = 0;
+
 
         /// <summary>
         /// Gets or sets the description
         /// </summary>
-        public string Description { get; set; } = "";   
+
+        public string Description { get; set; } = "";
+
     }
 }

@@ -8,7 +8,7 @@ namespace HotelBookingApplication.Models.DTOs
         /// Gets or sets the email address.
         /// </summary>
         [Required(ErrorMessage = "Email cannot be empty")]
-        public string Email { get; set; } = "";     
+        public string Email { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the role of the user and it could be nullable.

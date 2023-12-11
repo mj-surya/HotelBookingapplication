@@ -6,8 +6,6 @@ using HotelBookingApplication.Repositories;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Mail;
 using System.Net;
-using Twilio;
-using Twilio.Rest.Api.V2010.Account;
 
 
 namespace HotelBookingApplication.Services
@@ -60,16 +58,11 @@ namespace HotelBookingApplication.Services
             };
             var result = _bookingRepository.Add(booking);
             var user = _userRepository.GetById(bookingDTO.UserId);
-
-            string message = $"Dear {user.Name},\nThank you for choosing {hotel.HotelName}! Your reservation is confirmed, and we are thrilled to welcome you for your upcoming stay. Your booking reference number is {result.BookingId}. \nSafe travels!\nBest regards,\nThe {hotel.HotelName} Team\n{hotel.Phone}";
-            
-
             //Check if the booking was added successfully and return the bookingDTO
             if (result != null)
             {
                 //SendBookingConfirmationEmail(bookingDTO.UserId,subject,body);
                 SendBookingConfirmationEmail(result, hotel,user, room);
-               // SendBookingConfirmationSms("+91"+user.Phone,message);
                 return bookingDTO;
             }
             //Returns null if booking was not added successfully
@@ -207,24 +200,6 @@ namespace HotelBookingApplication.Services
             smtpClient.Send(mail);
 
         }
-        /// <summary>
-        /// Sends booking confirmation SMS to the user 
-        /// </summary>
-        /// <param name="recipientPhoneNumber">User's phone number</param>
-        /// <param name="message">SMS body text</param>
-        public void SendBookingConfirmationSms(string recipientPhoneNumber, string message)
-        {
-            string accountSid = "ACdcb9c57053fe86e8f654fe3e2ee72b29";
-            string authToken = "5db4611136c79fd4421f3cc4518c1914";
-            string twilioPhoneNumber = "+19089224315";
-
-            TwilioClient.Init(accountSid, authToken);
-
-            var smsMessage = MessageResource.Create(
-                body: message,
-                from: new Twilio.Types.PhoneNumber(twilioPhoneNumber),
-                to: new Twilio.Types.PhoneNumber(recipientPhoneNumber)
-            );
-        }
+        
     }
 }

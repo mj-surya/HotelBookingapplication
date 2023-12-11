@@ -38,9 +38,9 @@ namespace HotelBookingApplication.Controllers
                     return Ok(user);
                 }
             }
-            catch (DbUpdateException exp)
+            catch (DbUpdateException )
             {
-                message = "Duplicate username";
+                message = "Username already exists";
             }
             catch (Exception)
             {
@@ -65,7 +65,11 @@ namespace HotelBookingApplication.Controllers
             _logger.LogError("Login failed");
             return Unauthorized("Invalid username or password");
         }
-
+        /// <summary>
+        /// Gets the user details with userID
+        /// </summary>
+        /// <param name="id">User ID</param>
+        /// <returns>Returns the user data or null</returns>
         [HttpGet("Get")]
         public ActionResult GetUser(string id)
         {
@@ -78,7 +82,12 @@ namespace HotelBookingApplication.Controllers
             _logger.LogError("Failed to display");
             return BadRequest("Invalid username");
         }
-
+        /// <summary>
+        /// Send the data to update user's details
+        /// </summary>
+        /// <param name="id">User ID</param>
+        /// <param name="updateUserDto">Updated data</param>
+        /// <returns>Returns the updated user details</returns>
         [HttpPut("Update")]
         public IActionResult UpdateUser(string id,UpdateUserDto updateUserDto)
         {

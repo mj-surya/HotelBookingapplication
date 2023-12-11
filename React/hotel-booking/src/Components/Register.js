@@ -14,7 +14,8 @@ function Register(){
     const [phone,setPhone] = useState("");
     const navigate =useNavigate();
     
-    const signUp = ()=>{
+    const signUp = (event)=>{
+        event.preventDefault();
         axios.post("http://localhost:5272/api/User/register",{
             email: username,
             role:	role,
@@ -30,13 +31,11 @@ function Register(){
             await localStorage.setItem("role",userData.data.role);
             await localStorage.setItem("id",userData.data.email);
             await localStorage.setItem("name",userData.data.name);
-            console.log(userData)
             alert("Registeration Successfull...");
             navigate("/Home");
             window.location.reload();
         })
         .catch((err)=>{
-            console.log(err)
             alert(err.response.data);
         })
     }
