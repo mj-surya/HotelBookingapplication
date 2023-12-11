@@ -19,22 +19,20 @@ function AdminRooms({hotel}){
           })
           .then((response) => {
             const posts = response.data;
-            console.log(posts);
             setRoomList(posts);
         })
         .catch(function (error) {
             alert(error.response.data);
-            console.log(error);
            
         })
     }
     
     const deleteRoom = (id) => {
-      // Get the token from localStorage
       const token = localStorage.getItem('token');
        console.log(id);
-      // Make the delete request
-      axios.delete('http://localhost:5272/api/Room/deleterooms', {
+       const confirmation = window.confirm("Are you sure you want to delete the room?");
+       if(confirmation){
+        axios.delete('http://localhost:5272/api/Room/deleterooms', {
         params :{
           id : id
         },
@@ -44,15 +42,13 @@ function AdminRooms({hotel}){
       })
         .then((response) => {
           alert("Room Deleted");
-          // Optionally, you can perform additional actions on success
+          getRoom();
         })
         .catch(function (error) {
-          // Log the complete error object for debugging
-          console.error('Error deleting room:', error);
-          
-          // Display an error message to the user
           alert(error.response ? error.response.data : 'An error occurred');
-        });
+        }); 
+       }
+      
     };
     
 

@@ -25,12 +25,9 @@ function Rooms({hotel}){
           })
           .then((response) => {
             const posts = response.data;
-            console.log(posts);
             setRoomList(posts);
         })
         .catch(function (error) {
-            alert(error.response.data);
-            console.log(error);
            
         })
     }
@@ -44,6 +41,7 @@ function Rooms({hotel}){
     }
     const handleBookingComplete = () => {
       setPopupOpen(false); 
+      getRoom();
     };
 
 
@@ -82,10 +80,14 @@ function Rooms({hotel}){
                 :
                 <div>No Rooms available yet</div>    
             }
-              <Popup open={isPopupOpen} onClose={() => setPopupOpen(false)}>
-                <AddBooking room={selectedRoom} hotel={hotel} onBookingComplete={handleBookingComplete}/>
+              <Popup open={isPopupOpen} onClose={() => setPopupOpen(false)} overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} // Optional: Set the overlay background color
+  contentStyle={{ background: 'transparent', padding: 0 }}
+  className={isPopupOpen ? 'blur-background' : 'blr'}>
+                <AddBooking room={selectedRoom} hotel={hotel} onBookingComplete={handleBookingComplete} />
               </Popup>
-              <Popup open={isLoginOpen} closeOnDocumentClick onClose={()=>setLoginOpen(!isLoginOpen)}>
+              <Popup open={isLoginOpen} closeOnDocumentClick onClose={()=>setLoginOpen(!isLoginOpen)} overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} // Optional: Set the overlay background color
+  contentStyle={{ background: 'transparent', padding: 0 }}
+  className={isLoginOpen ? 'blur-background' : 'blr'}>
                   <Login />
               </Popup>
             

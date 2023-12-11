@@ -12,12 +12,13 @@ function AddBooking({ room, hotel, onBookingComplete }){
     const [payment,setPayment] = useState("");
     const [price, setPrice]=useState(room.price);
     const [totalPrice, setTotalPrice]=useState(room.price);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setTotalPrice(totalRoom * price);
     }, [totalRoom, price]);
     const incrementTotalRoom = () => {
-        if(totalRoom<=room.totalRooms){
+        if(totalRoom<room.totalRooms){
             setTotalRoom((prevCount) => prevCount + 1);
         }
         
@@ -26,7 +27,6 @@ function AddBooking({ room, hotel, onBookingComplete }){
     const decrementTotalRoom = () => {
         if (totalRoom > 1) {
             setTotalRoom((prevCount) => prevCount - 1);
-            
         }
     };
     const handlePaymentChange = (e) => {
@@ -35,7 +35,7 @@ function AddBooking({ room, hotel, onBookingComplete }){
 
     const AddBooking=(event)=>{
        event.preventDefault();
-     
+        setLoading(true);
         axios.post("http://localhost:5272/api/Booking/addBooking",{
             userId : userId,
             checkIn : checkIn,
@@ -50,11 +50,11 @@ function AddBooking({ room, hotel, onBookingComplete }){
         .then((userData)=>{
             alert("Booking successfull");
             onBookingComplete();
-            console.log(userData);
+            setLoading(false);
         })
         .catch((err)=>{
             alert(err.response.data);
-            console.log(err);
+            setLoading(false);
         })
        
     }
@@ -97,7 +97,15 @@ function AddBooking({ room, hotel, onBookingComplete }){
                     <option value="Online Payment">Online Payment</option>
                 </select>
                 <h4>Total Price: ₹.{totalPrice}</h4>
-                <button className="btn btn-success button space center" >BOOK NOW</button>
+                <button className="btn btn-success button space center" disabled={loading}>
+                    {loading ? (
+                        <div className="spinner-border text-light" role="status">
+                        <span className="sr-only"></span>
+                        </div>
+                    ) : (
+                        "BOOK NOW"
+                    )}
+                    </button>
             </form>
             
         </div>

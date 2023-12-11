@@ -2,8 +2,17 @@
 {
     public class UpdateUserDto
     {
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
+        /// <summary>
+        /// Gets and sets user's name
+        /// </summary>
+        public string Name { get; set; } = "";
+        /// <summary>
+        /// Gets and sets user's address
+        /// </summary>
+        public string Address { get; set; } = "";
+        /// <summary>
+        /// Gets and sets user's phone
+        /// </summary>
+        public string Phone { get; set; } = "";
     }
 }

@@ -35,10 +35,8 @@ function AddRoom(){
         .then((userData)=>{
             const data=userData.data;
             setHotelId(data.hotelId);
-            console.log(userData)
         })
         .catch((err)=>{
-            console.log(err);
             alert(err.response.data);
         })
     }
@@ -57,7 +55,6 @@ function AddRoom(){
         const formdata = new FormData();
         formdata.append('json',JSON.stringify( jsonData));
         formdata.append('image',image);
-        console.log(formdata);
 
         axios.post("http://localhost:5272/api/Room/CreateRooms",formdata,
         {
@@ -68,10 +65,8 @@ function AddRoom(){
         })
         .then((userData)=>{
             alert("Room added sucessfully");
-            console.log(userData)
         })
         .catch((err)=>{
-            console.log(err)
             event.preventDefault();
             alert(err.response.data);
         })
@@ -118,7 +113,7 @@ function AddRoom(){
                             <ul>
                                 <p>Amenities : {roomAmenities.length}</p>
                                 {roomAmenities.map((item, index) => (
-                                <li key={index} >{item} <span onClick={RemoveAmenity}>(remove)</span><br/> </li>
+                                <li key={index} >{item} <span style={{ cursor: 'pointer' }} onClick={RemoveAmenity}>(remove)</span><br/> </li>
                                 ))}
                             </ul>
                                 <input type="text" placeholder="Amenities" className="form-control" value={Amenity} onChange={(e)=> {setAmenity(e.target.value)}} />

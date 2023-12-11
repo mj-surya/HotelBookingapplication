@@ -31,7 +31,7 @@ namespace HotelBookingApplication.Services
             {
                 check = _hotelRepository.GetAll().FirstOrDefault(u => u.UserId == hotelDTO.UserId);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 check = null;
             }
@@ -100,7 +100,7 @@ namespace HotelBookingApplication.Services
                         try
                         {
                             avg = _reviewRepository.GetAll().Where(r => r.HotelId == id).Select(r => r.Rating).Average();
-                        }catch(Exception e)
+                        }catch(Exception)
                         {
                             avg = 0;
                         }
@@ -120,7 +120,7 @@ namespace HotelBookingApplication.Services
                         };
                         dto.Add(avgRating);
 
-                    }catch (Exception ex)
+                    }catch (Exception )
                     {
                         a.StartingPrice = 0;
                     }
@@ -134,7 +134,7 @@ namespace HotelBookingApplication.Services
                     return dto;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             // Check if the hotel is found with the specified city returns the hotel; Otherwise throws a new NoHotelsAvailableException
             {
                 throw new NoHotelsAvailableException();
@@ -189,7 +189,11 @@ namespace HotelBookingApplication.Services
             //Return null if the hotel was not found
             return null;
         }
-
+        /// <summary>
+        /// Gets the hotel with userId
+        /// </summary>
+        /// <param name="id">user Id </param>
+        /// <returns>returns the hotel data associated with the userID or returns null</returns>
         public Hotel GetByUserId(string id)
         {
             var hotel = _hotelRepository.GetAll().FirstOrDefault(u => u.UserId == id);

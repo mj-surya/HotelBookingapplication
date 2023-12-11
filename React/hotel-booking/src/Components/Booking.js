@@ -8,11 +8,10 @@ function Booking(){
 
     useEffect(()=>{
         getBooking();
+        
     },[]);
 
     var getBooking = ()=>{
-        console.log(localStorage.getItem("token"));
-        console.log(localStorage.getItem("id"));
         axios.get('http://localhost:5272/api/Booking/userBooking',{
             params: {
               id : localStorage.getItem("id")
@@ -23,25 +22,25 @@ function Booking(){
           })
           .then((response) => {
             const posts = response.data;
-            console.log(posts);
             setBookingList(posts);
         })
         .catch(function (error) {
             alert(error.response.data);
-            console.log(error);
         })
     }
     const cancel = (bookingId) => {
-        console.log(bookingId);
-        axios.put(`http://localhost:5272/api/Booking/Update?id=${bookingId}&status=Cancelled`)
+        const confirmation = window.confirm("Are you sure you want to cancel this booking?");
+        if(confirmation){
+            axios.put(`http://localhost:5272/api/Booking/Update?id=${bookingId}&status=Cancelled`)
           .then((response) => {
             alert("Booking Cancelled");
+            getBooking();
           })
           .catch(function (error) {
             alert("Could not cancel booking.");
-            console.log(error);
           });
-      }
+        }
+    }
       
       
     const isCheckInDatePassed = (checkInDate) => {

@@ -12,12 +12,9 @@ function Reviews({id}){
           })
           .then((response) => {
             const posts = response.data;
-            console.log(posts);
             setReviewList(posts);
         })
         .catch(function (error) {
-            console.log(error);
-           // alert(error.response.data);
         })
     }
 

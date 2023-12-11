@@ -139,7 +139,7 @@ namespace HotelBookingApplication.Controllers
                 float result = _reviewService.GetReviews(hotelId).Select(r => r.Rating).Average();
                 if (result != null)
                 {
-                    _logger.LogInformation("Reviews Displayed");
+                    _logger.LogInformation("Average Reviews Displayed");
                     return Ok(result);
 
                 }
@@ -148,7 +148,7 @@ namespace HotelBookingApplication.Controllers
             {
                 errorMessage = e.Message;
             }
-            _logger.LogError("Unable to display reviews");
+            _logger.LogError("Unable to get average reviews");
             return BadRequest(errorMessage);
 
         }

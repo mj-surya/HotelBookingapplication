@@ -14,30 +14,30 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the user identifier associated with the reviw
         /// </summary>
-        public string UserId { get; set; }
+        public string UserId { get; set; } = "";
         [ForeignKey("UserId")]
         public User user { get; set; }
 
         /// <summary>
         /// Gets or sets the hotel identifier associated with the review
         /// </summary>
-        public int HotelId { get; set; }
+        public int HotelId { get; set; } = 0;
         [ForeignKey("HotelId")]
         public Hotel hotel { get; set; }
 
         /// <summary>
         /// Gets or sets the text provioded by the user
         /// </summary>
-        public string Reviews { get; set; }
+        public string Reviews { get; set; } = "";
 
         /// <summary>
         /// Gets or sets the rating given by the user for the hotel
         /// </summary>
-        public float Rating { get; set; }
+        public float Rating { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the date when the review was submitted 
         /// </summary>
-        public string Date { get; set; }
+        public string Date { get; set; } = "";
     }
 }

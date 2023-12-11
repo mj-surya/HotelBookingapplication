@@ -79,7 +79,7 @@ namespace HotelBookingApplication.Services
                     return review.ToList();
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 throw new NoReviewAvailableException();
             }

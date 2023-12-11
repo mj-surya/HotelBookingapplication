@@ -21,12 +21,10 @@ function Hotels(){
           })
           .then(async(response) => {
             const posts = await response.data;
-            console.log(posts);
-            await setHotelList(posts);
+            setHotelList(posts);
         })
         .catch(function (error) {
             alert(error.response.data);
-            console.log(error);
         })
     }
 
@@ -47,15 +45,19 @@ function Hotels(){
                 <form class="form-size" onSubmit={getHotels}>
                     <div class="row">
                         <div class="col input-size">
+                        <span className="date-placeholder">Destination</span>
                             <input id="psearch" required type="text" class="form-control input" placeholder="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
                         </div>
                         <div class="col input-size">
+                            <span className="date-placeholder">Check-In</span>
                             <input id="pchechIn" required type="date" class="form-control input" placeholder="Check-In" value={checkIn} onChange={(e)=>{setCheckIn(e.target.value)}} min={currentDate}/>
+                            
                         </div>
                         <div class="col input-size">
+                        <span className="date-placeholder">Check-Out</span>
                             <input id="pcheckOut" required type="date" class="form-control input" placeholder="Check-Out" value={checkOut} onChange={(e)=>{setCheckOut(e.target.value)}} min={checkIn}/>
                         </div>
-                        <div class="col">
+                        <div class="col down">
                         <button className="btn btn-primary button btn-size">Search</button>
                         </div>
                     </div>

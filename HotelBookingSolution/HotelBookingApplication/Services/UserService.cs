@@ -16,7 +16,11 @@ namespace HotelBookingApplication.Services
             _repository = repository;
             _tokenService = tokenService;
         }
-
+        /// <summary>
+        /// Gets user details with userId
+        /// </summary>
+        /// <param name="id">UserId</param>
+        /// <returns>Returns user details</returns>
         public User GetById(string id)
         {
             var user = _repository.GetById(id);
@@ -77,7 +81,12 @@ namespace HotelBookingApplication.Services
             return null;
 
         }
-
+        /// <summary>
+        /// Updates user details
+        /// </summary>
+        /// <param name="id">User Id</param>
+        /// <param name="userDTO">Data to update</param>
+        /// <returns>Returns the updated user details</returns>
         public UpdateUserDto Update(string id,UpdateUserDto userDTO)
         {
              var user = _repository.GetById(id);

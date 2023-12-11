@@ -21,6 +21,6 @@ namespace HotelBookingApplication.Models
         /// <summary>
         /// Gets or sets the amenities for the room
         /// </summary>
-        public string Amenities { get; set; }
+        public string Amenities { get; set; } = "";
     }
 }

@@ -29,7 +29,7 @@ function UpdateUser(){
             
         })
         .catch(function (error) {
-            alert("Could not get hotel")    
+                
         })
     }
 
@@ -47,11 +47,11 @@ function UpdateUser(){
             }
         })
         .then(async (userData)=>{
-            alert("Hotel updated successfully")
+            alert("Profile updated successfully");
+            getUser();
         })
         .catch((err)=>{
-            alert("Could not update hotel")
-            console.log(err)
+            alert("Could not update ");
             
         })
     }
