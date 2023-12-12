@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import './HotelCard.css';
 import { useNavigate } from "react-router";
@@ -11,7 +11,20 @@ function Hotels(){
     const [checkIn,setCheckIn] = useState("");
     const [checkOut,setCheckOut] = useState("");
     const navigate = useNavigate();
+    const[searchList,setSearchList]=useState(["Coimbatore","Tirupur","Chennai","Bangalore"]);
+    const[filters,setFilter]=useState([]);
 
+    useEffect(() => {
+        filter(search);
+    }, [search]);
+
+    const filter = (search) => {
+        const filteredList = searchList.filter((item) =>
+            item.toLowerCase().includes(search.toLowerCase())
+        );
+        setFilter(filteredList);
+    };
+    
     var getHotels = (event)=>{
         event.preventDefault();
         axios.get('http://localhost:5272/api/Hotel',{
@@ -44,10 +57,21 @@ function Hotels(){
             <div>
                 <form class="form-size" onSubmit={getHotels}>
                     <div class="row">
-                        <div class="col input-size">
+                    <div className="col input-size">
                         <span className="date-placeholder">Destination</span>
-                            <input id="psearch" required type="text" class="form-control input" placeholder="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
-                        </div>
+                        <input
+                            type="text"
+                            className="form-control input"
+                            list="searchOptions"
+                            placeholder="Search"
+                            value={search}
+                            onChange={(e) => {
+                                setSearch(e.target.value);
+                                filter(e.target.value);}}/>
+                        <datalist id="searchOptions">
+                            {filters.map((filter) => (<option key={filter} value={filter} />))}
+                        </datalist>
+                    </div>
                         <div class="col input-size">
                             <span className="date-placeholder">Check-In</span>
                             <input id="pchechIn" required type="date" class="form-control input" placeholder="Check-In" value={checkIn} onChange={(e)=>{setCheckIn(e.target.value)}} min={currentDate}/>
