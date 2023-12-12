@@ -25,6 +25,7 @@ function ViewAdminHotel() {
        
     })
     .catch((error)=>{
+      console.log(error);
     })
   },[]);
 

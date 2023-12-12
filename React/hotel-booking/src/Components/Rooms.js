@@ -27,6 +27,8 @@ function Rooms({hotel}){
             const posts = response.data;
             setRoomList(posts);
         })
+        .catch((err)=>{
+        })
     }
     const book = (room) => {
       setSelectedRoom(room);

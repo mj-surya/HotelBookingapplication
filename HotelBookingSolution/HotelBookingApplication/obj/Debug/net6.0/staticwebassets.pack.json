@@ -5,36 +5,36 @@
       "PackagePath": "staticwebassets\\HotelBookingApplication.bundle.scp.css"
     },
     {
-      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel1.png",
-      "PackagePath": "staticwebassets\\Images\\Hotel1.png"
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Admin1.avif",
+      "PackagePath": "staticwebassets\\Images\\Admin1.avif"
+    },
+    {
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Hotel1.jpg"
     },
     {
       "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel2.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel2.jpg"
     },
     {
-      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Hotel3.jpg",
-      "PackagePath": "staticwebassets\\Images\\Hotel3.jpg"
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\h1r1.jpg",
+      "PackagePath": "staticwebassets\\Images\\h1r1.jpg"
     },
     {
-      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Room.jpg",
-      "PackagePath": "staticwebassets\\Images\\Room.jpg"
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\h1r2.jpg",
+      "PackagePath": "staticwebassets\\Images\\h1r2.jpg"
     },
     {
-      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\Room1.jpg",
-      "PackagePath": "staticwebassets\\Images\\Room1.jpg"
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\h1r3.jpg",
+      "PackagePath": "staticwebassets\\Images\\h1r3.jpg"
     },
     {
-      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\download (1).jpg",
-      "PackagePath": "staticwebassets\\Images\\download (1).jpg"
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\h2r1.png",
+      "PackagePath": "staticwebassets\\Images\\h2r1.png"
     },
     {
-      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\download.jpg",
-      "PackagePath": "staticwebassets\\Images\\download.jpg"
-    },
-    {
-      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\pencil (1).png",
-      "PackagePath": "staticwebassets\\Images\\pencil (1).png"
+      "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\h2r2.jpg",
+      "PackagePath": "staticwebassets\\Images\\h2r2.jpg"
     },
     {
       "Id": "E:\\Hotel Booking\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\css\\site.css",

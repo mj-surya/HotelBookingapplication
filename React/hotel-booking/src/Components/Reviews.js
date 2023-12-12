@@ -14,6 +14,8 @@ function Reviews({id}){
             const posts = response.data;
             setReviewList(posts);
         })
+        .catch((err)=>{
+        })
        
     }
 
