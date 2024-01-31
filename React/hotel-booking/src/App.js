@@ -1,4 +1,3 @@
-
 import './App.css';
 import Hotels from './Components/Hotels';
 import AddHotel from './Components/AddHotel';
@@ -24,6 +23,7 @@ import AdminBooking from './Components/AdminBooking';
 import TermsAndCondition from './Components/TermsAndCondition';
 import ViewAdminHotel from './Components/ViewAdminHotel';
 import AdminRooms from './Components/AdminRooms';
+import Payment from './Components/Payment';
 
 
 
@@ -35,7 +35,7 @@ function App() {
   return (
     <div class="padding bg">
 
-      <BrowserRouter>
+      {/* <BrowserRouter>
       {usertype==="Admin"?<Menu/> : <MenuUser/> }
       <div className='margin'>
       <Routes>
@@ -60,9 +60,11 @@ function App() {
           <Route path="ViewHotel" element={<ViewHotel/>}/>
           <Route path="ViewAdminHotel" element={<ViewAdminHotel/>}/>
           <Route path="AdminRooms" element={<AdminRooms/>}/>
+          <Route path="Payment" element={<Payment/>}/>
         </Routes>
       </div>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <Payment/>
     </div>
   );
 }
