@@ -158,6 +158,7 @@ namespace HotelBookingApplication.Services
                 booking.Status = status;
                 //update the status in the repository
                 var result = _bookingRepository.Update(booking);
+                SendBookingCancellationEmail(booking);
                 //Returns the updated booking 
                 return booking;
             }
@@ -200,6 +201,38 @@ namespace HotelBookingApplication.Services
             smtpClient.Send(mail);
 
         }
-        
+
+        public void SendBookingCancellationEmail(Booking booking)
+        {
+
+            string email = "stayquesthotel@gmail.com";
+            string password = "quqzbhploasumxnd";
+
+            // Recipient email
+            string toEmail = booking.UserId;
+
+            // Create the email message
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(email);
+            mail.To.Add(toEmail);
+            mail.Subject = $"Booking Cancelled";
+            mail.Body = $"<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Hotel Booking Cancellation</title>\r\n    <style>\r\n        body {{\r\n            font-family: Arial, sans-serif;\r\n            margin: 0;\r\n            padding: 0;\r\n            background-color: #A2FCF8;\r\n        }}\r\n\r\n        .container {{\r\n            max-width: 600px;\r\n            margin: 20px auto;\r\n            background-color: #A2FCF8;\r\n            padding: 20px;\r\n            border-radius: 10px;\r\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n        }}\r\n\r\n        h2 {{\r\n            color: #333333;\r\n        }}\r\n\r\n        p {{\r\n            color: #666666;\r\n        }}\r\n\r\n        .booking-details {{\r\n            margin-top: 20px;\r\n            padding: 10px;\r\n            background-color: #f0f0f0;\r\n            border-radius: 5px;\r\n        }}\r\n\r\n        .footer {{\r\n            margin-top: 20px;\r\n            text-align: center;\r\n            color: #999999;\r\n        }}\r\n    </style>\r\n</head>\r\n<body>\r\n    <div class=\"container\">\r\n        <h2>Hotel Booking Cancellation</h2>\r\n                       <div class=\"booking-details\">\r\n            <p><strong>Booking Details:</strong></p>\r\n            <p><strong>Booking ID:</strong>{booking.BookingId}</p>\r\n                <p><strong>Check-in Date:</strong> {booking.CheckIn}</p>\r\n            <p><strong>Check-out Date:</strong>{booking.CheckOut} </p>\r\n                       <p><strong>Total Price:</strong> {booking.Price}</p>\r\n        </div>\r\n\r\n        <p>Your booking has been successfully cancelled. If you have any further questions or need assistance, please feel free to contact us.</p>\r\n\r\n        <div class=\"footer\">\r\n             Team</p>\r\n        </div>\r\n    </div>\r\n</body>\r\n</html>\r\n";
+            mail.IsBodyHtml = true;
+
+
+
+            // Set up SMTP client
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+            smtpClient.Port = 587;
+            smtpClient.Credentials = new NetworkCredential(email, password);
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+
+            // Send the email
+            smtpClient.Send(mail);
+
+        }
+
+
     }
 }
