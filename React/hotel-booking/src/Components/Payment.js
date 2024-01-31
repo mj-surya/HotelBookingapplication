@@ -6,6 +6,9 @@ function Payment(){
     const [Amount,setAmount]= useState(1000);
     const [cardnumber,setCardNumber] = useState("");
     const [displaynum,setdisplaynum]= useState("");
+    const [displayname,setdisplayname]= useState("");
+    const [displayMM,setdisplayMM]= useState("");
+    const [displayYY,setdisplayYY]= useState("");
     const [cardname,setCardName] = useState("");
     const [cardMM,setCardMM] = useState("");
     const [cardYY,setCardYY] = useState("");
@@ -14,7 +17,10 @@ function Payment(){
 
     useEffect(()=>{
         cardnum();
-    },[cardnumber]);
+        dispname();
+        dispMM();
+        dispYY();
+    },[cardnumber,cardname,cardMM,cardYY]);
     const cardnum=()=>{
         let format='';
         let numbers=cardnumber;
@@ -28,6 +34,30 @@ function Payment(){
             format+=numbers[i];
         }
         setdisplaynum(format);
+    }
+    const dispMM=()=>{
+      if(cardMM.length==0){
+        setdisplayMM("MM");
+      }
+      else{
+        setdisplayMM(cardMM);
+      }
+    }
+    const dispYY=()=>{
+      if(cardYY.length==0){
+        setdisplayYY("YY");
+      }
+      else{
+        setdisplayYY(cardYY);
+      }
+    }
+    const dispname=()=>{
+      if(cardname.length==0){
+        setdisplayname("XXXXX X");
+      }
+      else{
+      setdisplayname(cardname);
+      }
     }
 
     
@@ -47,10 +77,10 @@ function Payment(){
 </svg></div>
             </div>
             <div class="mt-4 fs-3" id="visualCC">{displaynum}</div>
-            <div><small class="text-secondary">Valid Thru <span id="visualMM">{cardMM}</span> / <span id="visualYY">{cardYY}</span></small></div>
+            <div><small class="text-secondary">Valid Thru <span id="visualMM">{displayMM}</span> / <span id="visualYY">{displayYY}</span></small></div>
             <div class="mt-3">
               <div class="d-flex justify-content-between align-items-center">
-                <div class="text-warning fs-5"><strong id="visualName">{cardname}</strong></div>
+                <div class="text-warning fs-5"><strong id="visualName">{displayname}</strong></div>
               </div>
             </div>
           </div>
