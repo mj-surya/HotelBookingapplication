@@ -35,7 +35,7 @@ function App() {
   return (
     <div class="padding bg">
 
-      {/* <BrowserRouter>
+      <BrowserRouter>
       {usertype==="Admin"?<Menu/> : <MenuUser/> }
       <div className='margin'>
       <Routes>
@@ -63,8 +63,8 @@ function App() {
           <Route path="Payment" element={<Payment/>}/>
         </Routes>
       </div>
-      </BrowserRouter> */}
-      <Payment/>
+      </BrowserRouter>
+      
     </div>
   );
 }

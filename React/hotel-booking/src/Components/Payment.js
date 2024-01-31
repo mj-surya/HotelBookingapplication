@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import './Payment.css';
 
-function Payment(){
-    const [Amount,setAmount]= useState(1000);
+function Payment({price,onPaymentComplete}){
+    const [Amount,setAmount]= useState(price);
     const [cardnumber,setCardNumber] = useState("");
     const [displaynum,setdisplaynum]= useState("");
     const [displayname,setdisplayname]= useState("");
@@ -60,6 +60,10 @@ function Payment(){
       }
     }
 
+    const Booking=()=>{
+      onPaymentComplete();
+    }
+
     
 
 
@@ -86,7 +90,7 @@ function Payment(){
           </div>
           <div class="p-4 shadow bg-white position-relative" id="formWrap">
             <div class="p-5"></div>
-            <form action="">
+            <form onSubmit={Booking}>
               <div class="form-floating">
                 <input type="tel"  class="form-control" id="cardNumber" maxLength={16} value={cardnumber} onChange={(e) => { setCardNumber(e.target.value) }}/>
                 <label>Card Number</label>
@@ -124,7 +128,7 @@ function Payment(){
                 </div>
               </div>
               <div class="mt-3">
-                <button class="btn btn-primary w-100" type="submit">Pay Now</button>
+                <button class="btn btn-primary w-100" >Pay Now</button>
               </div>
               <div class="text-center mt-3 text-secondary">
                 <small>&#128274; Protected By StayQuest end-to-end encryption service</small>
