@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./AddBooking.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Payment from "./Payment";
-import Popup from "reactjs-popup";
 
 function AddBooking({ room, hotel, onBookingComplete }){
     const [userId,setUserId] = useState(localStorage.getItem("id"));
     const [checkIn,setCheckIn] = useState(hotel.checkIn);
     const [checkOut,setCheckOut] = useState(hotel.checkOut);
-    const [isPopupOpen, setPopupOpen] = useState(false);
     const [roomId,setRoomId] = useState(room.roomId);
     const [totalRoom,setTotalRoom] = useState(1);
     const [payment,setPayment] = useState("");
@@ -46,7 +44,7 @@ function AddBooking({ room, hotel, onBookingComplete }){
        event.preventDefault();
         setLoading(true);
         if(payment==='Online Payment'){
-            setPopupOpen(true)
+            navigate('/Payment',{state:{totalPrice, userId,checkIn,checkOut,roomId,totalRoom,payment}});
         }
         else{
             axios.post("http://localhost:5272/api/Booking/addBooking",{
@@ -120,13 +118,8 @@ function AddBooking({ room, hotel, onBookingComplete }){
                 ) : (payment==='Online Payment' ? "Proceed to Pay" : "Book Now"
                 )}
                 </button>
-                
             </form>
-            <Popup open={isPopupOpen}  onClose={() => setPopupOpen(false)} overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} 
-  contentStyle={{ background: 'transparent', padding: 0, width:'80%'}}
-  className={isPopupOpen ? 'blur-background' : 'blr'}>
-                <Payment price={totalPrice} onPaymentComplete={handlePaymentComplete}/>
-              </Popup>
+            
             
         </div>
     )

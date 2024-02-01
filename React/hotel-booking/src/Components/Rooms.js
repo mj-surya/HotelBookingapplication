@@ -79,10 +79,13 @@ function Rooms({hotel}){
                 :
                 <div>No Rooms available yet</div>    
             }
-              <Popup open={isPopupOpen} onClose={() => setPopupOpen(false)} overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} // Optional: Set the overlay background color
+              <Popup open={isPopupOpen} closeOnDocumentClick onClose={() => setPopupOpen(false)} overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} // Optional: Set the overlay background color
   contentStyle={{ background: 'transparent', padding: 0 }}
   className={isPopupOpen ? 'blur-background' : 'blr'}>
-                <AddBooking room={selectedRoom} hotel={hotel} onBookingComplete={handleBookingComplete} />
+            <div onClick={(e)=>e.stopPropagation()}>
+            <AddBooking room={selectedRoom} hotel={hotel} onBookingComplete={handleBookingComplete} />
+            </div>
+                
               </Popup>
               <Popup open={isLoginOpen} closeOnDocumentClick onClose={()=>setLoginOpen(!isLoginOpen)} overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} // Optional: Set the overlay background color
   contentStyle={{ background: 'transparent', padding: 0 }}
