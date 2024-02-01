@@ -8,12 +8,19 @@ function Register(){
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
     const [repassword,setrePassword] = useState("");
-    const [role,setRole] = useState("");
+    const [role,setRole] = useState("User");
     const [name,setName] = useState("");
     const [address,setAddress] = useState("");
     const [phone,setPhone] = useState("");
     const navigate =useNavigate();
     
+
+    const admin=()=>{
+        setRole("Admin");
+    }
+    const user=()=>{
+        setRole("User");
+    }
     const signUp = (event)=>{
         event.preventDefault();
         axios.post("http://localhost:5272/api/User/register",{
@@ -72,17 +79,14 @@ function Register(){
                         <span class="far fa-user"></span>
                         <textarea type="text"  required value={address} placeholder="Address" onChange={(e)=>{setAddress(e.target.value)}}/>
                     </div>
-                    <div class="form-field d-flex align-items-center">
-                        <span class="far fa-user"></span>
-                        <select className="form-select" onChange={(e)=>{setRole(e.target.value)}}>
-                    <option value="select">Select Role</option>
-                    {roles.map((r)=>
-                        <option value={r} key={r}>{r}</option>
-                    )}
-            </select>
-                    </div>
-                    <button type="submit" class="btn mt-3" >Register</button>
+                    
+                    <button type="submit" class="btn mt-3" >{role==='User' ? "Register as User": "Register as Admin"}</button>
                 </form>
+                
+                <div class="text-center fs-6">
+                    {role==='User' ? <Link to="/Register" onClick ={admin}>Register as Admin</Link> : <Link to="/Register" onClick ={user}>Register as User</Link>}
+                 
+                </div>
                 <div class="text-center fs-6">
                 or <Link to="/Login">Login</Link>
                 </div>

@@ -2,17 +2,22 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./AddBooking.css";
 import { Link, useNavigate } from "react-router-dom";
+import Payment from "./Payment";
+import Popup from "reactjs-popup";
 
 function AddBooking({ room, hotel, onBookingComplete }){
     const [userId,setUserId] = useState(localStorage.getItem("id"));
     const [checkIn,setCheckIn] = useState(hotel.checkIn);
     const [checkOut,setCheckOut] = useState(hotel.checkOut);
+    const [isPopupOpen, setPopupOpen] = useState(false);
     const [roomId,setRoomId] = useState(room.roomId);
     const [totalRoom,setTotalRoom] = useState(1);
     const [payment,setPayment] = useState("");
     const [price, setPrice]=useState(room.price);
+    const navigate = useNavigate();
     const [totalPrice, setTotalPrice]=useState(room.price);
     const [loading, setLoading] = useState(false);
+    const [paid,setPaid]=useState(false);
 
     useEffect(() => {
         setTotalPrice(totalRoom * price);
@@ -33,10 +38,18 @@ function AddBooking({ room, hotel, onBookingComplete }){
         setPayment(e.target.value);
     };
 
+    const handlePaymentComplete=()=>{
+        setPaid(true);
+    }
+
     const AddBooking=(event)=>{
        event.preventDefault();
         setLoading(true);
-        axios.post("http://localhost:5272/api/Booking/addBooking",{
+        if(payment==='Online Payment'){
+            setPopupOpen(true)
+        }
+        else{
+            axios.post("http://localhost:5272/api/Booking/addBooking",{
             userId : userId,
             checkIn : checkIn,
             checkOut : checkOut,
@@ -56,6 +69,8 @@ function AddBooking({ room, hotel, onBookingComplete }){
             alert(err.response.data);
             setLoading(false);
         })
+        }
+        
        
     }
     return(
@@ -98,15 +113,20 @@ function AddBooking({ room, hotel, onBookingComplete }){
                 </select>
                 <h4>Total Price: ₹.{totalPrice}</h4>
                 <button className="btn btn-success button space center" disabled={loading}>
-                    {loading ? (
-                        <div className="spinner-border text-light" role="status">
-                        <span className="sr-only"></span>
-                        </div>
-                    ) : (
-                        "BOOK NOW"
-                    )}
-                    </button>
+                {loading ? (
+                    <div className="spinner-border text-light" role="status">
+                    <span className="sr-only"></span>
+                    </div>
+                ) : (payment==='Online Payment' ? "Proceed to Pay" : "Book Now"
+                )}
+                </button>
+                
             </form>
+            <Popup open={isPopupOpen}  onClose={() => setPopupOpen(false)} overlayStyle={{ background: 'rgba(0, 0, 0, 0.6)' }} 
+  contentStyle={{ background: 'transparent', padding: 0, width:'80%'}}
+  className={isPopupOpen ? 'blur-background' : 'blr'}>
+                <Payment price={totalPrice} onPaymentComplete={handlePaymentComplete}/>
+              </Popup>
             
         </div>
     )
