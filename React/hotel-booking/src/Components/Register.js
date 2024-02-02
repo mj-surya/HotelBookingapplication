@@ -84,7 +84,7 @@ function Register(){
                 </form>
                 
                 <div class="text-center fs-6">
-                    {role==='User' ? <Link to="/Register" onClick ={admin}>Register as Admin</Link> : <Link to="/Register" onClick ={user}>Register as User</Link>}
+                    {role==='User' ? <Link to="/Register" onClick ={admin}>Register as Hotel Manager</Link> : <Link to="/Register" onClick ={user}>Register as User</Link>}
                  
                 </div>
                 <div class="text-center fs-6">
