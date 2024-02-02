@@ -81,14 +81,14 @@ function AddBooking({ room, hotel, onBookingComplete }){
                 <div className="container py-4">
                     <div className="row">
                         <div class="col-sm-3 "><h6>Total Rooms:</h6></div>
-                        <div className="col-sm-3">
+                        <div className="col-sm-4">
                             <div className="input-group">
                                 <span className="input-group-prepend">
                                     <button type="button" className="btn btn-outline-danger btn-number" onClick={decrementTotalRoom}>
                                         <span className="fa fa-minus">-</span>
                                     </button>
                                 </span>
-                                <input type="text" name="quant[1]" required className="form-control input-number" value={totalRoom} onChange={(e) => { setTotalRoom(e.target.value) }} />
+                                <input disabled type="text" name="quant[1]" required className="form-control input-number move" value={totalRoom} onChange={(e) => { setTotalRoom(e.target.value) }} />
                                 <span className="input-group-append">
                                     <button type="button" className="btn btn-outline-primary btn-number" onClick={incrementTotalRoom}>
                                         <span className="fa fa-plus">+</span>
