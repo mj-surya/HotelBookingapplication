@@ -49,7 +49,7 @@ function Payment(props){
     }
     const dispYY=()=>{
       if(cardYY.length==0){
-        setdisplayYY("YY");
+        setdisplayYY("YYYY");
       }
       else{
         setdisplayYY(cardYY);
@@ -129,24 +129,19 @@ function Payment(props){
                 </div>
                 <div class="col">
                   <div class="form-floating">
-                    <input required type="tel" class="form-control" maxLength={2} value={cardYY} onChange={(e) => { setCardYY(e.target.value) }}/>
-                    <label>Expiry(yy)</label>
+                    <input required type="tel" class="form-control" maxLength={4} value={cardYY} onChange={(e) => { setCardYY(e.target.value) }}/>
+                    <label>Expiry(yyyy)</label>
                   </div>
                 </div>
               </div>
               <div class="row mt-2 g-3">
                 <div class="col">
                   <div class="form-floating">
-                    <input required type="tel" class="form-control"  maxLength={3} value={cardCVV} onChange={(e) => { setCardCVV(e.target.value) }}/>
+                    <input required type="password" class="form-control"  maxLength={3} value={cardCVV} onChange={(e) => { setCardCVV(e.target.value) }}/>
                     <label>CVV</label>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="form-floating">
-                    <input required type="tel" class="form-control"  maxLength={6} value={zip} onChange={(e) => { setZip(e.target.value) }}/>
-                    <label>Postal / Zip code</label>
-                  </div>
-                </div>
+                
               </div>
               <div class="mt-3">
                 <button class="btn btn-primary w-100" >Pay Now</button>

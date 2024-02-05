@@ -80,7 +80,7 @@ function Register(){
                         <textarea type="text"  required value={address} placeholder="Address" onChange={(e)=>{setAddress(e.target.value)}}/>
                     </div>
                     
-                    <button type="submit" class="btn mt-3" >{role==='User' ? "Register as User": "Register as Admin"}</button>
+                    <button type="submit" class="btn mt-3" >{role==='User' ? "Register as User": "Register as Hotel Manager"}</button>
                 </form>
                 
                 <div class="text-center fs-6">
