@@ -17,8 +17,24 @@
       "PackagePath": "staticwebassets\\Images\\Hotel2.jpg"
     },
     {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\blue.jpg",
+      "PackagePath": "staticwebassets\\Images\\blue.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\download.jpg"
+    },
+    {
       "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\ginger.jpg",
       "PackagePath": "staticwebassets\\Images\\ginger.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\h1.jpg",
+      "PackagePath": "staticwebassets\\Images\\h1.jpg"
     },
     {
       "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\h1r1.jpg",
@@ -41,8 +57,36 @@
       "PackagePath": "staticwebassets\\Images\\h2r2.jpg"
     },
     {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\hi.jpg",
+      "PackagePath": "staticwebassets\\Images\\hi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\pink.jpg",
+      "PackagePath": "staticwebassets\\Images\\pink.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\pravi.jpg",
+      "PackagePath": "staticwebassets\\Images\\pravi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\redflag.jpg",
+      "PackagePath": "staticwebassets\\Images\\redflag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\room.jpg",
+      "PackagePath": "staticwebassets\\Images\\room.jpg"
+    },
+    {
       "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\room1.jpg",
       "PackagePath": "staticwebassets\\Images\\room1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\sri_hotel.jpg",
+      "PackagePath": "staticwebassets\\Images\\sri_hotel.jpg"
+    },
+    {
+      "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\Images\\sri_room2.jpg",
+      "PackagePath": "staticwebassets\\Images\\sri_room2.jpg"
     },
     {
       "Id": "C:\\Users\\2000112411\\Hotel Booking System\\HotelBookingapplication\\HotelBookingSolution\\HotelBookingApplication\\wwwroot\\css\\site.css",

@@ -27,7 +27,7 @@ function Payment(props){
     },[cardnumber,cardname,cardMM,cardYY]);
     const cardnum=()=>{
         let format='';
-        let numbers=cardnumber;
+        let numbers=cardnumber.replace(/\D/g,'');
         if(numbers.length==0){
             numbers="****************";
         }
@@ -44,7 +44,7 @@ function Payment(props){
         setdisplayMM("MM");
       }
       else{
-        setdisplayMM(cardMM);
+        setdisplayMM(cardMM.replace(/\D/g,''));
       }
     }
     const dispYY=()=>{
@@ -52,7 +52,7 @@ function Payment(props){
         setdisplayYY("YYYY");
       }
       else{
-        setdisplayYY(cardYY);
+        setdisplayYY(cardYY.replace(/\D/g,''));
       }
     }
     const dispname=()=>{
@@ -60,13 +60,17 @@ function Payment(props){
         setdisplayname("XXXXX X");
       }
       else{
-      setdisplayname(cardname);
+      setdisplayname(cardname.replace(/[^A-Za-z\s]/g,''));
       }
     }
 
     const Booking=(event)=>{
       event.preventDefault();
-      axios.post("http://localhost:5272/api/Booking/addBooking",{
+      if(cardnumber.length===16){
+        if(cardMM.length===2){
+          if(cardYY.length===4){
+            if(cardCVV.length===3){
+              axios.post("http://localhost:5272/api/Booking/addBooking",{
             userId : userId,
             checkIn : checkIn,
             checkOut : checkOut,
@@ -83,6 +87,24 @@ function Payment(props){
         })
         .catch((err)=>{
             alert(err.response.data);})
+            }
+            else{
+              alert("Enter 3 digit CVV");
+            }
+          }
+          else{
+            alert("Enter 4 digit expiry year");
+          }
+        }
+        else{
+          alert("Enter 2 digit expiry month");
+        }
+      }
+      else{
+        alert("Enter 16 digit card number");
+      }
+      
+      
     }
 
     
@@ -113,23 +135,23 @@ function Payment(props){
             <div class="p-5"></div>
             <form onSubmit={Booking}>
               <div class="form-floating">
-                <input required type="tel"  class="form-control"  maxLength={16} value={cardnumber} onChange={(e) => { setCardNumber(e.target.value) }}/>
+                <input required type="tel"  class="form-control" maxLength={16} value={cardnumber.replace(/\D/g,'')} onChange={(e) => { setCardNumber(e.target.value) }}/>
                 <label>Card Number</label>
               </div>
               <div class="form-floating mt-4">
-                <input required type="text" class="form-control"  value={cardname} onChange={(e) => { setCardName(e.target.value) }}/>
+                <input required type="text" class="form-control"  value={cardname.replace(/[^A-Za-z\s]/g,'')} onChange={(e) => { setCardName(e.target.value) }}/>
                 <label>Name On Card</label>
               </div>
               <div class="row mt-2 g-3">
                 <div class="col">
                   <div class="form-floating">
-                    <input required type="tel" class="form-control"  maxLength={2} value={cardMM} onChange={(e) => { setCardMM(e.target.value) }}/>
+                    <input required type="tel" class="form-control"  maxLength={2} value={cardMM.replace(/\D/g,'')} onChange={(e) => { setCardMM(e.target.value) }}/>
                     <label>Expiry(mm)</label>
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-floating">
-                    <input required type="tel" class="form-control" maxLength={4} value={cardYY} onChange={(e) => { setCardYY(e.target.value) }}/>
+                    <input required type="tel" class="form-control" maxLength={4} value={cardYY.replace(/\D/g,'')} onChange={(e) => { setCardYY(e.target.value) }}/>
                     <label>Expiry(yyyy)</label>
                   </div>
                 </div>
@@ -137,14 +159,14 @@ function Payment(props){
               <div class="row mt-2 g-3">
                 <div class="col">
                   <div class="form-floating">
-                    <input required type="password" class="form-control"  maxLength={3} value={cardCVV} onChange={(e) => { setCardCVV(e.target.value) }}/>
+                    <input required type="password" class="form-control"  maxLength={3} value={cardCVV.replace(/\D/g,'')} onChange={(e) => { setCardCVV(e.target.value) }}/>
                     <label>CVV</label>
                   </div>
                 </div>
                 
               </div>
               <div class="mt-3">
-                <button class="btn btn-primary w-100" >Pay Now</button>
+                <button class="btn btn-primary w-100" type='submit' >Pay Now</button>
               </div>
               <div class="text-center mt-3 text-secondary">
                 <small>&#128274; Protected By StayQuest end-to-end encryption service</small>
